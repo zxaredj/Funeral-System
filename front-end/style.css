@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    position: relative;
+    text-align: center; /* Center aligns all content within the header */
+}
+
+.background-image {
+    position: relative;
+    display: inline-block;
+}
+
+.background-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+nav {
+    position: absolute;
+    top: 50%; /* Align the nav vertically in the middle */
+    left: 50%; /* Align the nav horizontally in the middle */
+    transform: translate(-50%, -50%); /* Center the nav */
+    width: 100%;
+    border: solid 1px;
+    border-radius: 10px;
+}
+
+nav ul {
+    list-style: none; /* Removes the default list style */
+    padding: 0;
+    margin: 15px;
+    border: solid 3px;
+
+}
+
+nav ul li {
+    display: inline; /* Displays the list items horizontally */
+    margin: 0 10px; /* Adjusts the spacing between the list items */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ccc; /* Change color on hover */
+}
+
+
