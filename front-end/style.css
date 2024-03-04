@@ -4,57 +4,69 @@
     box-sizing: border-box;
 }
 
-body{
-    font-family: 'Poppins', sans-serif;
-}
-
-header {
-    position: relative;
-    text-align: center; /* Center aligns all content within the header */
+.inika-bold, body {
+    font-family: "Inika", serif;
+    font-weight: 700;
+    font-style: normal;
 }
 
 .background-image {
     position: relative;
-    display: inline-block;
 }
 
 .background-image img {
-    display: block;
-    width: 100%;
-    height: auto;
+    width: 100%; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
 }
 
-nav {
+.background-image nav {
     position: absolute;
-    top: 50%; /* Align the nav vertically in the middle */
-    left: 50%; /* Align the nav horizontally in the middle */
-    transform: translate(-50%, -50%); /* Center the nav */
-    width: 100%;
-    border: solid 1px;
+    left: 0;
+    right: 0;
+    text-align: center; /* Center the navigation horizontally */
+    top: 20px; /* Adjust top position as needed */
+    margin: 20px;
+}
+
+.background-image nav ul {
+    background-color: #393939;
+    opacity: 60%;
+    list-style: none;
+    padding: 15px;
+    margin: 0;
     border-radius: 10px;
 }
 
-nav ul {
-    list-style: none; /* Removes the default list style */
-    padding: 0;
-    margin: 15px;
-    border: solid 3px;
-
+.background-image nav ul li {
+    background-color: #393939;
+    display: inline-block;
+    margin-right: 50px; /* Adjust spacing between list items */
 }
 
-nav ul li {
-    display: inline; /* Displays the list items horizontally */
-    margin: 0 10px; /* Adjusts the spacing between the list items */
+.background-image nav ul li:last-child {
+    margin-right: 0; /* Remove margin from last list item */
 }
 
-nav ul li a {
+.background-image nav ul li a {
     text-decoration: none;
-    color: white;
-    font-weight: bold;
+    color: #fff; /* Adjust link color as needed */
 }
 
-nav ul li a:hover {
-    color: #ccc; /* Change color on hover */
+section.homepage-2 {
+    background-color: #3C89AC;
+    opacity: 30%;
+}
+
+.homepage-2-title {
+    font-size: 64px;
+    color: #144067;
+    font-weight: initial;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.service-container {
+    
 }
 
 
