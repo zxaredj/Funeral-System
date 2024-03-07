@@ -335,25 +335,26 @@ hr {
     font-size: 64px;
     color: #144067;
     font-weight: initial;
+    margin-left: 17%;
 }
 
 .wrapper-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    margin: 0 20px 20px 20px;
+    margin: 0 20px 110px 20px;
 }
 
 .left-wrapper-container {
-    border: solid 3px;
     height: 100%;
     width: 50%;
     background-color: #F2F2F2;
+    margin-right: 20px;
 }
 
 .left-wrapper-item {
-    padding: 20px;
     margin: 0 20px;
+    padding: 10%;
 }
 
 .left-wrapper-item img {
@@ -362,9 +363,36 @@ hr {
 }
 
 .right-wrapper-container {
-    border: solid 3px;
     height: 100%;
     width: 50%;
     background-color: #F2F2F2;
 }
 
+.right-wrapper-item {
+    padding: 20px;
+    margin: 10px 20px;
+    padding: 5%;
+}
+
+.form-container {
+    margin: 30px 0;
+}
+
+.input {
+    width: 90%;
+    height: 50px;
+    margin: 10px 45px;
+    border-radius: 10px;
+}
+
+.message-inquiry {
+    height: 200px;
+}
+
+.btn-submit {
+    margin: 10px 45px;
+    padding: 15px 40px;
+    border-radius: 10px;
+    border: 2px solid black;
+    cursor: pointer;
+}
