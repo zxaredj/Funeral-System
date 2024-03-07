@@ -390,9 +390,47 @@ hr {
 }
 
 .btn-submit {
-    margin: 10px 45px;
+    margin: 5px 50px;
     padding: 15px 40px;
     border-radius: 10px;
     border: 2px solid black;
     cursor: pointer;
+}
+
+.map-container {
+    background-color: #F2F2F2;
+    height: 100%;
+    margin: 10px 30px;
+}
+
+.map-item-container {
+    padding: 20px;
+    margin: 10px 20%;
+}
+
+.footer-container {
+    background-color: #144067;
+    text-align: center;
+}
+
+.footer-details {
+    font-size: 20px;
+    padding: 10px 0;
+}
+
+.footer-item-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-item-logo img {
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+}
+
+.fa-brands, .fa-phone {
+    margin: 0 20px 10px 0;
+    font-size: 30px;
 }
