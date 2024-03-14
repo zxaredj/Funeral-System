@@ -38,7 +38,7 @@
 <hr>
     <div class="box-container">
         <?php
-        include 'configuration.php';
+        include '../../back-end/config.php';
             
         $query = "SELECT * FROM `caskets` WHERE category = 'metal'";
         $select_product = mysqli_query($connection, $query);
