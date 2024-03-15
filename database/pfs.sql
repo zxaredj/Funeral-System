@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2024 at 12:30 PM
+-- Generation Time: Mar 15, 2024 at 01:00 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -90,6 +90,46 @@ INSERT INTO `facilities` (`id`, `category`, `name`, `price`, `picture`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `review`
+--
+
+CREATE TABLE `review` (
+  `review_id` int(11) NOT NULL,
+  `review_name` varchar(255) NOT NULL,
+  `review_date` date NOT NULL DEFAULT current_timestamp(),
+  `review_email` varchar(255) NOT NULL,
+  `review_testimonial` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`review_id`, `review_name`, `review_date`, `review_email`, `review_testimonial`) VALUES
+(1, 'John Doe', '2024-03-15', 'john@example.com', 'Great product, I love it!'),
+(2, 'Alice Smith', '2024-03-15', 'alice@example.com', 'Very satisfied with the service.'),
+(3, 'Bob Johnson', '2024-03-15', 'bob@example.com', 'Excellent experience overall.'),
+(4, 'Emily Brown', '2024-03-15', 'emily@example.com', 'Highly recommended!'),
+(5, 'Michael Wilson', '2024-03-15', 'michael@example.com', 'Fantastic customer support.'),
+(6, 'Jessica Lee', '2024-03-15', 'jessica@example.com', 'Impressed with the quality.'),
+(7, 'David Garcia', '2024-03-15', 'david@example.com', 'Superb product, worth every penny.'),
+(8, 'Sarah Martinez', '2024-03-15', 'sarah@example.com', 'Will definitely buy again.'),
+(9, 'Daniel Taylor', '2024-03-15', 'daniel@example.com', 'Couldn\'t be happier with my purchase.'),
+(10, 'Laura Rodriguez', '2024-03-15', 'laura@example.com', 'Fast shipping and great communication.'),
+(11, 'James Nguyen', '2024-03-15', 'james@example.com', 'Amazing service, thank you!'),
+(12, 'Jennifer Kim', '2024-03-15', 'jennifer@example.com', 'Top-notch quality.'),
+(13, 'Christopher Brown', '2024-03-15', 'christopher@example.com', 'Great value for money.'),
+(14, 'Amanda Jones', '2024-03-15', 'amanda@example.com', 'Exactly what I needed.'),
+(15, 'Matthew Anderson', '2024-03-15', 'matthew@example.com', 'Very impressed with the product.'),
+(16, 'Melissa Wilson', '2024-03-15', 'melissa@example.com', 'Outstanding experience.'),
+(17, 'Andrew Taylor', '2024-03-15', 'andrew@example.com', 'Highly professional service.'),
+(18, 'Lauren Thomas', '2024-03-15', 'lauren@example.com', 'Couldn\'t ask for more.'),
+(19, 'Kevin Jackson', '2024-03-15', 'kevin@example.com', 'Extremely satisfied.'),
+(20, 'Rachel White', '2024-03-15', 'rachel@example.com', 'Perfect in every way.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `urns`
 --
 
@@ -147,6 +187,12 @@ ALTER TABLE `facilities`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`review_id`);
+
+--
 -- Indexes for table `urns`
 --
 ALTER TABLE `urns`
@@ -167,6 +213,12 @@ ALTER TABLE `caskets`
 --
 ALTER TABLE `facilities`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `review`
+--
+ALTER TABLE `review`
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `urns`
