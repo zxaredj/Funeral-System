@@ -119,7 +119,7 @@
 
             <div class="inputs">
                 <div class="submit-btn-container">
-                    <input type="submit" value="NEXT" class="submit-btn">
+                <button class="submit-btn" onclick="window.location.href='planning-services.php'">NEXT</button>
                 </div>
             </div>
         </form>

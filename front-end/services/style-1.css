@@ -119,6 +119,7 @@
 .inputs input[type="text"],
 .inputs input[type="datetime-local"],
 .inputs input[type="date"],
+.inputs input[type="time"],
 .inputs input[type="email"],
 .inputs input[type="number"],
 .inputs select {
@@ -147,6 +148,48 @@
     width: 100px;
 }
 
+.choose-service {
+    font-size: 17.5px;
+    color: #144067;
+}
+
+.choose-btn {
+    background-color: #144067;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0px;
+    height: 35px;
+    width: 150px;
+}
+
+.hidden1, .hidden2 {
+    display: none;
+}
+.radio-container {
+    display: flex;
+    align-items: center;
+}
+
+.label-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.services-option {
+    margin-right: 5px;
+}
+
+.services-option:checked + .label-name {
+    color: #144067;
+}
+
+
 .main-caskets {
     margin: 120px;
     padding: 20px;
@@ -170,7 +213,6 @@ hr {
     color: #7A7A7A;
     margin-bottom: 50px;
 }
-
 
 .box-container {
     display: grid;
