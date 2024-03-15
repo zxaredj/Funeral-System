@@ -1,3 +1,6 @@
+<?php 
+    require '../back-end/config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +17,7 @@
     <main>
         <section class="homepage-1" id="home">
                 <div class="background-image">
-                    <img src="/front-end/pictures/homepage-pictures/bg-header.jpg" alt="Background Picture">
+                    <img src="../front-end/pictures/homepage-pictures/bg-header.jpg" alt="Background Picture">
                     <nav>
                         <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
                         <ul>
@@ -38,22 +41,22 @@
             <div class="service-container-outer">
                 <div class="service-container-inner">
                     <div class="service-item">
-                        <img src="/front-end/pictures/homepage-pictures/service1.jpg" alt="Burial Services">
+                        <img src="../front-end/pictures/homepage-pictures/service1.jpg" alt="Burial Services">
                         <p class="service-description">Burial Services</p>
                         <p class="learn-more">Learn More</p>
                     </div>
                     <div class="service-item">
-                        <img src="/front-end/pictures/homepage-pictures/service2.jpg" alt="Cremation Services">
+                        <img src="../front-end/pictures/homepage-pictures/service2.jpg" alt="Cremation Services">
                         <p class="service-description">Cremation Services</p>
                         <p class="learn-more">Learn More</p>
                     </div>
                     <div class="service-item">
-                        <img src="/front-end/pictures/homepage-pictures/service3.jpg" alt="Planning Ahead">
+                        <img src="../front-end/pictures/homepage-pictures/service3.jpg" alt="Planning Ahead">
                         <p class="service-description">Planning Ahead</p>
                         <p class="learn-more">Learn More</p>
                     </div>
                     <div class="service-item">
-                        <img src="/front-end/pictures/homepage-pictures/service4.jpg" alt="Obituaries Tributes">
+                        <img src="../front-end/pictures/homepage-pictures/service4.jpg" alt="Obituaries Tributes">
                         <p class="service-description">Obituaries Tributes</p>
                         <p class="learn-more">Learn More</p>
                     </div>
@@ -65,6 +68,9 @@
             <br>
         </section>
         <section class="homepage-3" id="obituaries">
+            <br>
+            <br>
+            <br>
             <h1 class="homepage-title">Recent Obituaries</h1>
             <div class="obituaries-container">
                 <div class="obituaries-item obituaries-item-1"></div>
@@ -103,16 +109,43 @@
             <br>
         </section>
         <section class="homepage-4">
-            
             <h1 class="homepage-title">Our Reviews</h1>
             <div class="under-title">
                 <div class="stars-container" style="margin-right: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
                 <p class="review-description">5.0 rating of 53</p>
             </div>
-            <div class="review-container-content">
+            <?php 
+                $sql = "SELECT * FROM review LIMIT 4";
+                $result = mysqli_query($connection, $sql);
+                
+                // Step 3: Fetch Data and Generate HTML
+                if (mysqli_num_rows($result) > 0) {
+                    // Output data of each row
+                    echo '<div class="review-container-content">';
+
+                    // Output data of each row
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        // Open review-container div for each review
+                        echo '<div class="review-container">';
+                        echo '<div class="review">';
+                        echo '<div class="stars-container">&#9733;&#9733;&#9733;&#9733;&#9733;</div>';
+                        echo "<p>" . $row["review_name"]. "</p>";
+                        echo "<p>" . $row["review_date"]. "</p>";
+                        echo "<p>Testimonial: <br>" . $row["review_testimonial"]. "</p>";
+                        echo '</div>'; // Close review div
+                        echo '</div>'; // Close review-container div
+                    }
+
+                    // Close the review-container-container div
+                    echo '</div>';
+                } else {
+                    echo "0 results";
+                }
+            ?>
+            <!-- <div class="review-container-content">
                 <div class="review-container-1">
                     <div class="avatar-container">
-                        <img src="/front-end/pictures/homepage-pictures/rick.jpg" alt="Avatar">
+                        <img src="../front-end/pictures/homepage-pictures/rick.jpg" alt="Avatar">
                     </div>
                     <div class="avatar-info">
                         <h3 class="review-name">Ezilvin Labastida</h3>
@@ -129,7 +162,7 @@
                 </div>                
                 <div class="review-container-1">
                     <div class="avatar-container">
-                        <img src="/front-end/pictures/homepage-pictures/rick.jpg" alt="Avatar">
+                        <img src="../front-end/pictures/homepage-pictures/rick.jpg" alt="Avatar">
                     </div>
                     <div class="avatar-info">
                         <h3 class="review-name">Ezilvin Labastida</h3>
@@ -146,7 +179,7 @@
                 </div>       
                 <div class="review-container-1">
                     <div class="avatar-container">
-                        <img src="/front-end/pictures/homepage-pictures/rick.jpg" alt="Avatar">
+                        <img src="../front-end/pictures/homepage-pictures/rick.jpg" alt="Avatar">
                     </div>
                     <div class="avatar-info">
                         <h3 class="review-name">Ezilvin Labastida</h3>
@@ -163,7 +196,7 @@
                 </div>
                 <div class="review-container-1">
                     <div class="avatar-container">
-                        <img src="/front-end/pictures/homepage-pictures/rick.jpg" alt="Avatar">
+                        <img src="../front-end/pictures/homepage-pictures/rick.jpg" alt="Avatar">
                     </div>
                     <div class="avatar-info">
                         <h3 class="review-name">Ezilvin Labastida</h3>
@@ -178,16 +211,39 @@
                         </p>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <br>
             <div class="review-container-footer">
-                <button class="original-button" style="margin-right: 30px;">Write A Review</button>
-                <button class="original-button">View All</button>
+                <a href="../back-end/view_all_reviews.php" target="_blank" class="original-button" style="margin-right: 30px;">View All Reviews</a>
+                <button class="original-button" id="openReviewFormModal">Write A Review</button>
             </div>
+            <div class="form-container" id="reviewFormContainer">
+                <div class="close-btn">&times;</div> <!-- Close button (X) -->
+                <div class="form">
+                    <h2>Leave A Review</h2>
+                    <div class="form-element">
+                        <input type="text" id="name" placeholder="Enter Name">
+                    </div>
+                    <div class="form-element">
+                        <input type="text" id="email" placeholder="Enter Email">
+                    </div>
+                    <div class="form-element">
+                        <input type="text" id="testimonial" placeholder="Testimonial" style="height: 120px;">
+                    </div>
+                    <h3>Rating</h3>
+                    <div class="form-footer">
+                        <button>Review Ratings</button>
+                        <button>Submit</button>
+                    </div>
+                </div>
+            </div>
+
             <br>
             <hr>
             <br>
         </section>
+        <!-- Review Form Modal -->
+        
         <section class="homepage-5" id="contact">
             <br>
             <br>
@@ -251,4 +307,29 @@
         </section>
     </main>
 </body>
+<script>
+    // Get the form container and close button
+    var formContainer = document.getElementById("reviewFormContainer");
+    var closeButton = document.querySelector(".close-btn");
+
+    // Get the "Write A Review" button
+    var writeReviewButton = document.getElementById("openReviewFormModal");
+
+    // Function to show the form
+    function showForm() {
+        formContainer.style.display = "block";
+    }
+
+    // Function to hide the form
+    function hideForm() {
+        formContainer.style.display = "none";
+    }
+
+    // Event listener for the "Write A Review" button
+    writeReviewButton.addEventListener("click", showForm);
+
+    // Event listener for the close button (X)
+    closeButton.addEventListener("click", hideForm);
+
+</script>
 </html>
