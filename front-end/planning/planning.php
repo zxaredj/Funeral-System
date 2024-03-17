@@ -108,10 +108,18 @@
             <p class="input-title">Birthdate</p>
             <input type="date" name="beneficiary-birthdate" id="beneficiary-birthdate" class="form-field1">
 
+<<<<<<< HEAD
             <p class="input-title">Address</p>
             <input type="text" name="beneficiary-address" id="beneficiary-address" class="form-field1">
             <br>
             <button class="submit-btn">NEXT</button>
+=======
+            <div class="inputs">
+                <div class="submit-btn-container">
+                    <input type="submit" value="NEXT" class="submit-btn">
+                </div>
+            </div>
+>>>>>>> parent of 22a59f4 (Update)
         </form>
     </div>
 </div>
