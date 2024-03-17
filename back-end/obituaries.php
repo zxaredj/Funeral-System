@@ -37,6 +37,7 @@
             margin: 0;
             font-size: 16px;
             line-height: 1.5;
+            text-align: center;
         }
         .header-title {
             margin: 30px 0;
@@ -86,6 +87,14 @@
     .dropdown select option {
         padding: 10px 20px;
     }
+
+    .review > img {
+        height: 250px;
+        width: 300px;
+        display: block; /* Make the image a block-level element */
+        margin: 0 auto;
+        padding: 10px;
+    }
     </style>
 </head>
 <body>
@@ -108,7 +117,7 @@
             </div>
         </section>
         <div class="review-page-container">
-            <h1 class="header-title">What our customer reviews</h1>
+            <h1 class="header-title">Philip Sabino Funeral Obituaries</h1>
             <div class="filter-container">
                 <div class="dropdown">
                     <select id="filter-dropdown">
@@ -124,22 +133,28 @@
                     <?php
                         // Connect to your database
                         include('config.php');
-                
-                        $sql = "SELECT * FROM review";
+                        
+                        $sql = "SELECT * FROM obituaries";
                         $result = mysqli_query($connection, $sql);
-                
-                        // Output review data in HTML
+                        
+                        // Output obituary data in HTML
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
-                                // Output review data
+                                // Output obituary data
                                 echo "<div class='review'>";
-                                echo "<p>Name: " . $row["review_name"]. "</p>";
-                                echo "<p>Date: " . $row["review_date"]. "</p>";
-                                echo "<p>Testimonial: <br>" . $row["review_testimonial"]. "</p>";
+                                // Display the image if available
+                                if (!empty($row["obituary_picture"])) {
+                                    $imageData = base64_encode($row["obituary_picture"]);
+                                    echo '<img src="data:image/jpeg;base64,' . $imageData . '" alt="Obituary Picture" />';
+                                } else {
+                                    echo "<p>No picture available</p>";
+                                }
+                                echo "<p>Name: " . $row["obituary_name"] . "</p>";
+                                echo "<p>Date: " . $row["obituary_date"] . "</p>";
                                 echo "</div>";
                             }
                         } else {
-                            echo "No reviews found.";
+                            echo "No obituaries found.";
                         }
                     ?>
                 </div>
@@ -164,53 +179,5 @@
             </div>
         </footer>
     </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Get reference to review data container
-            const reviewData = document.querySelector(".review-data");
-
-            // Get reference to filter buttons
-            const thisWeekBtn = document.getElementById("this-week");
-            const pastFewWeeksBtn = document.getElementById("past-few-weeks");
-            const pastFewMonthsBtn = document.getElementById("past-few-months");
-
-            // Function to filter reviews by date range
-            function filterReviews(dateRange) {
-                // Retrieve current date
-                const currentDate = new Date();
-                // Iterate through review elements
-                const reviews = reviewData.querySelectorAll(".review");
-                reviews.forEach(review => {
-                    const reviewDateStr = review.querySelector("p:nth-child(2)").textContent.split(": ")[1];
-                    const reviewDate = new Date(reviewDateStr);
-                    const timeDiff = currentDate.getTime() - reviewDate.getTime();
-                    const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-                    // Hide or show review based on date range
-                    if (dateRange === "thisWeek" && diffDays <= 7) {
-                        review.style.display = "block";
-                    } else if (dateRange === "pastFewWeeks" && diffDays <= 30) {
-                        review.style.display = "block";
-                    } else if (dateRange === "pastFewMonths" && diffDays <= 90) {
-                        review.style.display = "block";
-                    } else {
-                        review.style.display = "none";
-                    }
-                });
-            }
-
-            // Add event listeners to filter buttons
-            thisWeekBtn.addEventListener("click", function() {
-                filterReviews("thisWeek");
-            });
-
-            pastFewWeeksBtn.addEventListener("click", function() {
-                filterReviews("pastFewWeeks");
-            });
-
-            pastFewMonthsBtn.addEventListener("click", function() {
-                filterReviews("pastFewMonths");
-            });
-        });
-    </script>
 </body>
 </html>

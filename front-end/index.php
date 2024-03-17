@@ -26,7 +26,7 @@
                             <li><a href="#contact">CONTACT</a></li>
                             <li><a href="#services">SERVICES</a></li>
                             <li><a href="#planning">PLANNING</a></li>
-                            <li><a href="#obituaries">OBITUARIES</a></li>
+                            <li><a href="../back-end/obituaries.php">OBITUARIES</a></li>
                             <li><a href="signin">SIGN IN</a></li>
                         </ul>
                     </nav>
