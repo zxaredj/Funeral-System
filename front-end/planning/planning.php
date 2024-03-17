@@ -1,129 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planning</title>
-    <link rel="stylesheet" href="../services/style-1.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inika:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main>
+    <main>
         <section class="form-section">
             <div class="background-image">
                     <nav>
                         <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
                         <ul>
-                            <li><a href="index.html">HOME</a></li>
+                        <li><a href="index.html">HOME</a></li>
                             <li><a href="about.php">ABOUT</a></li>
                             <li><a href="services.php">SERVICES</a></li>
-                            <li><a href="../form/form.php">FORM</a></li>
-                            <li><a href="../planning/planning.php">PLANNING</a></li>
+                            <li><a href="form.php">FORM</a></li>
+                            <li><a href="planning.php">PLANNING</a></li>
                             <li><a href="obituaries.php">OBITUARIES</a></li>
                             <li><a href="signin.html">SIGN IN</a></li>
                         </ul>
                     </nav>
                 </div>
             </section>
-      </main>
+            </main>
 
-<h1 class="title">PLANNING FORM</h1>
-<p class="form-intro">Take charge of your final arrangements by planning ahead, ensuring your loved ones are spared the burden and your wishes are honored with peace of mind.</p>
+<div class="main">
+    <div class="form">
+        <h1 class="title">PLANNING FORM</h1>
+        <p class="form-intro">Take charge of your final arrangements by planning ahead, ensuring your loved ones are spared the burden and your wishes are honored with peace of mind.</p>
 
-<div class="container">
-    <div class="box-1">
+       
+        <br><br>
+        <p class="docu-text">Please input the following information:</p>
 
-    <form action="" method="POST" enctype="multipart/form-data">
-      
-        <!-- <h2 class="docu-text">Please input the following information:</h2> -->
-    
-        <h2 class="info-title">Benefactor's Personal Information</h2>
-      
-            <div class="inputs">
-                <label for="benefactor-firstname">First Name</label>
-                <input type="text" id="benefactor-firstname" name="benefactor-firstname" placeholder="Juan" required>
+        <form action="" method="POST">
+       <p class="planning-title">Benefactor's Personal Information</p>
+        <br><br>
+        <div class="contact-box">    
+           <div class="first-box"> 
+            <p class="input-title">First Name</p>
+                <input type="text" name="benefactor-first-name" id="benefactor-first-name" class="form-field1">
             </div>
             
-            <div class="inputs">
-                <label for="benefactor-lastname">Last Name</label>
-                <input type="text" id="benefactor-lastname" name="benefactor-lastname" placeholder="Dela Cruz" required>
+            <div class="last-box">
+                <p class="input-title">Last Name</p>
+                <input type="text" name="benefactor-last-name" id="benefactor-last-name" class="form-field1">
             </div>
+         </div>
 
-            <div class="inputs">
-                <label for="number">Contact Number</label>
-                <input type="number" id="number" name="number" placeholder="09301938102" required>
-            </div>
+            <p class="input-title">Contact Number</p>
+            <input type="number" name="benefactor-contact" id="benefactor-contact" class="form-field1">
 
-            <div class="inputs">
-                <div class="inputs">
-                    <label for="address">Address</label>
-                    <input type="text" id="address" name="address" placeholder="511 A. Mabini St., Caloocan City" required>
-            </div>
-
-            <div class="inputs">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="perpetualfuneralservices@gmail.com" required>
-            </div>
-
-            <div class="inputs">
-                <label for="plan-for">This plan is for my:</label>
-                <select id="plan-for" name="plan-for" required>
-                    <option value="" selected disabled>Select Relationship</option>
-                    <option value="parent">Parent</option>
-                    <option value="sibling">Sibling</option>
-                    <option value="spouse">Spouse</option>
-                    <option value="child">Child</option>
-                    <option value="friend">Friend</option>
-                    <option value="Other">Other</option>
-                </select>
-            </div>
-
-        <h2 class="info-title">Beneficiary's Personal Information</h2>
+            <p class="input-title">Address</p>
+            <input type="text" name="benefactor-address" id="benefactor-address" class="form-field1">
             
-            <div class="inputs">
-                <div class="inputs">
-                    <label for="contact-firstname">First Name</label>
-                    <input type="text" id="contact-firstname" name="contact-firstname" placeholder="Juan" required>
-                </div>
+            <p class="input-title">Email</p>
+            <input type="email" name="benefactor-email" id="benefactor-email" class="form-field1">
 
-                <div class="inputs">
-                    <label for="contact-lastname">Last Name</label>
-                    <input type="text" id="contact-lastname" name="contact-lastname" placeholder="Dela Cruz" required>
-                </div>
-            </div>
+            <p class="input-title">This plan is for my:</p>
+            <select name="plan-for" id="plan-for" class="relationship">
+                <option value="" disabled selected hidden>-- Choose --</option>
+                <option value="self">Self</option>
+                <option value="mother">Mother</option>
+                <option value="father">Father</option>
+                <option value="sister">Sister</option>
+                <option value="brother">Brother</option>
+                <option value="grandmother">Grandmother</option>
+                <option value="grandfather">Grandfather</option>
+                <option value="aunt">Aunt</option>
+                <option value="uncle">Uncle</option>
+                <option value="cousin">Cousin</option>
+                <option value="niece">Niece</option>
+                <option value="nephew">Nephew</option>
+                <option value="friend">Friend</option>
+                <option value="others">Others</option>
+            </select>
+        
+        <br>
+        <p class="planning-title">Beneficiary's Personal Information</p>
+        <br><br>
 
-            <div class="inputs">
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender" required>
-                    <option value="" selected disabled>Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="others">Others</option>
-                </select>
+        <div class="contact-box">    
+           <div class="first-box"> 
+            <p class="input-title">First Name</p>
+                <input type="text" name="beneficiary-first-name" id="beneficiary-first-name" class="form-field1">
             </div>
+            
+            <div class="last-box">
+                <p class="input-title">Last Name</p>
+                <input type="text" name="beneficiary-last-name" id="beneficiary-last-name" class="form-field1">
+            </div>
+         </div>
 
-            <div class="inputs">
-                <div class="inputs">
-                    <label for="birthdate">Birthdate</label>
-                    <input type="date" id="birthdate" name="birthdate" required>
-                </div>
-            </div>
+         <p class="input-title">Gender</p>
+            <select name="beneficiary-gender" id="beneficiary-gender" class="relationship">
+                <option value="" disabled selected hidden>-- Choose --</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
+            </select>
 
-            <div class="inputs">
-                <div class="inputs">
-                    <label for="address">Address</label>
-                    <input type="text" id="address" name="address" placeholder="511 A. Mabini St., Caloocan City" required>
-            </div>
+            <p class="input-title">Birthdate</p>
+            <input type="date" name="beneficiary-birthdate" id="beneficiary-birthdate" class="form-field1">
 
-            <div class="inputs">
-                <div class="submit-btn-container">
-                <button class="submit-btn" onclick="window.location.href='planning-services.php'">NEXT</button>
-                </div>
-            </div>
+            <p class="input-title">Address</p>
+            <input type="text" name="beneficiary-address" id="beneficiary-address" class="form-field1">
+            <br>
+            <button class="submit-btn">NEXT</button>
         </form>
     </div>
 </div>
+
 </body>
 </html>
