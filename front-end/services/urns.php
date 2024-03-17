@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urns</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style-1.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inika:wght@700&display=swap" rel="stylesheet">
@@ -19,8 +19,8 @@
                             <li><a href="index.html">HOME</a></li>
                             <li><a href="about.php">ABOUT</a></li>
                             <li><a href="services.php">SERVICES</a></li>
-                            <li><a href="form.php">FORM</a></li>
-                            <li><a href="planning.php">PLANNING</a></li>
+                            <li><a href="../form/form.php">FORM</a></li>
+                            <li><a href="../planning/planning.php">PLANNING</a></li>
                             <li><a href="obituaries.php">OBITUARIES</a></li>
                             <li><a href="signin.html">SIGN IN</a></li>
                         </ul>
@@ -38,7 +38,7 @@
 <hr>
     <div class="box-container">
         <?php
-        include 'configuration.php';
+        include '../../back-end/config.php';
             
         $query = "SELECT * FROM `urns` WHERE category = 'metal'";
         $select_product = mysqli_query($connection, $query);
@@ -47,7 +47,7 @@
         
         <form action="" method="post">
             <div class="box">
-                <img src="pictures/urns/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
+                <img src="../pictures/urns-pictures/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
                 <h3><?php echo $fetch_product['name']; ?></h3>
                 <div class="price">₱<?php echo number_format($fetch_product['price'], 2); ?></div>
                 <input type="hidden" name="id" value="<?php echo $fetch_product['id']; ?>">
@@ -63,7 +63,6 @@
 <hr>
     <div class="box-container">
         <?php
-        include 'configuration.php';
             
         $query = "SELECT * FROM `urns` WHERE category = 'marble'";
         $select_product = mysqli_query($connection, $query);
@@ -72,7 +71,7 @@
         
         <form action="" method="post">
             <div class="box">
-                <img src="pictures/urns/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
+                <img src="../pictures/urns-pictures/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
                 <h3><?php echo $fetch_product['name']; ?></h3>
                 <div class="price">₱<?php echo number_format($fetch_product['price'], 2); ?></div>
                 <input type="hidden" name="id" value="<?php echo $fetch_product['id']; ?>">
@@ -88,7 +87,6 @@
 <hr>
     <div class="box-container">
         <?php
-        include 'configuration.php';
             
         $query = "SELECT * FROM `urns` WHERE category = 'glass'";
         $select_product = mysqli_query($connection, $query);
@@ -97,7 +95,7 @@
         
         <form action="" method="post">
             <div class="box">
-                <img src="pictures/urns/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
+                <img src="../pictures/urns-pictures/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
                 <h3><?php echo $fetch_product['name']; ?></h3>
                 <div class="price">₱<?php echo number_format($fetch_product['price'], 2); ?></div>
                 <input type="hidden" name="id" value="<?php echo $fetch_product['id']; ?>">
@@ -113,7 +111,6 @@
 <hr>
     <div class="box-container">
         <?php
-        include 'configuration.php';
             
         $query = "SELECT * FROM `urns` WHERE category = 'baby'";
         $select_product = mysqli_query($connection, $query);
@@ -122,7 +119,7 @@
         
         <form action="" method="post">
             <div class="box">
-                <img src="pictures/urns/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
+                <img src="../pictures/urns-pictures/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
                 <h3><?php echo $fetch_product['name']; ?></h3>
                 <div class="price">₱<?php echo number_format($fetch_product['price'], 2); ?></div>
                 <input type="hidden" name="id" value="<?php echo $fetch_product['id']; ?>">
@@ -133,6 +130,5 @@
         }
         ?>
     </div>
-
 </body>
 </html>
