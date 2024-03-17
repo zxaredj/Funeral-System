@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caskets</title>
-    <link rel="stylesheet" href="style-1.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inika:wght@700&display=swap" rel="stylesheet">
@@ -19,8 +19,8 @@
                             <li><a href="index.html">HOME</a></li>
                             <li><a href="about.php">ABOUT</a></li>
                             <li><a href="services.php">SERVICES</a></li>
-                            <li><a href="../form/form.php">FORM</a></li>
-                            <li><a href="../planning/planning.php">PLANNING</a></li>
+                            <li><a href="form.php">FORM</a></li>
+                            <li><a href="planning.php">PLANNING</a></li>
                             <li><a href="obituaries.php">OBITUARIES</a></li>
                             <li><a href="signin.html">SIGN IN</a></li>
                         </ul>
@@ -47,7 +47,7 @@
         
         <form action="" method="post">
             <div class="box">
-                <img src="../pictures/caskets-pictures/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
+                <img src="pictures/caskets/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
                 <h3><?php echo $fetch_product['name']; ?></h3>
                 <div class="price">₱<?php echo number_format($fetch_product['price'], 2); ?></div>
                 <input type="hidden" name="id" value="<?php echo $fetch_product['id']; ?>">
@@ -70,7 +70,7 @@
         
         <form action="" method="post">
             <div class="box">
-                <img src="../pictures/caskets-pictures/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
+                <img src="pictures/caskets/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
                 <h3><?php echo $fetch_product['name']; ?></h3>
                 <div class="price">₱<?php echo number_format($fetch_product['price'], 2); ?></div>
                 <input type="hidden" name="id" value="<?php echo $fetch_product['id']; ?>">
@@ -93,7 +93,7 @@
         
         <form action="" method="post">
             <div class="box">
-                <img src="../pictures/caskets-pictures/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
+                <img src="pictures/caskets/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
                 <h3><?php echo $fetch_product['name']; ?></h3>
                 <div class="price">₱<?php echo number_format($fetch_product['price'], 2); ?></div>
                 <input type="hidden" name="id" value="<?php echo $fetch_product['id']; ?>">
