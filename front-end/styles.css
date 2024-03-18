@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .navbar {
     background-color: rgba(39, 39, 39, 0.3);
     width: 80%;
@@ -45,6 +46,8 @@
     color: #ffffff; 
 }
 =======
+=======
+>>>>>>> Stashed changes
 *{
     margin: 0;
     padding: 0;
@@ -99,6 +102,9 @@
     color: #ffffff; /* Adjust link color as needed */
 }
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 .about-us{
     position:absolute;
@@ -107,6 +113,10 @@
     font-size: 4rem;
     transform: translate(70%, 110%);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    color:white;
+>>>>>>> Stashed changes
 =======
     color:white;
 >>>>>>> Stashed changes
