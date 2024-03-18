@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 .inika-bold, body {
@@ -21,17 +20,18 @@
 }
 
 .background-image nav {
-    position: absolute;
+    position: fixed; 
     left: 0;
     right: 0;
-    text-align: center; /* Center the navigation horizontally */
-    top: 20px; /* Adjust top position as needed */
-    margin: 20px;
+    text-align: center;
+    top: 20px;
+    margin: 0 auto; 
+    z-index: 1000;
 }
 
 .background-image nav ul {
-    background-color: #393939;
-    opacity: 70%;
+    background-color: #144067;
+    opacity: 100%;
     list-style: none;
     padding: 15px;
     margin: 0;
@@ -39,7 +39,6 @@
 }
 
 .background-image nav ul li {
-    background-color: #393939;
     display: inline-block;
     margin-right: 50px; /* Adjust spacing between list items */
 }

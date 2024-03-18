@@ -1,3 +1,60 @@
+<<<<<<< Updated upstream
+=======
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.inika-bold, body {
+    font-family: "Inika", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.background-image {
+    position: relative;
+}
+
+.background-image img {
+    width: 100%; /* Adjust as needed */
+    height: 1000px; /* Maintain aspect ratio */
+}
+
+.background-image nav {
+    position: fixed; 
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 20px;
+    margin: 0 auto; 
+    z-index: 1000;
+}
+
+.background-image nav ul {
+    background-color: #144067;
+    opacity: 100%;
+    list-style: none;
+    padding: 15px;
+    margin: 0;
+    border-radius: 10px;
+}
+
+.background-image nav ul li {
+    display: inline-block;
+    margin-right: 50px; /* Adjust spacing between list items */
+}
+
+.background-image nav ul li:last-child {
+    margin-right: 0; /* Remove margin from last list item */
+}
+
+.background-image nav ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Adjust link color as needed */
+}
+
+>>>>>>> Stashed changes
 .navbar {
     background-color: rgba(39, 39, 39, 0.3);
     width: 80%;
@@ -78,6 +135,10 @@
 }
 .view-urn{
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    position: relative;
+>>>>>>> Stashed changes
 =======
     position: relative;
 >>>>>>> Stashed changes
