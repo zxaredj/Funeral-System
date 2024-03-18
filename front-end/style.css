@@ -142,7 +142,6 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
     margin-bottom: 70px;
 }
 
@@ -169,9 +168,10 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
 }
 
 .service-container-inner {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
+    grid-template-columns: repeat(4, 350px);
 }
 
 .service-item {
@@ -248,9 +248,10 @@ hr {
 }
 
 .review-container-content {
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
+    grid-template-columns: repeat(4, 300px);
 }
 
 .review-container-1,
@@ -431,4 +432,27 @@ hr {
 .fa-brands, .fa-phone {
     margin: 0 20px 10px 0;
     font-size: 30px;
+}
+
+@media screen and (max-width:1300px){
+    .review-container-content {
+        grid-template-columns: repeat(2, 400px);
+        grid-template-rows: repeat(2, 400px);
+    }
+    .service-container-inner {
+        grid-template-columns: repeat(2, 350px);
+        grid-template-rows: repeat(2, 500px);
+    }
+}
+
+@media screen and (max-width:700px){
+    .review-container-content {
+        grid-template-columns: repeat(1, 300px);
+        grid-template-rows: repeat(4, 300px);
+    }
+    .service-container-inner {
+        grid-template-columns: repeat(1, 350px);
+        grid-template-rows: repeat(4, 500px);
+    }
+
 }

@@ -77,6 +77,10 @@
     border: 1px black solid;
 }
 .view-urn{
+<<<<<<< Updated upstream
+=======
+    position: relative;
+>>>>>>> Stashed changes
     background-color:#144067;
     height: 50px;
     text-align: center;
