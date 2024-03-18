@@ -38,7 +38,7 @@
 <hr>
     <div class="box-container">
         <?php
-        include 'configuration.php';
+        include 'config.php';
             
         $query = "SELECT * FROM `facilities` WHERE category = 'aircon'";
         $select_product = mysqli_query($connection, $query);
