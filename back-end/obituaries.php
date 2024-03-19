@@ -105,7 +105,7 @@
                 <nav>
                     <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
                     <ul>
-                        <li><a href="#home">HOME</a></li>
+                        <li><a href="../front-end/index.php">HOME</a></li>
                         <li><a href="#about">ABOUT</a></li>
                         <li><a href="#contact">CONTACT</a></li>
                         <li><a href="#services">SERVICES</a></li>

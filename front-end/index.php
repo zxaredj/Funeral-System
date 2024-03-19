@@ -22,9 +22,9 @@
                         <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
                         <ul>
                             <li><a href="#home">HOME</a></li>
-                            <li><a href="#about">ABOUT</a></li>
-                            <li><a href="#contact">CONTACT</a></li>
-                            <li><a href="#services">SERVICES</a></li>
+                            <li><a href="About Us.html">ABOUT</a></li>
+                            <li><a href="About Us.html">CONTACT</a></li>
+                            <li><a href="services/Service Section.html">SERVICES</a></li>
                             <li><a href="#planning">PLANNING</a></li>
                             <li><a href="../back-end/obituaries.php">OBITUARIES</a></li>
                             <li><a href="signin">SIGN IN</a></li>
@@ -292,7 +292,7 @@
                         <p class="footer-details">Contact Details</p>
                     </div>
                     <div class="footer-item-logo">
-                        <img src="/front-end/pictures/homepage-pictures/dove.png" alt="Dove">                  
+                        <img src="pictures/homepage-pictures/dove.png" alt="Dove">                  
                         <p class="footer-details">Philip Sabino Funeral Services</p>
                     </div>
                     <div class="footer-icon">
