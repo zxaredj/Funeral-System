@@ -69,7 +69,6 @@
 
 section.homepage-2, section.homepage-3, section.homepage-4 {
     background-color: rgba(60, 137, 172, 0.2); /* Background color with 50% opacity */
-    margin: 40px 0;
 }
 
 .sort-filter-container {
@@ -106,7 +105,7 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 125px;
+    margin-top: 80px;
 }
 
 .obituaries-item {
@@ -246,26 +245,28 @@ hr {
     text-align: center;
 }
 
+.review {
+    height: 300px;
+    width: 300px;
+    text-align: center;
+    padding: 100px 20px;
+    border-radius: 20px;
+    margin-right: 50px;
+    border: 1px solid #144067;
+    font-size: 20px;
+    background-color: white;
+}
+
+
 .review-container-content {
     display: grid;
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(4, 300px);
-}
-
-.review-container-1,
-.review-container-2,
-.review-container-3,
-.review-container-4 {
-    display: flex;
-    flex-direction: column; /* Align items vertically */
-    justify-content: center; /* Center items horizontally */
-    align-items: center;
-    margin: 30px 0 50px 30px;
-    border-radius: 10px;
-    height: 450px; /* Adjust height to fit content */
-    width: 350px;
-    background-color: #F2F2F2;
+    margin-right: 40px;
+    gap: 15px;
+    color: black;
+    font-weight: normal;
 }
 
 .avatar-container {
@@ -304,6 +305,11 @@ hr {
     margin: 0; /* Remove default margin */
 }
 
+/* .review {
+    border: solid 2px black;
+    margin: 50px;
+} */
+
 .review-container-footer {
     display: flex;
     justify-content: center;
@@ -333,7 +339,7 @@ hr {
     font-size: 64px;
     color: #144067;
     font-weight: initial;
-    margin-left: 17%;
+    text-align: center;
 }
 
 .wrapper-container {
@@ -346,12 +352,11 @@ hr {
 .left-wrapper-container {
     height: 100%;
     width: 50%;
-    background-color: #F2F2F2;
     margin-right: 20px;
 }
 
 .left-wrapper-item {
-    margin: 0 20px;
+    margin: 0 0px;
     padding: 10%;
 }
 
@@ -363,12 +368,12 @@ hr {
 .right-wrapper-container {
     height: 100%;
     width: 50%;
-    background-color: #F2F2F2;
+
 }
 
 .right-wrapper-item {
     padding: 5%;
-    margin: 15px 20px;
+    margin: 15px 0px;
 }
 
 .form-container {
@@ -380,6 +385,8 @@ hr {
     height: 50px;
     margin: 10px 45px;
     border-radius: 10px;
+    border: 2px solid #144067;
+    font-family: "Inika", serif;
 }
 
 .message-inquiry {
@@ -390,8 +397,16 @@ hr {
     margin: 5px 50px;
     padding: 15px 40px;
     border-radius: 10px;
-    border: 2px solid black;
     cursor: pointer;
+    width: 150px;
+    height: 50px;
+    transition: 0.3s;
+    background-color: #144067;
+    color: white;
+}
+
+.btn-submit:hover {
+    opacity: .7;
 }
 
 .map-container {
