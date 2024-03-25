@@ -18,11 +18,11 @@
                         <ul>
                             <li><a href="../index.php">HOME</a></li>
                             <li><a href="../About Us.html">ABOUT</a></li>
-                            <li><a href="../About Us.html">CONTACT</a></li>
                             <li><a href="Service Section.html">SERVICES</a></li>
+                            <li><a href="form.php">FORM</a></li>
                             <li><a href="planning.php">PLANNING</a></li>
                             <li><a href="../../back-end/obituaries.php">OBITUARIES</a></li>
-                            <li><a href="signin.html">SIGN IN</a></li>
+                            <li><a href="../../login-signup/signup.html">SIGN IN</a></li>
                         </ul>
                     </nav>
                 </div>
