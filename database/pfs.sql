@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2024 at 09:21 PM
+-- Generation Time: Apr 01, 2024 at 09:06 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -120,6 +120,29 @@ INSERT INTO `obituaries` (`obituary_id`, `obituary_picture`, `obituary_name`, `o
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pickup`
+--
+
+CREATE TABLE `pickup` (
+  `id` int(11) NOT NULL,
+  `user` varchar(255) DEFAULT NULL,
+  `death` varchar(255) NOT NULL,
+  `releasepaper` varchar(255) NOT NULL,
+  `deceasedFirstName` varchar(255) NOT NULL,
+  `deceasedLastName` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `contactFirstName` varchar(255) NOT NULL,
+  `contactLastName` varchar(255) NOT NULL,
+  `number` int(12) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `relationship` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `review`
 --
 
@@ -223,6 +246,12 @@ ALTER TABLE `obituaries`
   ADD PRIMARY KEY (`obituary_id`);
 
 --
+-- Indexes for table `pickup`
+--
+ALTER TABLE `pickup`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
@@ -255,6 +284,12 @@ ALTER TABLE `facilities`
 --
 ALTER TABLE `obituaries`
   MODIFY `obituary_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `pickup`
+--
+ALTER TABLE `pickup`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `review`
