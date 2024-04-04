@@ -1,3 +1,6 @@
+
+  // validation for pick-up form
+
 function validateInfo() {
     var deceasedfirstName = document.getElementById("deceased-firstname").value;
     var deceasedlastName = document.getElementById("deceased-lastname").value;
@@ -68,3 +71,44 @@ function validateInfo() {
   
   document.getElementById('pickup-time').addEventListener('change', validateTime);
   
+
+  // validation for planning form
+
+  function validatePlanningInfo() {
+    var benefactorfirstName = document.getElementById("benefactor-firstname").value;
+    var benefactorlastName = document.getElementById("benefactor-lastname").value;
+    var benefactorNumber = document.getElementById("number").value;
+
+    var beneficiaryfirstName = document.getElementById("beneficiary-firstname").value;
+    var beneficiarylastName = document.getElementById("beneficiary-lastname").value;
+
+
+    var textValidation = /^[a-zA-Z.]+(?:\s[a-zA-Z.]+)*$/;
+    var numberValidation = /^[0-9]{11}$/;
+
+    if(!textValidation.test(benefactorfirstName)) {
+        alert("Invalid first name");
+        return false;
+    }
+
+    if(!textValidation.test(benefactorlastName)) {
+        alert("Invalid last name");
+        return false;
+    }
+    
+    if(!textValidation.test(beneficiaryfirstName)) {
+        alert("Invalid first name");
+        return false;
+    }
+
+    if(!textValidation.test(beneficiarylastName)) {
+        alert("Invalid last name");
+        return false;
+    }
+
+    if(!numberValidation.test(benefactorNumber)) {
+        alert("Invalid contact number");
+        return false;
+    }
+    return true;
+}
