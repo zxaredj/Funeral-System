@@ -13,30 +13,3 @@ function optionFacility(optionId) {
     });
     document.getElementById(optionId).classList.remove('hidden2');
 }
-
-
-// multi-form
-var currentStep = 1;
-
-function next() {
-    document.getElementById('form-' + currentStep).style.display = 'none';
-    document.getElementById('form-' + (currentStep + 1)).style.display = 'block';
-    currentStep++;
-}
-
-function previous() {
-    document.getElementById('form-' + currentStep).style.display = 'none';
-    document.getElementById('form-' + (currentStep - 1)).style.display = 'block';
-    currentStep--;
-}
-
-document.getElementById('multi-step-form').addEventListener('submit', function(event) {
-    if (!validatePlanningInfo()) {
-        event.preventDefault();
-        return;
-    } else {
-        alert('Form submitted successfully!');
-    }
-    // window.location.href = '../section-home/index.php';
-});
-

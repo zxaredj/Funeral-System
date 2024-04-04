@@ -86,7 +86,7 @@
     margin-top: 10px;
     margin-bottom: 20px;
     color: #144067;
-    font-size: 21px;
+    font-size: 19px;
 }
 
 .docu-name {
@@ -103,14 +103,6 @@
 .info-title {
     margin: 35px 0px;
     color: #144067;
-    font-size: 21px;
-}
-
-.info-header {
-    color: #144067;
-    margin-top: 20px 0px;
-    font-size: 32px;
-    text-align: center;
 }
 
 .inputs {
@@ -121,14 +113,8 @@
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    font-size: 19px;
+    
 }
-
-.service-type {
-    font-size: 19px;
-
-}
-
 .inputs input[type="file"],
 .inputs input[type="text"],
 .inputs input[type="datetime-local"],
@@ -163,7 +149,7 @@
 }
 
 .choose-service {
-    font-size: 19px;
+    font-size: 17.5px;
     color: #144067;
 }
 
