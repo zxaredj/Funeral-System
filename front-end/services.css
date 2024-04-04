@@ -1,8 +1,3 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
 *{
     margin: 0;
     padding: 0;
@@ -57,10 +52,6 @@
     color: #ffffff; /* Adjust link color as needed */
 }
 
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 .navbar {
     background-color: rgba(39, 39, 39, 0.3);
     width: 80%;
@@ -140,18 +131,7 @@
     border: 1px black solid;
 }
 .view-urn{
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
     position: relative;
->>>>>>> Stashed changes
-=======
-    position: relative;
->>>>>>> Stashed changes
-=======
-    position: relative;
->>>>>>> Stashed changes
     background-color:#144067;
     height: 50px;
     text-align: center;
