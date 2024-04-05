@@ -34,7 +34,7 @@ if (isset($_POST['submit-btn'])) {
     $query = "INSERT INTO pickup (death, releasepaper, deceasedFirstName, deceasedLastName, location, date, time, contactFirstName, contactLastName, number, email, relationship) VALUES ('$deathcert', '$releasepaper', '$deceasedfirstname', '$deceasedlastname', '$location', '$date', '$time', '$contactfirstname', '$contactlastname', '$number', '$email', '$relationship')";
 
     if (mysqli_query($connection, $query)) {
-        header("Location: form-modal.html");
+        header("Location: pickup-modal.html");
         exit();
         
     } else {
@@ -80,8 +80,8 @@ if (isset($_POST['submit-btn'])) {
 <div class="container">
     <div class="box-1">
 
-    <form action="" method="POST" onsubmit="return validateInfo()" enctype="multipart/form-data">
-      
+    <form id="multi-step-form" action="" method="POST" enctype="multipart/form-data">
+    <div class="form-1 active" id="form-1">
         <h2 class="docu-text">Please upload the following documents:</h2>
           <div class="inputs">
                 <p class="docu-name">Death Certificate</p>
@@ -120,7 +120,13 @@ if (isset($_POST['submit-btn'])) {
                     <input type="time" id="pickup-time" name="pickup-time" required>
                 </div>
             </div>
-
+            <div class="inputs">
+                    <div class="submit-btn-container">
+                        <button type="button" onclick="next1()" class="submit-btn">NEXT</button>
+                    </div>
+            </div>
+    </div>
+    <div class="form-2" id="form-2" style="display: none;">
         <h2 class="info-title">Contact Person Personal Information</h2>
             
             <div class="inputs">
@@ -160,12 +166,15 @@ if (isset($_POST['submit-btn'])) {
 
             <div class="inputs">
                 <div class="submit-btn-container">
-                    <input type="submit" value="SUBMIT" id="submit-btn" name="submit-btn" class="submit-btn">
+                <button type="button" onclick="back1()" class="submit-btn">BACK</button>
+                <button type="submit" class="submit-btn" name="submit-btn">SUBMIT</button>
                 </div>
             </div>
+    </div>
         </form>
     </div>
 </div>
+<script src="../js/forms.js"></script>
 <script src="../js/validations.js" defer></script>
 </body>
 </html>

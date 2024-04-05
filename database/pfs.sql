@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2024 at 09:58 AM
+-- Generation Time: Apr 05, 2024 at 01:21 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -135,6 +135,137 @@ INSERT INTO `obituaries` (`obituary_id`, `obituary_picture`, `obituary_name`, `o
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pickup`
+--
+
+CREATE TABLE `pickup` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `death` varchar(255) NOT NULL,
+  `releasepaper` varchar(255) NOT NULL,
+  `deceasedFirstName` varchar(255) NOT NULL,
+  `deceasedLastName` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `contactFirstName` varchar(255) NOT NULL,
+  `contactLastName` varchar(255) NOT NULL,
+  `number` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `relationship` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pl-burial`
+--
+
+CREATE TABLE `pl-burial` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `casket` varchar(255) NOT NULL,
+  `funeralArrangement` varchar(255) NOT NULL,
+  `facility` varchar(255) NOT NULL,
+  `days` int(11) NOT NULL,
+  `cemetery` varchar(255) NOT NULL,
+  `contactFirstName` varchar(255) NOT NULL,
+  `contactLastName` varchar(255) NOT NULL,
+  `contactNumber` int(11) NOT NULL,
+  `contactEmail` varchar(255) NOT NULL,
+  `contactRelationship` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pl-directcremation`
+--
+
+CREATE TABLE `pl-directcremation` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `urn` varchar(255) NOT NULL,
+  `contactFirstName` varchar(255) NOT NULL,
+  `contactLastName` varchar(255) NOT NULL,
+  `contactNumber` int(11) NOT NULL,
+  `contactEmail` varchar(255) NOT NULL,
+  `contactRelationship` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pl-gatheringcremation`
+--
+
+CREATE TABLE `pl-gatheringcremation` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `urn` varchar(255) NOT NULL,
+  `funeralArrangement` varchar(255) NOT NULL,
+  `facility` varchar(255) NOT NULL,
+  `days` int(11) NOT NULL,
+  `contactFirstName` varchar(255) NOT NULL,
+  `contactLastName` varchar(255) NOT NULL,
+  `contactNumber` int(11) NOT NULL,
+  `contactEmail` varchar(255) NOT NULL,
+  `contactRelationship` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pl-traditionalcremation`
+--
+
+CREATE TABLE `pl-traditionalcremation` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `casket` varchar(255) NOT NULL,
+  `urn` varchar(255) NOT NULL,
+  `funeralArrangement` varchar(255) NOT NULL,
+  `facility` varchar(255) NOT NULL,
+  `days` int(11) NOT NULL,
+  `contactFirstName` varchar(255) NOT NULL,
+  `contactLastName` varchar(255) NOT NULL,
+  `contactNumber` int(11) NOT NULL,
+  `contactEmail` varchar(255) NOT NULL,
+  `contactRelationship` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `planninginfo`
+--
+
+CREATE TABLE `planninginfo` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `benefactorFirstName` varchar(255) NOT NULL,
+  `benefactorLastName` varchar(255) NOT NULL,
+  `benefactorContact` int(11) NOT NULL,
+  `benefactorAddress` varchar(255) NOT NULL,
+  `benefactorEmail` varchar(255) NOT NULL,
+  `planFor` varchar(255) NOT NULL,
+  `beneficiaryPicture` varchar(255) NOT NULL,
+  `beneficiaryFirstName` varchar(255) NOT NULL,
+  `beneficiaryLastName` varchar(255) NOT NULL,
+  `beneficiaryGender` varchar(255) NOT NULL,
+  `beneficiaryBirthdate` date NOT NULL,
+  `beneficiaryAddress` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `review`
 --
 
@@ -244,6 +375,42 @@ ALTER TABLE `obituaries`
   ADD PRIMARY KEY (`obituary_id`);
 
 --
+-- Indexes for table `pickup`
+--
+ALTER TABLE `pickup`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pl-burial`
+--
+ALTER TABLE `pl-burial`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pl-directcremation`
+--
+ALTER TABLE `pl-directcremation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pl-gatheringcremation`
+--
+ALTER TABLE `pl-gatheringcremation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pl-traditionalcremation`
+--
+ALTER TABLE `pl-traditionalcremation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `planninginfo`
+--
+ALTER TABLE `planninginfo`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
@@ -282,6 +449,42 @@ ALTER TABLE `login`
 --
 ALTER TABLE `obituaries`
   MODIFY `obituary_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `pickup`
+--
+ALTER TABLE `pickup`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pl-burial`
+--
+ALTER TABLE `pl-burial`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pl-directcremation`
+--
+ALTER TABLE `pl-directcremation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pl-gatheringcremation`
+--
+ALTER TABLE `pl-gatheringcremation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pl-traditionalcremation`
+--
+ALTER TABLE `pl-traditionalcremation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `planninginfo`
+--
+ALTER TABLE `planninginfo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `review`
