@@ -12,6 +12,17 @@ session_start();
         $email = filter_var($_REQUEST["email"], FILTER_SANITIZE_EMAIL);
     }
 
+$stmt = $connection->prepare("SELECT * FROM login WHERE username = ? OR email = ?");
+$stmt->bind_param("ss", $username, $email);
+$stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+
+if ($row) {
+    header("Location: signup.php?error=user_taken");
+    exit();
+
+} else {
     if (!empty($username) && !empty($password) && !empty($email))
     {
         $hash_pass = password_hash($password, PASSWORD_DEFAULT);
@@ -24,7 +35,8 @@ session_start();
         die;
 
     }else{
-        echo"Invalid Information";
+        header("Location: signup.php?error=invalid_information");
+        exit();
     }
-
+}
 
