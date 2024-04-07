@@ -8,17 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funeral System</title>
     <link rel="stylesheet" href="../css/home-style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inika:wght@700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53e9ba7f8c.js" crossorigin="anonymous"></script>
+    
 </head>
-<style>
-.quote {
-    font-style: italic;
-    color: #144067;
-}
-</style>
 <body>
     <main>
         <section class="homepage-1" id="home">
@@ -135,8 +130,10 @@
                         // Open review-container div for each review
                         echo '<div class="review-container">';
                         echo '<div class="review">';
-                        echo '<p class="quote">&quot;' . $row["review_testimonial"] . '&quot;</p>'.  "<br>";
-                        echo "<p>" . $row["review_name"]. "</p>" . "<br>"; 
+                        echo '<img src="../pictures/reviews-pictures/icon.png" alt="Icon Profile" class="review-icon">';
+                        echo '<p class="review-name">' . $row["review_name"] . '</p><br>';
+                        echo '<p class="review-testimonial"><i class="bi bi-quote"></i>' . $row["review_testimonial"] . '</p><br>';
+
                         // echo "<p>" . $row["review_date"]. "</p>";
                         echo '</div>'; // Close review div
                         echo '</div>'; // Close review-container div
@@ -223,7 +220,7 @@
             <div class="review-container-footer">
                 <a href="../section-reviews/all_reviews.php" target="_blank" class="original-button" style="margin-right: 30px;">View All Reviews</a>
 
-                <button class="original-button" id="openReviewFormModal"><a href="../section-reviews/review.html" style="text-decoration: none; color: white; font-weight: bold;">Write A Review</a></button>
+                <button class="original-button" id="openReviewFormModal"><a href="../section-reviews/write-review.php" style="text-decoration: none; color: white; font-weight: bold;">Write A Review</a></button>
                 
             </div>
             <!--

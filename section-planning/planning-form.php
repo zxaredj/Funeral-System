@@ -40,7 +40,7 @@ if (isset($_POST['submit-btn'])) {
         exit();
         
     } else {
-        echo '<script>alert("Not added!")</script>';
+        echo '<script>alert("Submission Failed!")</script>';
     }
 }
 

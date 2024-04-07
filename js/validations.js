@@ -9,12 +9,12 @@
     var numberValidation = /^[0-9]{11}$/;
 
     if(!textValidation.test(deceasedfirstName)) {
-        alert("Invalid first name. Please input letters only.");
+        alert("Invalid first name. Please input proper first name.");
         return false;
     }
 
     if(!textValidation.test(deceasedlastName)) {
-        alert("Invalid last name. Please input letters only.");
+        alert("Invalid last name. Please input proper last name.");
         return false;
     }
     return true;
@@ -29,12 +29,12 @@ function validateContactInfo() {
     var numberValidation = /^[0-9]{11}$/;
 
     if(!textValidation.test(contactfirstName)) {
-        alert("Invalid first name. Please input letters only.");
+        alert("Invalid first name. Please input proper first name.");
         return false;
     }
 
     if(!textValidation.test(contactlastName)) {
-        alert("Invalid last name. Please input letters only.");
+        alert("Invalid last name. Please input proper last name.");
         return false;
     }
 
@@ -93,12 +93,12 @@ function validateContactInfo() {
     var emailValidation = /\S+@\S+\.\S+/;
 
     if (!textValidation.test(benefactorfirstName)) {
-        alert("Invalid first name. Please input letters only.");
+        alert("Invalid first name. Please input proper first name.");
         return false;
     }
 
     if (!textValidation.test(benefactorlastName)) {
-        alert("Invalid last name. Please input letters only.");
+        alert("Invalid last name. Please input proper last name.");
         return false;
     }
     
@@ -124,12 +124,12 @@ function validateBeneficiaryInfo() {
     var numberValidation = /^[0-9]{11}$/;
 
     if(!textValidation.test(beneficiaryfirstName)) {
-        alert("Invalid first name. Please input letters only.");
+        alert("Invalid first name. Please input proper first name.");
         return false;
     }
 
     if(!textValidation.test(beneficiarylastName)) {
-        alert("Invalid last name. Please input letters only.");
+        alert("Invalid last name. Please input proper last name.");
         return false;
     }
     return true;
