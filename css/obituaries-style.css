@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,8 +15,8 @@
 }
 
 .background-image img {
-    width: 100%; /* Adjust as needed */
-    height: 1000px; /* Maintain aspect ratio */
+    width: 100%;
+    height: 1000px;
 }
 
 .background-image nav {
@@ -31,7 +31,6 @@
 
 .background-image nav ul {
     background-color: #144067;
-    opacity: 100%;
     list-style: none;
     padding: 15px;
     margin: 0;
@@ -40,16 +39,16 @@
 
 .background-image nav ul li {
     display: inline-block;
-    margin-right: 50px; /* Adjust spacing between list items */
+    margin-right: 50px;
 }
 
 .background-image nav ul li:last-child {
-    margin-right: 0; /* Remove margin from last list item */
+    margin-right: 0;
 }
 
 .background-image nav ul li a {
     text-decoration: none;
-    color: #ffffff; /* Adjust link color as needed */
+    color: #ffffff;
 }
 
 .text-overlay {
@@ -64,11 +63,11 @@
 .text-overlay p {
     font-size: 40px;
     font-weight: bold;
-    color: #464646; /* Text color */
+    color: #464646;
 }
 
-section.homepage-2, section.homepage-3, section.homepage-4 {
-    background-color: rgba(60, 137, 172, 0.2); /* Background color with 50% opacity */
+.section-background {
+    background-color: rgba(60, 137, 172, 0.2);
 }
 
 .sort-filter-container {
@@ -78,61 +77,50 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
     margin: 60px 200px 40px 200px;
 }
 
-.search-container {
+.search-container, .sort-date-container {
     background-color: #FFFEFE;
+    border-radius: 5px;
+}
+
+.search-container {
     height: 45px;
     width: 60%;
-    border-radius: 5px;
 }
 
 .sort-date-container {
-    background-color: #FFFEFE;
     height: 45px;
     width: 150px;
-    border-radius: 5px;
-    border: 1px solid #ccc; /* Add a border */
-    padding: 5px; /* Add some padding to the container */
-    text-align: center; /* Center the text */
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
 }
 
 .sort-date-container option {
-    background-color: #FFF; /* Background color of options */
-    color: #333; /* Text color of options */
-    text-align: center; /* Center the text */
+    background-color: #FFF;
+    color: #333;
+    text-align: center;
 }
 
 .obituaries-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
     margin-top: 80px;
 }
 
 .obituaries-item {
     width: 280px;
     height: 315px;
-    margin: 10px 20px;
-    text-align: center;
+    margin: 10px 0px;
+    text-align: left;
     border-radius: 5px;
 }
 
-.obituaries-item-1 {
+.obituaries-item:nth-child(even) {
     background-color: #335889;
 }
 
-.obituaries-item-2 {
-    background-color: #144067;
-}
-
-.obituaries-item-3 {
-    background-color: #1A87B8;
-}
-
-.obituaries-item-4 {
-    background-color: #335889;
-}
-
-.obituaries-item-5 {
+.obituaries-item:nth-child(odd) {
     background-color: #144067;
 }
 
@@ -149,67 +137,20 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
     text-align: center;
 }
 
-.obituaries-name {
-    margin-top: 20px; /* Add some space between the name and date */
-    font-weight: bold; /* Make the name bold */
-}
-
-.obituaries-date {
-    margin-top: 5px; /* Add some space between the name and date */
-}
-
-.review-data-1 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 10px 40px;
-
-}
-
-.review {
-    flex-basis: calc(30.30% - 20px);
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    margin: 40px 20px 40px 20px;
-    border: 3px solid #144067;
-}
-
-
-.review p {
-    margin: 0;
-    font-size: 23px;
-    line-height: 1.5;
-    text-align: center;
-}
-
-.header-title {
-    margin: 30px 0;
-    text-align: center;
-}
-
-.review-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 30px 0;
+.obituary-name, .obituary-date {
+    margin: 5px 0;
+    font-size: 20px;
+    color: black;
 }
 
 .filter-container {
     display: flex;
-    justify-content: right;
-    align-items: center;
-    margin: 0px 200px;
+    justify-content: flex-end;
+    margin: 20px 50px;
 }
 
 .dropdown {
     position: relative;
-    display: inline-block;
 }
 
 .dropdown select {
@@ -233,26 +174,55 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
     transform: translateY(-50%);
 }
 
-.dropdown select option {
-    padding: 10px 20px;
-}
-
-.review > img {
-    height: 200px;
-    width: 200px;
-    display: block;
-    margin: 0 auto;
-    padding: 10px;
-}
-
-img {
-    border-radius: 90%;
+.review-page-container {
+    margin: 30px 0px;
+    padding: 0px;
 }
 
 .review-title {
     text-align: center;
-    margin-top: 120px;
+    margin-top: 130px;
     margin-bottom: 20px;
     color: #144067;
-    font-size: 45px;
+    font-size: 50px;
+}
+
+.review-data-1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0px;
+    /* border-radius: 10px; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    margin: 10px 0px;
+}
+
+.review {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    /* border-radius: 10px; */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin: 40px 20px;
+    /* border: 3px solid #144067; */
+    width: 43%;
+}
+
+.review img {
+    height: 200px;
+    width: 200px;
+    margin-right: 20px;
+}
+
+.review-details {
+    flex-grow: 1;
+}
+
+@media only screen and (max-width: 768px) {
+    .review {
+        flex-basis: calc(50% - 20px);
+    }
 }
