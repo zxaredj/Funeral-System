@@ -34,7 +34,7 @@
             </div>
         </section>
         <div class="review-page-container">
-        <h1 class="review-title">OBITUARY</h1>
+        <h1 class="review-title">OBITUARIES</h1>
             <div class="filter-container">
                 <div class="dropdown">
                     <select id="filter-dropdown">

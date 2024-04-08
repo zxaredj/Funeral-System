@@ -70,36 +70,43 @@
         </section>
         <section class="homepage-3" id="obituaries">
             <br>
-            <h1 class="homepage-title">OBITUARIES</h1>
-            <div class="obituaries-container">
-                <div class="obituaries-item obituaries-item-1"></div>
-                <div class="obituaries-item obituaries-item-2"></div>
-                <div class="obituaries-item obituaries-item-3"> </div>
-                <div class="obituaries-item obituaries-item-4"></div>
-                <div class="obituaries-item obituaries-item-5"></div>
+           <h1 class="homepage-title">OBITUARIES</h1>
+            <div class="under-title">
+                <br>
+                <!-- <div class="stars-container" style="margin-right: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="review-description">5.0 rating of 53</p> -->
             </div>
-           <div class="obituaries-info-container">
-                <div class="obituaries-info">
-                    <p class="obituaries-name">Edward M. Norton</p>
-                    <p class="obituaries-date">1998 - 2023</p>
-                </div>
-                <div class="obituaries-info">
-                    <p class="obituaries-name">Leon Smith</p>
-                    <p class="obituaries-date">1998 - 2023</p>
-                </div>
-                <div class="obituaries-info">
-                    <p class="obituaries-name">Robert S. Brown</p>
-                    <p class="obituaries-date">1998 - 2023</p>
-                </div>
-                <div class="obituaries-info">
-                    <p class="obituaries-name">Jennifer A. Jones</p>
-                    <p class="obituaries-date">1998 - 2023</p>
-                </div>
-                <div class="obituaries-info">
-                    <p class="obituaries-name">Mary B. Williams</p>
-                    <p class="obituaries-date">1998 - 2023</p>
-                </div>
-            </div>
+            <?php 
+                $sql = "SELECT * FROM obituaries LIMIT 4";
+                $result = mysqli_query($connection, $sql);
+                
+                // Step 3: Fetch Data and Generate HTML
+                if (mysqli_num_rows($result) > 0) {
+                    // Output data of each row
+                    echo '<div class="review-container-content">';
+
+                    // Output data of each row
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        // Open review-container div for each review
+                        echo '<div class="obituary-container">';
+                        echo '<div class="obituary">';
+                        echo '<img class="obituary-picture" src="data:image/jpeg;base64,' . base64_encode($row["obituary_picture"]) . '" alt="Obituary Picture"><br>';
+                        echo '<p class="obituary-name">' . $row["obituary_name"] . '</p><br>';
+                        $dob = date("F j, Y", strtotime($row["obituary_dob"]));
+                        $dod = date("F j, Y", strtotime($row["obituary_dod"]));
+                        echo "<p class='obituary-date'>" . $dob." - " .$dod. "</p>";
+                        // echo "<p>" . $row["review_date"]. "</p>";
+                        echo '</div>'; // Close review div
+                        echo '</div>'; // Close review-container div
+                    }
+
+                    // Close the review-container-container div
+                    echo '</div>';
+                } else {
+                    echo "0 results";
+                }
+            ?>
+            <br>
             <!-- <hr style="margin: 0 150px;"> -->
             <div class="view-container">
                 <button class="original-button" style="margin: 10px auto 80px auto; width: 50%;"><a href="../section-obituaries/obituaries.php" style="text-decoration: none; color: white;">VIEW ALL OBITUARIES</a></button>
@@ -250,39 +257,38 @@
             <br>
         </section> !-->
         <!-- Review Form Modal -->
-        
+        <br>
         <hr>
+        <br><br>
         <section class="homepage-5" id="contact">
-            <br>
-            <br>
-            <h1 class="homepage-5-title">DIRECTIONS</h1>
-            <div class="wrapper-container">
-                <div class="left-wrapper-container">
-                    <div class="left-wrapper-item">
-                        <!-- <h2 style="color: black;">Perpetual Funeral Services</h2> -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.0610417880775!2d120.96950667590495!3d14.652476375802863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b5ccc6d9badd%3A0x7e0ea7cff476121!2sFloresco%20Building%2C%20A.%20Mabini%20St%2C%20Dagat-Dagatan%2C%20Caloocan%2C%20Metro%20Manila!5e0!3m2!1sfil!2sph!4v1709841733811!5m2!1sfil!2sph" width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <!-- <p class="text-description" style="font-size: 20px; color: black;">"Compassionate care in your time of need. Honoring lives with dignity and <br> respect."</p> -->
-                    </div>
+        <div class="wrapper-container">
+            <div class="left-wrapper-container">
+                <div class="left-wrapper-item">
+                <h2 style="font-size: 40px; color: black;">DIRECTIONS</h2>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.0610417880775!2d120.96950667590495!3d14.652476375802863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b5ccc6d9badd%3A0x7e0ea7cff476121!2sFloresco%20Building%2C%20A.%20Mabini%20St%2C%20Dagat-Dagatan%2C%20Caloocan%2C%20Metro%20Manila!5e0!3m2!1sfil!2sph!4v1709841733811!5m2!1sfil!2sph" width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <div class="right-wrapper-container">
-                    <div class="right-wrapper-item">
+            </div>
+            <div class="right-wrapper-container">
+                <div class="right-wrapper-item">
+                    <div class="form-container">
                         <h2 style="font-size: 40px; color: black;">GET IN TOUCH</h2>
-                        <div class="form-container">
-                            <form action="">
-                                <input type="name" class="name-input input" placeholder=" Juan Dela Cruz">
-                                <br>
-                                <input type="email" class="email-input input" placeholder=" perpetualfuneralservices@gmail.com">
-                                <br>
-                                <textarea class="message-inquiry input" name="message-inquiry" id="message-inquiry" placeholder=" Enter your message"></textarea>
-                                <br>
-                                <br>
-                                <button class="btn-submit" value="Submit">SUBMIT</button>
-                            </form>
-                        </div>
+                        <form method="post" action="send-email.php" id="inquiry-form">
+                        <input type="text" name="name" id="name" class="input" placeholder="Juan Dela Cruz" pattern="[a-zA-Z.]+(?:\s[a-zA-Z.]+)*" required title="Input letters only.">
+                            <br>
+                            <input type="email" name="email" id="email" class="input" placeholder="perpetualfuneralservice@gmail.com" required>
+                            <br>
+                            <input class="input" type="text" name="subject" id="subject" placeholder="Casket recommendations" required>
+                            <br>
+                            <textarea class="message-inquiry input" name="message" id="message" placeholder="Can you please give me casket recommendations?" required></textarea>
+                            <br>
+                            <button class="btn-submit" value="Submit">SUBMIT</button>
+                        </form>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
+    <br><br>
         <!-- <section class="homepage-6" id="about">
             <br>
             <h1 class="homepage-title">Directions</h1>
