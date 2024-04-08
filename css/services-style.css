@@ -27,6 +27,7 @@
     top: 20px;
     margin: 0 auto; 
     z-index: 1000;
+    font-weight: bold;
 }
 
 .background-image nav ul {
@@ -97,219 +98,278 @@
     text-align: center;
     color: #ffffff; 
 }
-.cremation-header1{
-    position: relative;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color:#071d31;
-    left:10%;
-    margin-top:10px;
-}
-.cremation-info1{
-    font-size: 20px;
-    margin-top:20px;
-}
-.cremation-types{
-    background-color:#F2F2F2;
-}
-.cremation-header2{
-    position: relative;
+.cremation-header {
     font-size: 2rem;
-    left:10.5%;
-    top:10px;
+    font-weight: bold;
+    color: #071d31;
     text-decoration: underline;
     text-underline-offset: 10px;
+    margin-top: 10px;
 }
-.cremation-little-text1{
-    position: relative;
-    left:10.5%;
-    top:14px;
+
+.cremation-info,
+.burial-little-text {
+    font-size: 20px;
+    margin-top: 20px;
 }
-.float-location{
-    float:right;
-    width: 20%;
-    border: 1px black solid;
+
+.cremation-types {
+    background-color: #f2f2f2;
+    padding: 20px;
 }
-.view-urn{
-    position: relative;
-    background-color:#144067;
-    height: 50px;
+
+.textbox {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.float-location-burial,
+.image-column {
+    float: right;
+    width: 50%;
+    margin-top: 20px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.text-column {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.view-urn {
     text-align: center;
 }
-.btn-view-urn{
-    position: relative;
-    bottom: -10px;
-    background-color:#144067;
-    text-decoration: none;
-    color:white;
+
+.btn-view-urn {
+    background-color: #144067;
+    color: white;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-.cremation-info2{
-    position: relative;
-    font-size: 20px;
-    margin-top:25px;
-    margin-bottom:10px;
-    bottom: 20%;
-}
-.cremation-info2 span{
-    color:#144067;
-    font-weight: bold;
-}
-.cremation-header3{
-    position: relative;
-    font-size: 2rem;
-    left:10.5%;
-    top:10px;
-    text-decoration: underline;
-    text-underline-offset: 10px;
-}
-.cremation-little-text2{
-    position: relative;
-    left:10.5%;
-    top:15px;
-    font-size: 1.2rem;
-}
-.cremation-info3{
-    position: relative;
-    font-size: 20px;
-    margin-top:25px;
-    margin-bottom:10px;
-    bottom: 20%;
-    text-align: center;
-}
-.cremation-info3 span{
-    color:#144067;
-    font-weight: bold;
-}
-.float-location-service1{
-    position: relative;
-    float:right;
-    width: 25.5%;
-    border: 1px black solid;
-    right:19%;
-}
-.cremation-info-little1{
-    position: relative;
-    background-color: #f9f9f9;
-    width:35%;
-    left:21%;
-    margin-bottom: 20px;
-}
-.float-location-service2{
-    position: absolute;
-    width: 25.5%;
-    border: 1px black solid;
-    float:left;
-    left:21%;
-}
-.float-location-service2 img{
-    height: 26rem;
-}
-.cremation-info-little2{
-    position: relative;
-    background-color: #f9f9f9;
-    width:35%;
-    left:46%;
-    margin-bottom: 20px;
-}
-.float-location-service3{
-    position: relative;
-    float:right;
-    width: 25.5%;
-    border: 1px black solid;
-    right:19%;
-}
-.float-location-service3 img{
-    height: 24.3rem;
-}
-.cremation-info-little3{
-    position: relative;
-    background-color: #f9f9f9;
-    width:35%;
-    left:21%;
-    margin-bottom: 20px;
-}
-.burial-little-text1{
-    position: relative;
-    left:10.5%;
-    top:20px;
-    font-size: 18px;
-}
-.burial-info2{
-    position: relative;
-    font-size: 20px;
-    margin-top:25px;
-    margin-bottom:10px;
-    bottom: 20%;
-}
-.burial-info2 span{
-    color:#144067;
-    font-weight: bold;
-}
-.float-location-burial{
-    position: relative;
-    float:right;
-    width: 23%;
-    border: 1px black solid;
-    top:45px;
-}
+
 .grid-container-burial {
     display: grid;
-    grid-template-columns: repeat(3, 300px);
-    grid-template-rows: repeat(2, 300px);
-    gap:12%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
     justify-content: center;
     align-items: center;
     margin-bottom: 100px;
 }
+
 .grid-item {
-    width: 135%;
-    height: 200%;
-    position: relative;
-    background-color: #EFEFEF;
-    margin-top: 130%;
+    background-color: #efefef;
+    padding: 20px;
     text-align: center;
 }
-.services-burial{
+
+.services-burial {
     width: 80%;
-    height:30%;
-    margin-top:20px;
+    height: auto;
+    margin-top: 20px;
 }
-.burial1-header{
-    color:#144067;
-    font-size: 22px;
+
+.burial1-header {
+    color: #144067;
+    font-size: 2.5rem;
     font-weight: bold;
     margin-top: 30px;
     margin-bottom: 30px;
     font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.burial2-text {
+    font-size: 19px;
+}
+
+@media (min-width: 768px) {
+    .grid-container-burial {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+.box-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    background-color:#f2f2f2;
+    margin: 20px 50px 50px 50px;
+}
+
+.flex-1 {
+    padding: 40px;
+    font-size: 16px;
     text-align: left;
+    flex: 2;
+    margin-right: 10px;
 }
-.burial2-header{
-    color:#144067;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: left;
-    margin-left: 20px;
+
+.flex-2 {
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+    padding: 100px 20px;
 }
-.burial2-text{
-    font-size: 18px;
+
+.service-highlight {
+    color: #144067;
+    font-weight: bold;
 }
+
+.img-box {
+    width: 100%;
+    max-width: 360px; 
+    height: 330px;
+}
+
+.view-btn {
+    text-decoration: none;
+    color: black;
+    width: 100%; 
+    max-width: 360px; 
+    height: 40px;
+    margin-top: 0; 
+    background-color: #144067;
+    color: white;
+    font-family: "Inika", serif;
+    font-weight: normal;
+}
+
+.view-btn:hover {
+    color: white;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch; 
+    margin: 20px 50px 50px 50px;
+    gap: 20px;
+}
+
+.box {
+    padding: 30px 20px;
+    background-color: #f2f2f2;
+    flex: 1; 
+    max-width: 430px; 
+    box-sizing: border-box; 
+}
+
+.img-burial {
+    display: block;
+    margin: 0 auto;
+    max-width: 330px; 
+    height: 250px;
+}
+
+.burial-header {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #144067;
+    font-size: 19px;
+}
+
+.service-text {
+    font: 17px;
+    font-family: "Inika", serif;
+    font: normal;
+}
+
+.intro-box {
+    margin: 40px 50px;
+}
+
+.main-title {
+    font-family: "Inika", serif;
+    text-align: center;
+    margin-top: 120px;
+    margin-bottom: 20px;
+    color: #144067;
+    font-size: 45px;
+}
+
+.service-container {
+    display: flex;
+    margin: 0px 30px;
+}
+  
+.service-item1 {
+    flex: 2; 
+    padding: 30px 70px;
+    margin: 5px;
+}
+
+.service-item2 {
+    flex: 1;
+    padding: 30px 70px;
+    margin: 5px;
+}
+  
+.service-text {
+    font-size: 19px;
+}
+
+.service-img {
+    max-width: 500px;
+    height: 300px;
+}
+
+.container {
+    font-family: "Inika", serif;
+    font-weight: normal;
+    margin: 0;
+}
+
+.card-title {
+    text-align: center;
+}
+
+.btn.btn-primary {
+    background-color: #144067;
+    border: none;
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.btn.btn-primary:hover {
+    background-color: #144067;
+    border: none ;
+}
+
+.service-header {
+    font-family: "Inika", serif;
+    color: #144067;
+}
+
 .service-section-header1{
     text-align: center;
     font-size: 3rem;
     font-weight: bold;
     color:#144067;
-    margin-top:10px;
+    margin-top: 10px 30px;
 }
+
 .line{
     background-color:#144067;
     padding: 3px;
     margin-bottom: 10px;
 }
+
 .services{
     background-color:#3C89AC;
     background-color: rgb(76, 135, 173, 0.1)
 }
+
 .service-section-header2{
     position: relative;
     font-size: 1.8rem;
@@ -318,6 +378,7 @@
     text-decoration: underline;
     text-underline-offset: 10px;
 }
+
 .service-little-text1{
     position: relative;
     left:5%;
@@ -353,7 +414,7 @@
     gap:12%;
     justify-content: center;
     align-items: center;
-    margin-bottom: 100px;
+    margin-bottom: 120px;
 }
 .grid-item1 {
     width: 135%;
@@ -367,7 +428,6 @@
 .services-burial1{
     width: 100%;
     height:100%;
-    border-radius:5%;
 }
 .service-title-casket{
     position: absolute;
@@ -379,17 +439,31 @@
     font-size: 4rem;
 }
 .btn-view-caskets{
-    position: absolute;
-    color:#393939;
+    color:#ffffff;
     font-weight:bolder;
     font-size: 1.5rem;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: rgba(255, 255, 255, 0.5);
-    padding:0 50px;
-    margin-left: 7.2rem;
-    margin-top: 27rem;
-    border-radius:15px;
-    border:none;
+    padding:10px 128px;
+    background-color:#144067; ;
+    border:1px solid black;
+}
+.btn-view-urns{
+    color:#ffffff;
+    font-weight:bolder;
+    font-size: 1.5rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding:10px 145px;
+    background-color:#144067; ;
+    border:1px solid black;
+}
+.btn-view-facilities{
+    color:#ffffff;
+    font-weight:bolder;
+    font-size: 1.5rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding:10px 120px;
+    background-color:#144067; ;
+    border:1px solid black;
 }
 .service-title-urn{
     position: absolute;

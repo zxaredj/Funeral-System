@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Reviews</title>
+    <title>Customers' Reviews</title>
     <link rel="stylesheet" href="../css/home-style.css">
     <link rel="stylesheet" href="../css/reviews-style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inika:wght@700&display=swap" rel="stylesheet">
@@ -21,23 +22,23 @@
                 <nav>
                     <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
                     <ul>
-                    <li><a href="../front-end/index.php">HOME</a></li>
-                    <li><a href="../front-end/About Us.html">ABOUT</a></li>
-                    <li><a href="../front-end/services/Service Section.html">SERVICES</a></li>
-                    <li><a href="../front-end/form/form.php">FORM</a></li>
-                    <li><a href="../front-end/planning/planning.php">PLANNING</a></li>
-                    <li><a href="obituaries.php">OBITUARIES</a></li>
-                    <li><a href="../login-signup/signup.html">SIGN IN</a></li>
+                    <li><a href="../section-home/index.php">HOME</a></li>
+                    <li><a href="../section-about/About Us.html">ABOUT</a></li>
+                    <li><a href="../section-services/Service Section.html">SERVICES</a></li>
+                    <li><a href="../section-form/pickup-form.php">FORM</a></li>
+                    <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
+                    <li><a href="../section-obituaries/obituaries.php">OBITUARIES</a></li>
+                    <li><a href="../section-login-signup/signup.html">SIGN IN</a></li>
                     </ul>
                 </nav>
             </div>
         </section>
         <div class="review-page-container">
-            <h1 class="review-title">CUSTOMER REVIEWS</h1>
+            <h1 class="review-title">CUSTOMERS' REVIEWS</h1>
             <div class="filter-container">
                 <div class="dropdown">
                     <select id="filter-dropdown">
-                        <option value="by-date" selected>By Date:</option>
+                        <option value="by-date" disabled selected>By Date:</option>
                         <option value="this-week">This Week</option>
                         <option value="past-few-weeks">Past Few Weeks</option>
                         <option value="past-few-months">Past Few Months</option>
@@ -49,7 +50,7 @@
                     <?php
                         // Connect to your database
                         include('../database/config.php');
-                
+
                         $sql = "SELECT * FROM review";
                         $result = mysqli_query($connection, $sql);
                 
@@ -58,8 +59,10 @@
                             while ($row = mysqli_fetch_assoc($result)) {
                                 // Output review data
                                 echo "<div class='review'>";
-                                echo '<p class="quote">&quot;' . $row["review_testimonial"] . '&quot;</p>'.  "<br>";
-                                echo "<p> " . $row["review_name"]. "</p>";
+                                echo '<br>';
+                                echo '<img src="../pictures/reviews-pictures/icon.png" alt="Icon Profile" class="review-icon">';
+                                echo '<p class="review-name">' . $row["review_name"] . '</p><br>';
+                                echo '<p class="review-testimonial"><i class="bi bi-quote"></i>' . $row["review_testimonial"] . '</p><br>';
                                 // echo "<p> " . $row["review_date"]. "</p>";
                                 echo "</div>";
                             }

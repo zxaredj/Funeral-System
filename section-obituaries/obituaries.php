@@ -1,4 +1,3 @@
-<!-- view_all_reviews.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,18 +34,18 @@
             </div>
         </section>
         <div class="review-page-container">
-        <h1 class="review-title">OBITUARY</h1>
+        <h1 class="review-title">OBITUARIES</h1>
             <div class="filter-container">
                 <div class="dropdown">
                     <select id="filter-dropdown">
-                        <option value="by-date" selected>By Date:</option>
+                        <option value="by-date" disabled selected>By Date:</option>
                         <option value="this-week">This Week</option>
                         <option value="past-few-weeks">Past Few Weeks</option>
                         <option value="past-few-months">Past Few Months</option>
                     </select>
                 </div>
             </div>
-            <div class="review-page">
+       
                 <div class="review-data-1">
                     <?php
                         // Connect to your database
@@ -67,8 +66,12 @@
                                 } else {
                                     echo "<p>No picture available</p>";
                                 }
-                                echo "<p>" . $row["obituary_name"] . "</p>";
-                                echo "<p>" . $row["obituary_date"] . "</p>";
+                                echo "<div class='review-details'>";
+                                echo "<p class='obituary-name'>" . $row["obituary_name"] . "</p>";
+                                $dob = date("F j, Y", strtotime($row["obituary_dob"]));
+                                $dod = date("F j, Y", strtotime($row["obituary_dod"]));
+                                echo "<p class='obituary-date'>" . $dob." - " .$dod. "</p>";
+                                echo "</div>";
                                 echo "</div>";
                             }
                         } else {
@@ -77,7 +80,7 @@
                     ?>
                 </div>
             </div>
-        </div>
+    
         <!-- <footer>
             <div class="footer-container">
                 <div class="footer-item contact-title">

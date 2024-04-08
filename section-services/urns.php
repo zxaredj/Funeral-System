@@ -63,8 +63,6 @@
 <hr>
     <div class="box-container">
         <?php
-        include '../../back-end/config.php';
-            
         $query = "SELECT * FROM `urns` WHERE category = 'marble'";
         $select_product = mysqli_query($connection, $query);
             while ($fetch_product = mysqli_fetch_assoc($select_product)) {
@@ -88,7 +86,6 @@
 <hr>
     <div class="box-container">
         <?php
-        include '../../back-end/config.php';
             
         $query = "SELECT * FROM `urns` WHERE category = 'glass'";
         $select_product = mysqli_query($connection, $query);
@@ -113,7 +110,6 @@
 <hr>
     <div class="box-container">
         <?php
-        include '../../back-end/config.php';
             
         $query = "SELECT * FROM `urns` WHERE category = 'baby'";
         $select_product = mysqli_query($connection, $query);
