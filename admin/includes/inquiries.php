@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>PFS | Inquiries</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,6 +22,7 @@
 
     <!-- Custom styles for this page -->
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="../css/table-style.css" rel="stylesheet">
 
 </head>
 
@@ -80,7 +81,7 @@
         <div class="row">
             <div class="col">
                 <li class="nav-item">
-                    <a class="collapse-item text-white p-2 ml-2" href="includes/user_tables.php">
+                    <a class="collapse-item text-white p-2 ml-2" href="user_tables.php">
                         <i class="fa-regular fa-user" style="margin-right: 7px;"></i>
                         <span>Users</span>
                     </a>
@@ -91,7 +92,7 @@
         <div class="row">
             <div class="col">
                 <li class="nav-item">
-                    <a class="collapse-item text-white p-2 ml-2" href="includes/inquiries.php">
+                    <a class="collapse-item text-white p-2 ml-2" href="inquiries.php">
                         <i class="fa-brands fa-searchengin" style="margin-right: 7px;"></i>
                         <span>Inquiries</span>
                     </a>
@@ -102,7 +103,7 @@
         <div class="row">
             <div class="col">
                 <li class="nav-item">
-                    <a class="collapse-item text-white p-2 ml-2" href="includes/pick_up_form.php">
+                    <a class="collapse-item text-white p-2 ml-2" href="pick_up_form.php">
                         <i class="fa-brands fa-wpforms" style="margin-right: 7px;"></i>
                         <span>Pick Up Form</span>
                     </a>
@@ -113,7 +114,7 @@
         <div class="row">
             <div class="col">
                 <li class="nav-item">
-                    <a class="collapse-item text-white p-2 ml-2" href="includes/on_going_transaction.php">
+                    <a class="collapse-item text-white p-2 ml-2" href="on_going_transaction.php">
                         <i class="fas fa-fw fa-chart-area" style="margin-right: 7px;"></i>
                         <span>On-Going Transaction</span>
                     </a>
@@ -124,7 +125,7 @@
         <div class="row">
             <div class="col">
                 <li class="nav-item">
-                    <a class="collapse-item text-white p-2 ml-2" href="includes/history.php">
+                    <a class="collapse-item text-white p-2 ml-2" href="history.php">
                     <i class="fa-solid fa-clock-rotate-left" style="margin-right: 7px;"></i>
                         <span>History</span>
                     </a>
@@ -135,7 +136,7 @@
         <div class="row">
             <div class="col">
                 <li class="nav-item">
-                    <a class="collapse-item text-white p-2 ml-2" href="includes/planning">
+                    <a class="collapse-item text-white p-2 ml-2" href="planning.php">
                     <i class="fa-solid fa-list-check" style="margin-right: 7px;"></i>
                         <span>Planning</span>
                     </a>
@@ -163,15 +164,15 @@
         </li> -->
 
         <!-- Divider -->
-        <hr class="sidebar-divider">
+        <!-- <hr class="sidebar-divider"> -->
 
         <!-- Heading -->
-        <div class="sidebar-heading">
+        <!-- <div class="sidebar-heading">
             Addons
-        </div>
+        </div> -->
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                 aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-fw fa-folder"></i>
@@ -189,14 +190,14 @@
                     <a class="collapse-item" href="blank.html">Blank Page</a>
                 </div>
             </div>
-        </li>
+        </li> -->
 
         <!-- Nav Item - Charts -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" href="charts.html">
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Charts</span></a>
-        </li>
+        </li> -->
 
         <!-- Nav Item - Tables -->
         <!-- <li class="nav-item">
@@ -205,7 +206,7 @@
                 <span>Tables</span></a>
         </li> -->
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTables"
                 aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-fw fa-folder"></i>
@@ -222,7 +223,7 @@
                     <a class="collapse-item" href="includes/planning">Planning</a>
                 </div>
             </div>
-        </li>
+        </li> -->
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
@@ -447,51 +448,58 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                    <!-- Begin Page Content -->
-            <div class="container-fluid">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
-                <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Inquiries Tables</h1>
-                <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                    For more information about DataTables, please visit the <a target="_blank"
-                        href="https://datatables.net">official DataTables documentation</a>.</p>
+                    <!-- Page Heading -->
+                    <br>
+                    <h1 class="h3 mb-2 text-gray-800">INQUIRIES</h1>
+                    <br>
+                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank"
+                            href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
-                <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Inquiries</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <!-- <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Sample User Table</h6>
+                        </div> -->
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            </div>
-            <!-- /.container-fluid -->
+                </div>
+                <!-- /.container-fluid -->
+
+
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
@@ -551,7 +559,6 @@
     <!-- Page level custom scripts -->
     <script src="../js/demo/datatables-demo.js"></script>
     <script src="https://kit.fontawesome.com/53e9ba7f8c.js" crossorigin="anonymous"></script>
-
 </body>
 
 </html>

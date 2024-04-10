@@ -34,52 +34,58 @@
             </div>
         </section>
         <div class="review-page-container">
-        <h1 class="review-title">OBITUARIES</h1>
+            <h1 class="review-title">OBITUARIES</h1>
+            <br>
             <div class="filter-container">
+                <input type="text" id="searchInput" placeholder="Search name" class="container">
                 <div class="dropdown">
                     <select id="filter-dropdown">
-                        <option value="by-date" disabled selected>By Date:</option>
-                        <option value="this-week">This Week</option>
-                        <option value="past-few-weeks">Past Few Weeks</option>
-                        <option value="past-few-months">Past Few Months</option>
+                        <option value="by-year" disabled selected>By Year:</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
                     </select>
                 </div>
             </div>
        
-                <div class="review-data-1">
-                    <?php
-                        // Connect to your database
-                        include('../database/config.php');
-                        
-                        $sql = "SELECT * FROM obituaries";
-                        $result = mysqli_query($connection, $sql);
-                        
-                        // Output obituary data in HTML
-                        if (mysqli_num_rows($result) > 0) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                // Output obituary data
-                                echo "<div class='review'>";
-                                // Display the image if available
-                                if (!empty($row["obituary_picture"])) {
-                                    $imageData = base64_encode($row["obituary_picture"]);
-                                    echo '<img src="data:image/jpeg;base64,' . $imageData . '" alt="Obituary Picture" />';
-                                } else {
-                                    echo "<p>No picture available</p>";
-                                }
-                                echo "<div class='review-details'>";
-                                echo "<p class='obituary-name'>" . $row["obituary_name"] . "</p>";
-                                $dob = date("F j, Y", strtotime($row["obituary_dob"]));
-                                $dod = date("F j, Y", strtotime($row["obituary_dod"]));
-                                echo "<p class='obituary-date'>" . $dob." - " .$dod. "</p>";
-                                echo "</div>";
-                                echo "</div>";
-                            }
-                        } else {
-                            echo "No obituaries found.";
-                        }
-                    ?>
-                </div>
+        <div class="review-data-1">
+        <?php
+            include('../database/config.php');
+            
+            $sql = "SELECT * FROM obituaries";
+            $result = mysqli_query($connection, $sql);
+
+            $obituariesFound = false;
+
+            if ($result) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $obituariesFound = true;
+                    echo "<div class='review'>";
+                    if (!empty($row["obituary_picture"])) {
+                        $imageData = base64_encode($row["obituary_picture"]);
+                        echo '<img src="data:image/jpeg;base64,' . $imageData . '" alt="Obituary Picture" />';
+                    } else {
+                        echo '<img src="../pictures/reviews-pictures/icon.png" alt="Obituary Picture" class="review-icon">';
+                    }
+                    echo "<div class='review-details'>";
+                    echo "<p class='obituary-name'>" . $row["obituary_name"] . "</p>";
+                    $dob = date("F j, Y", strtotime($row["obituary_dob"]));
+                    $dod = date("F j, Y", strtotime($row["obituary_dod"]));
+                    echo "<p class='obituary-date'>" . $dob." - " .$dod. "</p>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+            }
+            if (!$obituariesFound) {
+                echo "<p>No obituaries found.</p>";
+            }
+        ?>
+    </div>
+        <p id="noResultsMessage" style="display: none;">No obituaries found.</p>
             </div>
+
     
         <!-- <footer>
             <div class="footer-container">
@@ -100,5 +106,52 @@
             </div>
         </footer> -->
     </main>
+
+    <script>
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function() {
+        const searchValue = this.value.toLowerCase();
+        const reviewData = document.querySelectorAll('.review');
+        let anyMatchFound = false;
+        reviewData.forEach(function(review) {
+            const name = review.querySelector('.obituary-name').textContent.toLowerCase();
+            if (name.includes(searchValue)) {
+                review.style.display = 'block';
+                anyMatchFound = true;
+            } else {
+                review.style.display = 'none';
+            }
+        });
+        if (!anyMatchFound) {
+            document.getElementById('noResultsMessage').style.display = 'block';
+        } else {
+            document.getElementById('noResultsMessage').style.display = 'none';
+        }
+    });
+
+    const filterDropdown = document.getElementById('filter-dropdown');
+    filterDropdown.addEventListener('change', function() {
+        const selectedYear = parseInt(this.value);
+        const reviewData = document.querySelectorAll('.obituary-date');
+        let anyObituariesFoundForYear = false;
+        reviewData.forEach(function(review) {
+            const dateRange = review.textContent.split('-').map(item => item.trim());
+            const dob = new Date(dateRange[0]);
+            const year = dob.getFullYear();
+
+            if (year === selectedYear) {
+                review.parentNode.parentNode.style.display = 'block';
+                anyObituariesFoundForYear = true;
+            } else {
+                review.parentNode.parentNode.style.display = 'none';
+            }
+        });
+        if (!anyObituariesFoundForYear) {
+            document.getElementById('noResultsMessage').style.display = 'block';
+        } else {
+            document.getElementById('noResultsMessage').style.display = 'none';
+        }
+    });
+</script>
 </body>
 </html>

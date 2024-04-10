@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2024 at 12:30 PM
+-- Generation Time: Apr 10, 2024 at 07:12 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -101,6 +101,17 @@ CREATE TABLE `login` (
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`user_id`, `fname`, `lname`, `email`, `username`, `password`) VALUES
+(1, 'Angeline', 'Mercado', 'angelinemercado806@gmail.com', 'ange123', '$2y$10$YBP61Z2VlBE8F/6eW2V0/.tmOGGzuemPIi.MSh03.6Mnxu5HjSA7u'),
+(2, 'Perseus', 'Daracan', 'perseusdaracan@gmail.com', 'perseus123', '$2y$10$gScu1Z7n9m0c/ihKixpUhuoHeu8YbYqzMSYWhv6KAYkCKFZlBucwy'),
+(3, 'Zxared Jay', 'Mallillin', 'zxared@gmail.com', 'zxared123', '$2y$10$zKDrFYpij8xnpW9GuVd/nug2o4wB5w5q/wjoULU8v6WlRSjehSpde'),
+(4, 'Czarina Mae', 'Baguio', 'czarina@gmail.com', 'czarina123', '$2y$10$90xZGFDbWd51p13FrEzo2O0rVquwtgk2LJIHxKupWIioyVt4JyY9K'),
+(5, 'Mark Justin', 'Abawag', 'mark@gmail.com', 'mark123', '$2y$10$qaJlJOZu5lW.jGWta3bGzuA6xTth5VIMdheaOnk3vv81ejqBTCjc.');
 
 -- --------------------------------------------------------
 
@@ -261,8 +272,19 @@ CREATE TABLE `planninginfo` (
   `beneficiaryGender` varchar(255) NOT NULL,
   `beneficiaryBirthdate` date NOT NULL,
   `beneficiaryAddress` varchar(255) NOT NULL,
+  `service` varchar(255) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `planninginfo`
+--
+
+INSERT INTO `planninginfo` (`id`, `username`, `benefactorFirstName`, `benefactorLastName`, `benefactorContact`, `benefactorAddress`, `benefactorEmail`, `planFor`, `beneficiaryPicture`, `beneficiaryFirstName`, `beneficiaryLastName`, `beneficiaryGender`, `beneficiaryBirthdate`, `beneficiaryAddress`, `service`, `timestamp`) VALUES
+(1, '', 'Angeline', 'Mercado', 2147483647, 'Caloocan City', 'angelinemercado@gmail.com', 'Myself', 'icon.png', 'Angeline', 'Mercado', 'Female', '2001-08-06', 'Caloocan City', 'Burial Service', '2024-04-10 17:05:00'),
+(2, '', 'Angeline', 'Mercado', 2147483647, 'Caloocan City', 'angelinemercado@gmail.com', 'Child', 'icon.png', 'Angeline', 'Mercado', 'Female', '2001-08-06', 'Caloocan City', 'Traditional Cremation Service', '2024-04-10 17:07:28'),
+(3, '', 'Angeline', 'Mercado', 2147483647, 'Caloocan City', 'angelinemercado@gmail.com', 'Myself', 'icon.png', 'Angeline', 'Mercado', 'Female', '2001-08-06', 'Caloocan City', 'Memorial Gathering After Cremation Service', '2024-04-10 17:08:06'),
+(4, '', 'Angeline', 'Mercado', 2147483647, 'Caloocan City', 'angelinemercado@gmail.com', 'Myself', 'icon.png', 'Angeline', 'Mercado', 'Female', '2001-08-06', 'Caloocan City', 'Direct Cremation Service', '2024-04-10 17:08:32');
 
 -- --------------------------------------------------------
 
@@ -446,7 +468,7 @@ ALTER TABLE `facilities`
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `obituaries`
@@ -488,7 +510,7 @@ ALTER TABLE `pl-traditionalcremation`
 -- AUTO_INCREMENT for table `planninginfo`
 --
 ALTER TABLE `planninginfo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `review`
