@@ -1,8 +1,9 @@
+<script src="https://kit.fontawesome.com/53e9ba7f8c.js" crossorigin="anonymous"></script>
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #144067;">
 
 <!-- Sidebar - Brand -->
-<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="../admin/index.php">
     <div class="sidebar-brand-icon rotate-n-15">
         <i class="fas fa-laugh-wink"></i>
     </div>
@@ -23,12 +24,12 @@
 <hr class="sidebar-divider">
 
 <!-- Heading -->
-<div class="sidebar-heading">
+<div class="sidebar-heading pb-3">
     Interface
 </div>
 
 <!-- Nav Item - Pages Collapse Menu -->
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
         aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-cog"></i>
@@ -41,10 +42,78 @@
             <a class="collapse-item" href="cards.html">Cards</a>
         </div>
     </div>
-</li>
+</li> -->
+
+<!-- HERE IS THE TABLE FROM DATABASE -->
+
+<div class="row">
+    <div class="col">
+        <li class="nav-item">
+            <a class="collapse-item text-white p-2 ml-2" href="includes/user_tables.php">
+                <i class="fa-regular fa-user" style="margin-right: 7px;"></i>
+                <span>Users</span>
+            </a>
+        </li>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <li class="nav-item">
+            <a class="collapse-item text-white p-2 ml-2" href="includes/inquiries.php">
+                <i class="fa-brands fa-searchengin" style="margin-right: 7px;"></i>
+                <span>Inquiries</span>
+            </a>
+        </li>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <li class="nav-item">
+            <a class="collapse-item text-white p-2 ml-2" href="includes/pick_up_form.php">
+                <i class="fa-brands fa-wpforms" style="margin-right: 7px;"></i>
+                <span>Pick Up Form</span>
+            </a>
+        </li>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <li class="nav-item">
+            <a class="collapse-item text-white p-2 ml-2" href="includes/on_going_transaction.php">
+                <i class="fas fa-fw fa-chart-area" style="margin-right: 7px;"></i>
+                <span>On-Going Transaction</span>
+            </a>
+        </li>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <li class="nav-item">
+            <a class="collapse-item text-white p-2 ml-2" href="includes/history.php">
+            <i class="fa-solid fa-clock-rotate-left" style="margin-right: 7px;"></i>
+                <span>History</span>
+            </a>
+        </li>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <li class="nav-item">
+            <a class="collapse-item text-white p-2 ml-2" href="includes/planning.php">
+            <i class="fa-solid fa-list-check" style="margin-right: 7px;"></i>
+                <span>Planning</span>
+            </a>
+        </li>
+    </div>
+</div>
 
 <!-- Nav Item - Utilities Collapse Menu -->
-<li class="nav-item">
+<!-- <li class="nav-item">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
         aria-expanded="true" aria-controls="collapseUtilities">
         <i class="fas fa-fw fa-wrench"></i>
@@ -60,7 +129,7 @@
             <a class="collapse-item" href="utilities-other.html">Other</a>
         </div>
     </div>
-</li>
+</li> -->
 
 <!-- Divider -->
 <hr class="sidebar-divider">
