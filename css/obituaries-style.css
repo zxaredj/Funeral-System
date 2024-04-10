@@ -145,8 +145,25 @@
 
 .filter-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
     margin: 20px 50px;
+}
+
+
+.container {
+    margin-right: 15px;
+    width: 300px;
+    appearance: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+    outline: none;
+    height: 45px;
+
+
 }
 
 .dropdown {
@@ -157,17 +174,18 @@
     appearance: none;
     padding: 10px 20px;
     font-size: 16px;
-    border: 2px solid #ccc;
+    border: 2px solid black;
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
     outline: none;
+    height: 45px;
 }
 
 .dropdown select::after {
     content: '\25BC';
     font-size: 12px;
-    color: #555;
+    color: #144067;
     position: absolute;
     top: 50%;
     right: 10px;
@@ -219,6 +237,14 @@
 
 .review-details {
     flex-grow: 1;
+}
+
+#noResultsMessage {
+    display: none;
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 80px;
 }
 
 @media only screen and (max-width: 768px) {
