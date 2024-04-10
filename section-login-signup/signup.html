@@ -43,26 +43,26 @@
             <form method="post" action="signin-function.php">
               <div class="form-group" style="width: 45%;">
                 <a style="color:white; margin-right: 500px;">Firsname</a>
-                <input type="text" class="form-control" id="email1" name="fname" placeholder="Juan">
+                <input type="text" class="form-control" id="email1" name="fname" placeholder="Juan" pattern="[a-zA-Z.]+(?:\s[a-zA-Z.]+)*" required title="Input letters only.">
               </div>
               <div class="form-group" style="width: 44%;
               position: absolute;
               top: 124px;
               left: 189px;">
                 <a style="color:white; margin-right: 500px;">Lastname</a>
-                <input type="text" class="form-control" id="email1" name="lname" placeholder="Dela Cruz">
+                <input type="text" class="form-control" id="email1" name="lname" placeholder="Dela Cruz" pattern="[a-zA-Z.]+(?:\s[a-zA-Z.]+)*" required title="Input letters only.">
               </div>
               <div class="form-group">
                 <a style="color:white; margin-right: 500px;">Email</a>
-                <input type="email" class="form-control" id="email1" name="email" placeholder="perpetualfuneralservices@gmail.com">
+                <input type="email" class="form-control" id="email1" name="email" placeholder="perpetualfuneralservices@gmail.com" required>
               </div>
               <div class="form-group">
                 <a style="color:white; margin-right: 500px;">Username</a>
-                <input type="text" class="form-control" id="email1" name="username" placeholder="perpetual123">
+                <input type="text" class="form-control" id="email1" name="username" placeholder="perpetual123" required>
               </div>
               <div class="form-group">
                 <a style="color:white; margin-right: 500px;">Password</a>
-                <input type="password" class="form-control" id="password1" name="password" placeholder="***********">
+                <input type="password" class="form-control" id="password1" name="password" placeholder="***********" required>
               </div>
               <button type="submit" class="btn btn-info btn-block btn-round">Sign up</button>
             </form>
