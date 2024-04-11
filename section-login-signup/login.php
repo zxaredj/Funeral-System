@@ -4,7 +4,6 @@ if (isset($_GET['error'])) {
     if ($_GET['error'] == "invalid_credentials") {
         $errorMsg = "Invalid username or password.";
     }
-    // Handle other errors as needed
 }
 ?>
 
@@ -66,7 +65,7 @@ if (isset($_GET['error'])) {
           </form>
           
           <br>
-          <div class="d-flex justify-content-center social-buttons">
+          <!-- <div class="d-flex justify-content-center social-buttons">
             <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Google">
               <i class="fab fa-google"></i>
             </button>
@@ -75,11 +74,11 @@ if (isset($_GET['error'])) {
             </button>
             
         </di>
-        </div>
+        </div> -->
       </div>
     </div>
       <div class="modal-footer d-flex justify-content-center">
-        <div style="color:white" class="signup-section">Don't have an account yet? <a href="signup.html" class="text-info"> Sign Up</a></div>
+        <div style="color:white" class="signup-section">Don't have an account yet? <a href="signup.php" class="text-info"> Sign Up</a></div>
       </div>
   </div>
 </div>
