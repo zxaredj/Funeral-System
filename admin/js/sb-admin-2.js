@@ -54,3 +54,13 @@
   });
 
 })(jQuery); // End of use strict
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Get all the spans within collapse-item links
+  var spans = document.querySelectorAll('.collapse-item span');
+
+  // Loop through each span and hide it
+  spans.forEach(function(span) {
+      span.style.display = 'none';
+  });
+});
