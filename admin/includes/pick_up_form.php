@@ -1,8 +1,18 @@
+<?php
+   include '../../database/config.php';
+
+   if(isset($_GET['remove'])){
+      $remove_id = $_GET['remove'];
+      mysqli_query($connection, "DELETE FROM `pickup` WHERE id = '$remove_id'");
+      header('location:pick_up_form.php');
+      exit();
+   };
+   ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -453,7 +463,7 @@
 
                     <!-- Page Heading -->
                     <br>
-                    <h1 class="h3 mb-2 text-gray-800">PICK-UP REQUESTS</h1>
+                    <h1 class="table-title">PICK-UP REQUESTS</h1>
                     <br>
                     <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
@@ -469,27 +479,44 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
+                                            <th>Deceased Name</th>
+                                            <th>Contact Person Name</th>
+                                            <th>Pick-Up Date and Time</th>
+                                            <th>Pick-Up Location</th>
+                                            <th>Action</th>
+                                            
                                         </tr>
                                     </thead>
-                                    <tfoot>
+                                    <!-- <tfoot>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
+                                            <th>Username</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
                                         </tr>
-                                    </tfoot>
+                                    </tfoot> -->
                                     <tbody>
+
+                                    <?php 
+                                    include('../../database/config.php');
+                                    $select = mysqli_query($connection, "SELECT * FROM `pickup`");
+                                    
+
+                                    if(mysqli_num_rows($select) > 0){
+                                    while($fetch = mysqli_fetch_assoc($select)){
+                                    ?>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
+                                            <td><?php echo $fetch['deceasedFirstName'] . " " . $fetch['deceasedFirstName'];?></td>
+                                            <td><?php echo $fetch['contactFirstName'] . " " . $fetch['contactLastName']; ?></td>
+                                            <td><?php echo date('F j, Y g:i a', strtotime($fetch['date'] . " " . $fetch['time'])); ?></td>
+                                            <td><?php echo $fetch['location']; ?></td>
+                                            <td><button class="delete-btn" id="full-details">FULL DETAILS</button> <button class="delete-btn" id="activate"><a href="pick_up_form.php?remove=<?php echo $fetch['id']; ?>" onclick="return confirm('Are you sure you want to delete this?')">DELETE</a></button></td>
+ 
                                         </tr>
+                                        <?php
+                                    };
+                                };
+                                ?>
                                     </tbody>
                                 </table>
                             </div>
