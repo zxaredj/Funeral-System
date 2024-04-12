@@ -8,12 +8,15 @@ if (isset($_POST['submit-btn'])) {
 
         if (!empty($img_name)) {
             $new_name = uniqid("IMG-", true) . '.' . pathinfo($img_name, PATHINFO_EXTENSION);
-            $img_upload_path = '../pictures/deceased-pictures/' . $new_name;
+            $img_upload_path = '../pictures/documents-pictures/' . $new_name;
             move_uploaded_file($tmp_name, $img_upload_path);
         }
 
         return $img_upload_path;
     }
+
+    $benefactorID = handleFileUpload($_FILES['benefactor-ID ']);
+    $beneficiaryID = handleFileUpload($_FILES['beneficiary-ID']);
 
     $benefactorfirstname = mysqli_real_escape_string($connection, $_POST["benefactor-firstname"]);
     $benefactorlastname = mysqli_real_escape_string($connection, $_POST["benefactor-lastname"]);
@@ -30,13 +33,13 @@ if (isset($_POST['submit-btn'])) {
     $beneficiaryaddress = mysqli_real_escape_string($connection, $_POST["beneficiary-address"]);
 
 
-    $query = "INSERT INTO planninginfo (benefactorFirstName, benefactorLastName, benefactorContact, benefactorAddress, 
-    benefactorEmail, planFor, beneficiaryPicture, beneficiaryFirstName, beneficiaryLastName, beneficiaryGender, beneficiaryBirthdate, beneficiaryAddress) VALUES ('$benefactorfirstname', '$benefactorlastname', 
-    '$benefactornumber', '$benefactoraddress', '$benefactoremail', '$planfor', '$beneficiaryPicture', '$beneficiaryfirstname', '$beneficiarylastname', 
+    $query = "INSERT INTO planninginfo (benefactorID, benefactorFirstName, benefactorLastName, benefactorContact, benefactorAddress, 
+    benefactorEmail, planFor, beneficiaryID, beneficiaryFirstName, beneficiaryLastName, beneficiaryGender, beneficiaryBirthdate, beneficiaryAddress) VALUES ('$benefactorID','$benefactorfirstname', '$benefactorlastname', 
+    '$benefactornumber', '$benefactoraddress', '$benefactoremail', '$planfor', '$beneficiaryID', '$beneficiaryfirstname', '$beneficiarylastname', 
     '$beneficiarygender', '$beneficiarybirthdate', '$beneficiaryaddress')";
 
     if (mysqli_query($connection, $query)) {
-        header("Location: planning-modal.html");
+        header("Location: planning-identity-modal.html");
         exit();
         
     } else {
@@ -83,8 +86,12 @@ if (isset($_POST['submit-btn'])) {
     <div class="box-1">
     <form id="multi-step-form" action="" method="POST" enctype="multipart/form-data">
             <div class="form-1 active" id="form-1">
-                <h2 class="info-header">PERSONAL DETAILS</h2>
+                <h2 class="info-header">PERSONAL DETAILS</h2><br>
                 <h3 class="info-title">Benefactor's Personal Information</h3>
+                <div class="inputs">
+                    <p class="docu-name">Please upload any valid ID:</p>
+                    <input type="file" id="benefactor-ID" name="benefactor-ID" required>
+                </div>
                 <div class="inputs">
                     <label for="benefactor-firstname">First Name</label>
                     <input type="text" id="benefactor-firstname" name="benefactor-firstname" placeholder="Juan" required>
@@ -124,13 +131,12 @@ if (isset($_POST['submit-btn'])) {
                 </div>
             </div>
             <div class="form-2" id="form-2" style="display: none;">
-                <h2 class="docu-text">Please upload the beneficiary's picture:</h2>
-                <div class="inputs">
-                    <p class="docu-name">Beneficiary's Picture</p>
-                    <input type="file" id="beneficiary-pic" name="beneficiary-pic" required>
-                </div>
                 <h2 class="info-title">Beneficiary's Personal Information</h2>
                 <div class="inputs">
+                    <div class="inputs">
+                        <p class="docu-name">Please upload any valid ID:</p>
+                        <input type="file" id="beneficiary-ID" name="beneficiary-ID" required>
+                    </div>
                     <label for="beneficiary-firstname">First Name</label>
                     <input type="text" id="beneficiary-firstname" name="beneficiary-firstname" placeholder="Juan" required>
                 </div>

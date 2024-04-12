@@ -1,0 +1,55 @@
+* {
+    font-family: "Inika", serif;
+}
+
+.service-title {
+    margin: 35px 0px;
+    color: #144067;
+    font-size: 45px;
+    text-align: center;
+}
+
+.container-btn {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.btn-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.service-btn {
+    flex: 1;
+    margin: 10px;
+    background-color: #144067;
+    width: 120px;
+    height: 80px;
+    border-radius: 20px;
+}   
+
+.service-btn:hover{
+    opacity: 0.8;
+}
+
+.service-btn:active{
+    transform: translateY(4px);    
+}
+
+.btn-link {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 600px) {
+    .service-title {
+        font-size: 30px;
+    }
+    .service-btn {
+        width: 120px;
+        height: 60px;
+    }
+}

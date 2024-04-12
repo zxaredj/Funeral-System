@@ -483,6 +483,8 @@
     margin-top:8rem;
     font-size: 4rem;
 }
+
+
 .footer{
     width: 100%;
     text-align: center;
@@ -508,3 +510,133 @@
     transform: translate(-50%,-5%);
 }
 
+
+.main-caskets {
+    margin: 120px;
+    padding: 20px;
+}
+
+.service-title {
+    text-align: center;
+    font-size: 45px;
+    color: #144067;
+}
+
+.service-intro {
+    max-width: 900px;
+    margin: 20px auto 60px auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+.text-header{
+    text-align: center;
+    position: relative;
+    top: 20px;
+    color:#144067;
+}
+
+.container-burial{
+    background-color: #EFEFEF;
+}
+
+.burial-package-container{
+    text-align: center;
+}
+
+.burial-packages{
+    display:grid;
+    grid-template-columns: repeat(2, 550px);
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
+}
+
+.burial-grid1{
+    background-color: rgb(230, 229, 194);
+    padding: 7%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.burial-box{
+    border: #144067 8px solid;
+    padding: 5%;
+}
+
+.burial-border{
+    border: #144067 1px solid;
+    padding: 50px 50px;
+    text-align: center;
+}
+
+.pigeon{
+    width: 2rem;
+}
+
+.title{
+    font-size: 7px;
+    position: relative;
+    top: -7px;
+}
+
+.package{
+    font-size: 35px;
+    color:#144067;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.price{
+    font-size: 30px;
+    color:#144067;
+}
+
+.inclusion1{
+    font-size: 14px;
+    position: relative;
+    top:10px;
+    color:#144067;
+}
+
+.inclusion2{
+    font-size: 14px;
+    position: relative;
+    top:20px;
+    color:#144067;
+}
+
+.select-btn{
+    background-color: #144067;
+    color: white;
+    font-weight: bold;
+    margin: 10px;
+    height: 40px;
+    width: 100px;
+    padding: 10px;
+    border-radius: 30px;
+    position: relative;
+    top:-20px;
+}
+
+.container-traditional{
+    background-color: #EFEFEF;
+    margin-top: 40px;
+}
+
+.container-gathering{
+    background-color: #EFEFEF;
+    margin-top: 40px;
+}
+
+.container-direct{
+    background-color: #EFEFEF;
+    margin-top: 40px;
+}
+
+@media (max-width: 1400px) {
+    .burial-packages {
+        grid-template-columns: repeat(1, 500px);
+        grid-template-rows: repeat(1, 400px);
+        margin-top: 25%;
+    }
+}
