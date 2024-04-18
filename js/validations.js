@@ -20,30 +20,7 @@
     return true;
 }
 
-function validateContactInfo() {
-    var contactfirstName = document.getElementById("contact-firstname").value;
-    var contactlastName = document.getElementById("contact-lastname").value;
-    var contactNumber = document.getElementById("number").value;
 
-    var textValidation = /^[a-zA-Z.]+(?:\s[a-zA-Z.]+)*$/;
-    var numberValidation = /^[0-9]{11}$/;
-
-    if(!textValidation.test(contactfirstName)) {
-        alert("Invalid first name. Please input proper first name.");
-        return false;
-    }
-
-    if(!textValidation.test(contactlastName)) {
-        alert("Invalid last name. Please input proper last name.");
-        return false;
-    }
-
-    if(!numberValidation.test(contactNumber)) {
-        alert("Invalid contact number");
-        return false;
-    }
-    return true;
-}
 
 // date picker - disable past dates for pick-up form
   var today = new Date();
@@ -103,7 +80,7 @@ function validateContactInfo() {
     }
     
     if (!numberValidation.test(benefactorNumber)) {
-        alert("Invalid contact number");
+        alert("Invalid contact number.");
         return false;
     }
 
@@ -130,6 +107,31 @@ function validateBeneficiaryInfo() {
 
     if(!textValidation.test(beneficiarylastName)) {
         alert("Invalid last name. Please input proper last name.");
+        return false;
+    }
+    return true;
+}
+
+function validateContactInfo() {
+    var contactfirstName = document.getElementById("contact-firstname").value;
+    var contactlastName = document.getElementById("contact-lastname").value;
+    var contactNumber = document.getElementById("contact-number").value;
+
+    var textValidation = /^[a-zA-Z.]+(?:\s[a-zA-Z.]+)*$/;
+    var numberValidation = /^[0-9]{11}$/;
+
+    if(!textValidation.test(contactfirstName)) {
+        alert("Invalid first name. Please input proper first name.");
+        return false;
+    }
+
+    if(!textValidation.test(contactlastName)) {
+        alert("Invalid last name. Please input proper last name.");
+        return false;
+    }
+
+    if(!numberValidation.test(contactNumber)) {
+        alert("Invalid contact number.");
         return false;
     }
     return true;
