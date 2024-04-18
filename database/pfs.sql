@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2024 at 07:12 PM
+-- Generation Time: Apr 18, 2024 at 05:33 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -50,7 +50,7 @@ INSERT INTO `caskets` (`id`, `category`, `name`, `price`, `picture`) VALUES
 (8, 'metal', 'Non-gasketed Blue Casket', 160000, '20 gauge non-gasketed blue casket.png'),
 (9, 'metal', 'Non-gasketed White Gold Casket', 150000, '20 gauge non-gasketed white gold casket.png'),
 (10, 'metal', 'Non-gasketed White Pink Casket', 170000, '20 gauge non-gasketed white gold casket.png'),
-(11, 'metal', 'Non-gasketed light pink casket', 175000, '20 gauge non-gasketed light pink casket.png'),
+(11, 'metal', 'Non-gasketed Light Pink Casket', 175000, '20 gauge non-gasketed light pink casket.png'),
 (12, 'metal', 'Non-gasketed Copper Casket', 180000, '20 gauge non-gasketed copper casket.png'),
 (13, 'metal', 'Non-gasketed Rose Pink Casket', 175000, '20 gauge non-gasketed rose pink casket.png'),
 (14, 'metal', 'Non-gasketed Dark Green Casket', 180000, '20 gauge non-gasketed dark green casket.png'),
@@ -168,88 +168,22 @@ CREATE TABLE `pickup` (
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `pl-burial`
+-- Dumping data for table `pickup`
 --
 
-CREATE TABLE `pl-burial` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `casket` varchar(255) NOT NULL,
-  `funeralArrangement` varchar(255) NOT NULL,
-  `facility` varchar(255) NOT NULL,
-  `days` int(11) NOT NULL,
-  `cemetery` varchar(255) NOT NULL,
-  `contactFirstName` varchar(255) NOT NULL,
-  `contactLastName` varchar(255) NOT NULL,
-  `contactNumber` int(11) NOT NULL,
-  `contactEmail` varchar(255) NOT NULL,
-  `contactRelationship` varchar(255) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pl-directcremation`
---
-
-CREATE TABLE `pl-directcremation` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `urn` varchar(255) NOT NULL,
-  `contactFirstName` varchar(255) NOT NULL,
-  `contactLastName` varchar(255) NOT NULL,
-  `contactNumber` int(11) NOT NULL,
-  `contactEmail` varchar(255) NOT NULL,
-  `contactRelationship` varchar(255) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pl-gatheringcremation`
---
-
-CREATE TABLE `pl-gatheringcremation` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `urn` varchar(255) NOT NULL,
-  `funeralArrangement` varchar(255) NOT NULL,
-  `facility` varchar(255) NOT NULL,
-  `days` int(11) NOT NULL,
-  `contactFirstName` varchar(255) NOT NULL,
-  `contactLastName` varchar(255) NOT NULL,
-  `contactNumber` int(11) NOT NULL,
-  `contactEmail` varchar(255) NOT NULL,
-  `contactRelationship` varchar(255) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pl-traditionalcremation`
---
-
-CREATE TABLE `pl-traditionalcremation` (
-  `id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `casket` varchar(255) NOT NULL,
-  `urn` varchar(255) NOT NULL,
-  `funeralArrangement` varchar(255) NOT NULL,
-  `facility` varchar(255) NOT NULL,
-  `days` int(11) NOT NULL,
-  `contactFirstName` varchar(255) NOT NULL,
-  `contactLastName` varchar(255) NOT NULL,
-  `contactNumber` int(11) NOT NULL,
-  `contactEmail` varchar(255) NOT NULL,
-  `contactRelationship` varchar(255) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `pickup` (`id`, `username`, `death`, `releasepaper`, `deceasedFirstName`, `deceasedLastName`, `location`, `date`, `time`, `contactFirstName`, `contactLastName`, `number`, `email`, `relationship`, `timestamp`) VALUES
+(2, 'user456', '2024-04-09', 'no', 'Alice', 'Smith', 'County Morgue', '2024-04-11', '11:30:00', 'Bob', 'Smith', 987, 'bob@example.com', 'Sibling', '2024-04-11 00:15:00'),
+(3, 'user789', '2024-04-08', 'yes', 'Emily', 'Johnson', 'Home', '2024-04-12', '09:45:00', 'David', 'Johnson', 555, 'david@example.com', 'Child', '2024-04-11 00:30:00'),
+(4, 'user123', '2024-04-07', 'yes', 'Michael', 'Brown', 'City Hospital', '2024-04-11', '13:45:00', 'Sarah', 'Brown', 555, 'sarah@example.com', 'Child', '2024-04-11 01:00:00'),
+(5, 'user456', '2024-04-06', 'yes', 'Jessica', 'Miller', 'County Morgue', '2024-04-12', '10:30:00', 'David', 'Miller', 444, 'david@example.com', 'Parent', '2024-04-11 01:15:00'),
+(6, 'user789', '2024-04-05', 'no', 'Sophia', 'Garcia', 'Home', '2024-04-13', '11:15:00', 'Daniel', 'Garcia', 111, 'daniel@example.com', 'Sibling', '2024-04-11 01:30:00'),
+(7, 'user123', '2024-04-04', 'yes', 'Ethan', 'Martinez', 'City Hospital', '2024-04-14', '14:00:00', 'Olivia', 'Martinez', 777, 'olivia@example.com', 'Spouse', '2024-04-11 01:45:00'),
+(8, 'user456', '2024-04-03', 'no', 'Ava', 'Lopez', 'County Morgue', '2024-04-15', '15:30:00', 'James', 'Lopez', 666, 'james@example.com', 'Child', '2024-04-11 02:00:00'),
+(9, 'user789', '2024-04-02', 'yes', 'Alexander', 'Hernandez', 'Home', '2024-04-16', '16:45:00', 'Sophia', 'Hernandez', 333, 'sophia@example.com', 'Parent', '2024-04-11 02:15:00'),
+(11, 'user456', '2024-03-31', 'no', 'Charlotte', 'Perez', 'County Morgue', '2024-04-18', '18:15:00', 'Isabella', 'Perez', 222, 'isabella@example.com', 'Spouse', '2024-04-11 02:45:00'),
+(12, 'user789', '2024-03-30', 'yes', 'Liam', 'Sanchez', 'Home', '2024-04-19', '19:30:00', 'Benjamin', 'Sanchez', 888, 'benjamin@example.com', 'Child', '2024-04-11 03:00:00'),
+(13, 'user123', '2024-03-29', 'yes', 'Amelia', 'Taylor', 'City Hospital', '2024-04-20', '20:45:00', 'Charlotte', 'Taylor', 111, 'charlotte@example.com', 'Parent', '2024-04-11 03:15:00');
 
 -- --------------------------------------------------------
 
@@ -260,13 +194,14 @@ CREATE TABLE `pl-traditionalcremation` (
 CREATE TABLE `planninginfo` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
+  `benefactorID` varchar(255) NOT NULL,
   `benefactorFirstName` varchar(255) NOT NULL,
   `benefactorLastName` varchar(255) NOT NULL,
   `benefactorContact` int(11) NOT NULL,
   `benefactorAddress` varchar(255) NOT NULL,
   `benefactorEmail` varchar(255) NOT NULL,
   `planFor` varchar(255) NOT NULL,
-  `beneficiaryPicture` varchar(255) NOT NULL,
+  `beneficiaryID` varchar(255) NOT NULL,
   `beneficiaryFirstName` varchar(255) NOT NULL,
   `beneficiaryLastName` varchar(255) NOT NULL,
   `beneficiaryGender` varchar(255) NOT NULL,
@@ -280,11 +215,182 @@ CREATE TABLE `planninginfo` (
 -- Dumping data for table `planninginfo`
 --
 
-INSERT INTO `planninginfo` (`id`, `username`, `benefactorFirstName`, `benefactorLastName`, `benefactorContact`, `benefactorAddress`, `benefactorEmail`, `planFor`, `beneficiaryPicture`, `beneficiaryFirstName`, `beneficiaryLastName`, `beneficiaryGender`, `beneficiaryBirthdate`, `beneficiaryAddress`, `service`, `timestamp`) VALUES
-(1, '', 'Angeline', 'Mercado', 2147483647, 'Caloocan City', 'angelinemercado@gmail.com', 'Myself', 'icon.png', 'Angeline', 'Mercado', 'Female', '2001-08-06', 'Caloocan City', 'Burial Service', '2024-04-10 17:05:00'),
-(2, '', 'Angeline', 'Mercado', 2147483647, 'Caloocan City', 'angelinemercado@gmail.com', 'Child', 'icon.png', 'Angeline', 'Mercado', 'Female', '2001-08-06', 'Caloocan City', 'Traditional Cremation Service', '2024-04-10 17:07:28'),
-(3, '', 'Angeline', 'Mercado', 2147483647, 'Caloocan City', 'angelinemercado@gmail.com', 'Myself', 'icon.png', 'Angeline', 'Mercado', 'Female', '2001-08-06', 'Caloocan City', 'Memorial Gathering After Cremation Service', '2024-04-10 17:08:06'),
-(4, '', 'Angeline', 'Mercado', 2147483647, 'Caloocan City', 'angelinemercado@gmail.com', 'Myself', 'icon.png', 'Angeline', 'Mercado', 'Female', '2001-08-06', 'Caloocan City', 'Direct Cremation Service', '2024-04-10 17:08:32');
+INSERT INTO `planninginfo` (`id`, `username`, `benefactorID`, `benefactorFirstName`, `benefactorLastName`, `benefactorContact`, `benefactorAddress`, `benefactorEmail`, `planFor`, `beneficiaryID`, `beneficiaryFirstName`, `beneficiaryLastName`, `beneficiaryGender`, `beneficiaryBirthdate`, `beneficiaryAddress`, `service`, `timestamp`) VALUES
+(1, '', '', 'Angeline', 'Mercado', 2147483647, 'Caloocan City', 'angelinemercado@gmail.com', 'Myself', 'icon.png', 'Angeline', 'Mercado', 'Female', '2001-08-06', 'Caloocan City', '', '2024-04-10 17:05:00'),
+(2, '', '', 'Angeline', 'Mercado', 2147483647, 'Caloocan City', 'angelinemercado@gmail.com', 'Child', 'icon.png', 'Angeline', 'Mercado', 'Female', '2001-08-06', 'Caloocan City', '', '2024-04-10 17:07:28'),
+(3, '', '', 'Angeline', 'Mercado', 2147483647, 'Caloocan City', 'angelinemercado@gmail.com', 'Myself', 'icon.png', 'Angeline', 'Mercado', 'Female', '2001-08-06', 'Caloocan City', '', '2024-04-10 17:08:06'),
+(4, '', '', 'Angeline', 'Mercado', 2147483647, 'Caloocan City', 'angelinemercado@gmail.com', 'Myself', 'icon.png', 'Angeline', 'Mercado', 'Female', '2001-08-06', 'Caloocan City', '', '2024-04-10 17:08:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pl_burial`
+--
+
+CREATE TABLE `pl_burial` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `benefactorID` varchar(255) NOT NULL,
+  `benefactorFirstName` varchar(255) NOT NULL,
+  `benefactorLastName` varchar(255) NOT NULL,
+  `benefactorContact` int(11) NOT NULL,
+  `benefactorAddress` varchar(255) NOT NULL,
+  `benefactorEmail` varchar(255) NOT NULL,
+  `planFor` varchar(255) NOT NULL,
+  `beneficiaryID` varchar(255) NOT NULL,
+  `beneficiaryFirstName` varchar(255) NOT NULL,
+  `beneficiaryLastName` varchar(255) NOT NULL,
+  `beneficiaryGender` varchar(255) NOT NULL,
+  `beneficiaryBirthdate` date NOT NULL,
+  `beneficiaryAddress` varchar(255) NOT NULL,
+  `service` varchar(255) NOT NULL,
+  `package` varchar(255) NOT NULL,
+  `casket` varchar(255) NOT NULL,
+  `facilityType` varchar(255) NOT NULL,
+  `facility` varchar(255) NOT NULL,
+  `days` int(11) NOT NULL,
+  `cemetery` varchar(255) NOT NULL,
+  `contactFirstName` varchar(255) NOT NULL,
+  `contactLastName` varchar(255) NOT NULL,
+  `contactNumber` int(11) NOT NULL,
+  `contactEmail` varchar(255) NOT NULL,
+  `contactRelationship` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pl_burial`
+--
+
+INSERT INTO `pl_burial` (`id`, `username`, `benefactorID`, `benefactorFirstName`, `benefactorLastName`, `benefactorContact`, `benefactorAddress`, `benefactorEmail`, `planFor`, `beneficiaryID`, `beneficiaryFirstName`, `beneficiaryLastName`, `beneficiaryGender`, `beneficiaryBirthdate`, `beneficiaryAddress`, `service`, `package`, `casket`, `facilityType`, `facility`, `days`, `cemetery`, `contactFirstName`, `contactLastName`, `contactNumber`, `contactEmail`, `contactRelationship`, `timestamp`) VALUES
+(18, '', '../pictures/documents-pictures/IMG-66213a1dde4a56.24679129.png', 'dasdsa', 'fds', 2147483647, 'zcfdsfds2112', 'das@gmail.com', 'sibling', '../pictures/documents-pictures/IMG-66213a1dde8b36.73880161.png', 'DSAD', 'EQWE', 'male', '2024-04-08', 'SA21', 'Burial Service', 'Burial Package 2', 'Non-gasketed Light Blue Casket', 'Funeral Service at Funeral Home', 'Non-Air-Conditioned Facility 1', 1, 'dsadada', 'dasdasd', 'dasdas', 2147483647, 'angelinemercado806@gmail.com', 'sibling', '2024-04-18 15:19:57');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pl_directcremation`
+--
+
+CREATE TABLE `pl_directcremation` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `benefactorID` varchar(255) NOT NULL,
+  `benefactorFirstName` varchar(255) NOT NULL,
+  `benefactorLastName` varchar(255) NOT NULL,
+  `benefactorContact` int(11) NOT NULL,
+  `benefactorAddress` varchar(255) NOT NULL,
+  `benefactorEmail` varchar(255) NOT NULL,
+  `planFor` varchar(255) NOT NULL,
+  `beneficiaryID` varchar(255) NOT NULL,
+  `beneficiaryFirstName` varchar(255) NOT NULL,
+  `beneficiaryLastName` varchar(255) NOT NULL,
+  `beneficiaryGender` varchar(255) NOT NULL,
+  `beneficiaryBirthdate` date NOT NULL,
+  `beneficiaryAddress` varchar(255) NOT NULL,
+  `service` varchar(255) NOT NULL,
+  `package` varchar(255) NOT NULL,
+  `urn` varchar(255) NOT NULL,
+  `contactFirstName` varchar(255) NOT NULL,
+  `contactLastName` varchar(255) NOT NULL,
+  `contactNumber` int(11) NOT NULL,
+  `contactEmail` varchar(255) NOT NULL,
+  `contactRelationship` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pl_directcremation`
+--
+
+INSERT INTO `pl_directcremation` (`id`, `username`, `benefactorID`, `benefactorFirstName`, `benefactorLastName`, `benefactorContact`, `benefactorAddress`, `benefactorEmail`, `planFor`, `beneficiaryID`, `beneficiaryFirstName`, `beneficiaryLastName`, `beneficiaryGender`, `beneficiaryBirthdate`, `beneficiaryAddress`, `service`, `package`, `urn`, `contactFirstName`, `contactLastName`, `contactNumber`, `contactEmail`, `contactRelationship`, `timestamp`) VALUES
+(5, '', '../pictures/documents-pictures/IMG-66213cb210f5e1.54872987.png', 'da', 'da', 2147483647, 'zcfdsfdsdsa2', 'dsadas@gmail.com', 'sibling', '../pictures/documents-pictures/IMG-66213cb2112cd2.07693510.png', 'dassa', 'sa', 'Others', '2024-04-08', 'zcfdsfds21', 'Direct Cremation Service', 'Direct Cremation Package 1', 'Dark Brown Gold Plated', 'das', 'das', 2147483647, 'dsadas@gmail.com', 'parent', '2024-04-18 15:30:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pl_gatheringcremation`
+--
+
+CREATE TABLE `pl_gatheringcremation` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `benefactorID` varchar(255) NOT NULL,
+  `benefactorFirstName` varchar(255) NOT NULL,
+  `benefactorLastName` varchar(255) NOT NULL,
+  `benefactorContact` int(11) NOT NULL,
+  `benefactorAddress` varchar(255) NOT NULL,
+  `benefactorEmail` varchar(255) NOT NULL,
+  `planFor` varchar(255) NOT NULL,
+  `beneficiaryID` varchar(255) NOT NULL,
+  `beneficiaryFirstName` varchar(255) NOT NULL,
+  `beneficiaryLastName` varchar(255) NOT NULL,
+  `beneficiaryGender` varchar(255) NOT NULL,
+  `beneficiaryBirthdate` date NOT NULL,
+  `beneficiaryAddress` varchar(255) NOT NULL,
+  `service` varchar(255) NOT NULL,
+  `package` varchar(255) NOT NULL,
+  `urn` varchar(255) NOT NULL,
+  `facilityType` varchar(255) NOT NULL,
+  `facility` varchar(255) NOT NULL,
+  `days` int(11) NOT NULL,
+  `contactFirstName` varchar(255) NOT NULL,
+  `contactLastName` varchar(255) NOT NULL,
+  `contactNumber` int(11) NOT NULL,
+  `contactEmail` varchar(255) NOT NULL,
+  `contactRelationship` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pl_gatheringcremation`
+--
+
+INSERT INTO `pl_gatheringcremation` (`id`, `username`, `benefactorID`, `benefactorFirstName`, `benefactorLastName`, `benefactorContact`, `benefactorAddress`, `benefactorEmail`, `planFor`, `beneficiaryID`, `beneficiaryFirstName`, `beneficiaryLastName`, `beneficiaryGender`, `beneficiaryBirthdate`, `beneficiaryAddress`, `service`, `package`, `urn`, `facilityType`, `facility`, `days`, `contactFirstName`, `contactLastName`, `contactNumber`, `contactEmail`, `contactRelationship`, `timestamp`) VALUES
+(2, '', '../pictures/documents-pictures/IMG-66213c1d798244.14220633.png', 'das', 'dsa', 2147483647, 'zcfdsfds2112', 'dsadas@gmail.com', 'child', '../pictures/documents-pictures/IMG-66213c1d79b379.53575472.png', 'das', 'dsa', 'Others', '2024-04-16', 'zcfdsfdsdsa2', 'Memorial Gathering After Cremation Service', 'Memorial Gathering After Cremation Package 2', 'Marble Blue', 'Funeral Service at Funeral Home', 'Air-Conditioned Facility 2', 11, 'dsa', 'das', 2147483647, 'dsadas@gmail.com', 'parent', '2024-04-18 15:28:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pl_traditionalcremation`
+--
+
+CREATE TABLE `pl_traditionalcremation` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `benefactorID` varchar(255) NOT NULL,
+  `benefactorFirstName` varchar(255) NOT NULL,
+  `benefactorLastName` varchar(255) NOT NULL,
+  `benefactorContact` int(11) NOT NULL,
+  `benefactorAddress` varchar(255) NOT NULL,
+  `benefactorEmail` varchar(255) NOT NULL,
+  `planFor` varchar(255) NOT NULL,
+  `beneficiaryID` varchar(255) NOT NULL,
+  `beneficiaryFirstName` varchar(255) NOT NULL,
+  `beneficiaryLastName` varchar(255) NOT NULL,
+  `beneficiaryGender` varchar(255) NOT NULL,
+  `beneficiaryBirthdate` date NOT NULL,
+  `beneficiaryAddress` varchar(255) NOT NULL,
+  `service` varchar(255) NOT NULL,
+  `package` varchar(255) NOT NULL,
+  `casket` varchar(255) NOT NULL,
+  `urn` varchar(255) NOT NULL,
+  `facilityType` varchar(255) NOT NULL,
+  `facility` varchar(255) NOT NULL,
+  `days` int(11) NOT NULL,
+  `contactFirstName` varchar(255) NOT NULL,
+  `contactLastName` varchar(255) NOT NULL,
+  `contactNumber` int(11) NOT NULL,
+  `contactEmail` varchar(255) NOT NULL,
+  `contactRelationship` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pl_traditionalcremation`
+--
+
+INSERT INTO `pl_traditionalcremation` (`id`, `username`, `benefactorID`, `benefactorFirstName`, `benefactorLastName`, `benefactorContact`, `benefactorAddress`, `benefactorEmail`, `planFor`, `beneficiaryID`, `beneficiaryFirstName`, `beneficiaryLastName`, `beneficiaryGender`, `beneficiaryBirthdate`, `beneficiaryAddress`, `service`, `package`, `casket`, `urn`, `facilityType`, `facility`, `days`, `contactFirstName`, `contactLastName`, `contactNumber`, `contactEmail`, `contactRelationship`, `timestamp`) VALUES
+(7, '', '../pictures/documents-pictures/IMG-66213b06800413.51384752.png', 'dasdasdwq', 'dasda', 2147483647, 'zcfdsfds2112', 'angelinemercado806@gmail.com', 'sibling', '../pictures/documents-pictures/IMG-66213b06804444.23468844.png', 'da', 'dda', 'female', '2024-04-18', 'dsadada', 'Traditional Cremation Service', 'Traditional Cremation Package 1', 'Non-gasketed Crepe Silver Casket', 'Dark Brown Gold Plated', 'Funeral Service at Funeral Home', 'Air-Conditioned Facility 2', 1, 'das', 'da', 2147483647, 'dsadas@gmail.com', 'parent', '2024-04-18 15:23:50');
 
 -- --------------------------------------------------------
 
@@ -407,33 +513,33 @@ ALTER TABLE `pickup`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pl-burial`
---
-ALTER TABLE `pl-burial`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pl-directcremation`
---
-ALTER TABLE `pl-directcremation`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pl-gatheringcremation`
---
-ALTER TABLE `pl-gatheringcremation`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `pl-traditionalcremation`
---
-ALTER TABLE `pl-traditionalcremation`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `planninginfo`
 --
 ALTER TABLE `planninginfo`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pl_burial`
+--
+ALTER TABLE `pl_burial`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pl_directcremation`
+--
+ALTER TABLE `pl_directcremation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pl_gatheringcremation`
+--
+ALTER TABLE `pl_gatheringcremation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pl_traditionalcremation`
+--
+ALTER TABLE `pl_traditionalcremation`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -480,37 +586,37 @@ ALTER TABLE `obituaries`
 -- AUTO_INCREMENT for table `pickup`
 --
 ALTER TABLE `pickup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `pl-burial`
---
-ALTER TABLE `pl-burial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `pl-directcremation`
---
-ALTER TABLE `pl-directcremation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `pl-gatheringcremation`
---
-ALTER TABLE `pl-gatheringcremation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `pl-traditionalcremation`
---
-ALTER TABLE `pl-traditionalcremation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `planninginfo`
 --
 ALTER TABLE `planninginfo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `pl_burial`
+--
+ALTER TABLE `pl_burial`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `pl_directcremation`
+--
+ALTER TABLE `pl_directcremation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `pl_gatheringcremation`
+--
+ALTER TABLE `pl_gatheringcremation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `pl_traditionalcremation`
+--
+ALTER TABLE `pl_traditionalcremation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `review`

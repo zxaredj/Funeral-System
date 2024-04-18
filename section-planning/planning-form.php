@@ -1,54 +1,3 @@
-<?php
-include '../database/config.php';
-if (isset($_POST['submit-btn'])) {
-    function handleFileUpload($file) {
-        $img_name = $file['name'];
-        $tmp_name = $file['tmp_name'];
-        $img_upload_path = '';
-
-        if (!empty($img_name)) {
-            $new_name = uniqid("IMG-", true) . '.' . pathinfo($img_name, PATHINFO_EXTENSION);
-            $img_upload_path = '../pictures/documents-pictures/' . $new_name;
-            move_uploaded_file($tmp_name, $img_upload_path);
-        }
-
-        return $img_upload_path;
-    }
-
-    $benefactorID = handleFileUpload($_FILES['benefactor-ID ']);
-    $beneficiaryID = handleFileUpload($_FILES['beneficiary-ID']);
-
-    $benefactorfirstname = mysqli_real_escape_string($connection, $_POST["benefactor-firstname"]);
-    $benefactorlastname = mysqli_real_escape_string($connection, $_POST["benefactor-lastname"]);
-    $benefactornumber = mysqli_real_escape_string($connection, $_POST["benefactor-number"]);
-    $benefactoraddress = mysqli_real_escape_string($connection, $_POST["benefactor-address"]);
-    $benefactoremail = mysqli_real_escape_string($connection, $_POST["benefactor-email"]);
-    $planfor = mysqli_real_escape_string($connection, $_POST["plan-for"]);
-
-    $beneficiaryPicture = handleFileUpload($_FILES['beneficiary-pic']);
-    $beneficiaryfirstname = mysqli_real_escape_string($connection, $_POST["beneficiary-firstname"]);
-    $beneficiarylastname = mysqli_real_escape_string($connection, $_POST["beneficiary-lastname"]);
-    $beneficiarygender = mysqli_real_escape_string($connection, $_POST["beneficiary-gender"]);
-    $beneficiarybirthdate = mysqli_real_escape_string($connection, $_POST["beneficiary-birthdate"]);
-    $beneficiaryaddress = mysqli_real_escape_string($connection, $_POST["beneficiary-address"]);
-
-
-    $query = "INSERT INTO planninginfo (benefactorID, benefactorFirstName, benefactorLastName, benefactorContact, benefactorAddress, 
-    benefactorEmail, planFor, beneficiaryID, beneficiaryFirstName, beneficiaryLastName, beneficiaryGender, beneficiaryBirthdate, beneficiaryAddress) VALUES ('$benefactorID','$benefactorfirstname', '$benefactorlastname', 
-    '$benefactornumber', '$benefactoraddress', '$benefactoremail', '$planfor', '$beneficiaryID', '$beneficiaryfirstname', '$beneficiarylastname', 
-    '$beneficiarygender', '$beneficiarybirthdate', '$beneficiaryaddress')";
-
-    if (mysqli_query($connection, $query)) {
-        header("Location: planning-identity-modal.html");
-        exit();
-        
-    } else {
-        echo '<script>alert("Submission Failed!")</script>';
-    }
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,6 +9,42 @@ if (isset($_POST['submit-btn'])) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inika:wght@700&display=swap" rel="stylesheet">
 </head>
+
+<style>
+    .button-container {
+        margin-top: 40px;
+        margin-bottom: 60px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .button-container button {
+        width: calc(50% - 5px);
+        height: 80px;
+        box-sizing: border-box;
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        color: #fff;
+        background-color: #144067;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .button-container button:hover {
+        background-color: #144067;
+        opacity: 0.8;
+    }
+
+    .button-container button:active {
+        transform: translateY(8px);
+    }
+
+</style>
 <body>
 <main>
     <section class="form-section">
@@ -84,109 +69,16 @@ if (isset($_POST['submit-btn'])) {
 
 <div class="container">
     <div class="box-1">
-    <form id="multi-step-form" action="" method="POST" enctype="multipart/form-data">
-            <div class="form-1 active" id="form-1">
-                <h2 class="info-header">PERSONAL DETAILS</h2><br>
-                <h3 class="info-title">Benefactor's Personal Information</h3>
-                <div class="inputs">
-                    <p class="docu-name">Please upload any valid ID:</p>
-                    <input type="file" id="benefactor-ID" name="benefactor-ID" required>
-                </div>
-                <div class="inputs">
-                    <label for="benefactor-firstname">First Name</label>
-                    <input type="text" id="benefactor-firstname" name="benefactor-firstname" placeholder="Juan" required>
-                </div>
-                <div class="inputs">
-                    <label for="benefactor-lastname">Last Name</label>
-                    <input type="text" id="benefactor-lastname" name="benefactor-lastname" placeholder="Dela Cruz" required>
-                </div>
-                <div class="inputs">
-                    <label for="benefactor-number">Contact Number</label>
-                    <input type="number" id="benefactor-number" name="benefactor-number" placeholder="09301938102" required>
-                </div>
-                <div class="inputs">
-                    <label for="benefactor-address">Address</label>
-                    <input type="text" id="benefactor-address" name="benefactor-address" placeholder="511 A. Mabini St., Caloocan City" required>
-                </div>
-                <div class="inputs">
-                    <label for="benefactor-email">Email</label>
-                    <input type="email" id="benefactor-email" name="benefactor-email" placeholder="perpetualfuneralservices@gmail.com" required>
-                </div>
-                <div class="inputs">
-                    <label for="plan-for">This plan is for my:</label>
-                    <select id="plan-for" name="plan-for" required>
-                        <option value="" selected disabled>Select Relationship</option>
-                        <option value="parent">Parent</option>
-                        <option value="sibling">Sibling</option>
-                        <option value="spouse">Spouse</option>
-                        <option value="child">Child</option>
-                        <option value="friend">Friend</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <div class="inputs">
-                    <div class="submit-btn-container">
-                        <button type="button" onclick="next()" class="submit-btn">NEXT</button>
-                    </div>
-                </div>
-            </div>
-            <div class="form-2" id="form-2" style="display: none;">
-                <h2 class="info-title">Beneficiary's Personal Information</h2>
-                <div class="inputs">
-                    <div class="inputs">
-                        <p class="docu-name">Please upload any valid ID:</p>
-                        <input type="file" id="beneficiary-ID" name="beneficiary-ID" required>
-                    </div>
-                    <label for="beneficiary-firstname">First Name</label>
-                    <input type="text" id="beneficiary-firstname" name="beneficiary-firstname" placeholder="Juan" required>
-                </div>
-                <div class="inputs">
-                    <label for="beneficiary-lastname">Last Name</label>
-                    <input type="text" id="beneficiary-lastname" name="beneficiary-lastname" placeholder="Dela Cruz" required>
-                </div>
-                <div class="inputs">
-                    <label for="beneficiary-gender">Gender</label>
-                    <select id="beneficiary-gender" name="beneficiary-gender" required>
-                        <option value="" selected disabled>Select Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="others">Others</option>
-                    </select>
-                </div>
-                <div class="inputs">
-                    <label for="beneficiary-birthdate">Birthdate</label>
-                    <input type="date" id="beneficiary-birthdate" name="beneficiary-birthdate" required>
-                </div>
-                <div class="inputs">
-                    <label for="beneficiary-address">Address</label>
-                    <input type="text" id="beneficiary-address" name="beneficiary-address" placeholder="511 A. Mabini St., Caloocan City" required>
-                </div>
-                <div class="inputs">
-                    <div class="submit-btn-container">
-                        <button type="button" onclick="back()" class="submit-btn">BACK</button>
-                        <button type="submit" class="submit-btn" name="submit-btn">SUBMIT</button>
-                    </div>
-                </div>
-            </div>
-        </form>
+    <h2 class="info-title">SERVICE OPTION</h2><br>
+     <h3>Please choose your preferred service:</h3>
+     <div class="button-container">
+        <button onclick="window.location.href = 'planning-burial.php';">Burial Service</button>
+        <button onclick="window.location.href = 'planning-traditional.php';">Tradional Cremation Service</button>
+        <button onclick="window.location.href = 'planning-gathering.php';">Memorial Gathering After Cremation Service</button>
+        <button onclick="window.location.href = 'planning-direct.php';">Direct Cremation Service</button>
     </div>
+</form>
 </div>
-<script>
-    
-// date picker - disable future dates for birthdate
-  var today = new Date();
-  var dd = String(today.getDate()).padStart(2, '0');
-  var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
-  var yyyy = today.getFullYear();
-
-  today = yyyy + '-' + mm + '-' + dd;
-
-  var datepicker = document.getElementById('beneficiary-birthdate');
-  datepicker.setAttribute('type', 'date');
-  datepicker.setAttribute('max', today);
-
-</script>
-<script src="../js/forms.js"></script>
-<script src="../js/validations.js" defer></script>
+</div>
 </body>
 </html>

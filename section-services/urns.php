@@ -33,7 +33,7 @@
 <h1 class="service-title">OUR URN SELECTION</h1>
 <p class="service-intro">We are proud to provide high-quality urns at the best prices in our area. We want you to be able to see, touch and feel the urn you select for your loved one.</p>
 
-
+<br>
 <h2>METAL URNS</h2>
 <hr>
     <div class="box-container">
@@ -51,14 +51,14 @@
                 <h3><?php echo $fetch_product['name']; ?></h3>
                 <div class="price">₱<?php echo number_format($fetch_product['price'], 2); ?></div>
                 <input type="hidden" name="id" value="<?php echo $fetch_product['id']; ?>">
-                <input type="submit" class="select-btn" value="SELECT" name="select">
+                <!-- <input type="submit" class="select-btn" value="SELECT" name="select"> -->
           </div>
         </form>
         <?php
         }
         ?>
     </div>
-
+    <br><br>
     <h2>MARBLE URNS</h2>
 <hr>
     <div class="box-container">
@@ -74,14 +74,14 @@
                 <h3><?php echo $fetch_product['name']; ?></h3>
                 <div class="price">₱<?php echo number_format($fetch_product['price'], 2); ?></div>
                 <input type="hidden" name="id" value="<?php echo $fetch_product['id']; ?>">
-                <input type="submit" class="select-btn" value="SELECT" name="select">
+                <!-- <input type="submit" class="select-btn" value="SELECT" name="select"> -->
           </div>
         </form>
         <?php
         }
         ?>
     </div>
-
+    <br><br>
     <h2>GLASS URNS</h2>
 <hr>
     <div class="box-container">
@@ -98,14 +98,14 @@
                 <h3><?php echo $fetch_product['name']; ?></h3>
                 <div class="price">₱<?php echo number_format($fetch_product['price'], 2); ?></div>
                 <input type="hidden" name="id" value="<?php echo $fetch_product['id']; ?>">
-                <input type="submit" class="select-btn" value="SELECT" name="select">
+                <!-- <input type="submit" class="select-btn" value="SELECT" name="select"> -->
           </div>
         </form>
         <?php
         }
         ?>
     </div>
-
+    <br><br>
     <h2>BABY URNS</h2>
 <hr>
     <div class="box-container">
@@ -122,7 +122,7 @@
                 <h3><?php echo $fetch_product['name']; ?></h3>
                 <div class="price">₱<?php echo number_format($fetch_product['price'], 2); ?></div>
                 <input type="hidden" name="id" value="<?php echo $fetch_product['id']; ?>">
-                <input type="submit" class="select-btn" value="SELECT" name="select">
+                <!-- <input type="submit" class="select-btn" value="SELECT" name="select"> -->
           </div>
         </form>
         <?php

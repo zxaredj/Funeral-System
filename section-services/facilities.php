@@ -33,9 +33,9 @@
 <h1 class="service-title">OUR FACILITY SELECTION</h1>
 <p class="service-intro">We are proud to offer top-notch facilities at the most competitive rates in our region. We maintain a comprehensive array of facilities that cater to the preferences of our families. We believe in providing you with the opportunity to experience, interact with, and choose the facility that best honors your loved one.</p>
 
-
+<br>
 <h2>AIR-CONDITIONED FACILITIES</h2>
-<hr>
+<hr><br>
     <div class="box-container">
         <?php
         include '../database/config.php';
@@ -51,16 +51,17 @@
                 <h3><?php echo $fetch_product['name']; ?></h3>
                 <div class="price">₱<?php echo number_format($fetch_product['price'], 2); ?>/day</div>
                 <input type="hidden" name="id" value="<?php echo $fetch_product['id']; ?>">
-                <input type="submit" class="select-btn" value="SELECT" name="select">
+                <!-- <input type="submit" class="select-btn" value="SELECT" name="select"> -->
           </div>
         </form>
         <?php
         }
         ?>
     </div>
+    <br><br>
 
     <h2>NON-AIR-CONDITIONED FACILITIES</h2>
-<hr>
+<hr><br>
     <div class="box-container">
         <?php
         
@@ -75,7 +76,7 @@
                 <h3><?php echo $fetch_product['name']; ?></h3>
                 <div class="price">₱<?php echo number_format($fetch_product['price'], 2); ?>/day</div>
                 <input type="hidden" name="id" value="<?php echo $fetch_product['id']; ?>">
-                <input type="submit" class="select-btn" value="SELECT" name="select">
+                <!-- <input type="submit" class="select-btn" value="SELECT" name="select"> -->
           </div>
         </form>
         <?php
