@@ -33,7 +33,11 @@ if (isset($_POST['submit-btn'])) {
 
     $chosenFacilityType = $_POST["facility-type"];
     $chosenFacility = '';
-    $days = '';
+    $days = 0;
+    $chosenUrnPrice = 0;
+    $chosenFacilityPrice = 0;
+    $chosenPackagePrice = 0;
+    $facilityDuration = 0;
 
 
     if ($chosenFacilityType === "Funeral Service at Funeral Home") {
@@ -44,6 +48,7 @@ if (isset($_POST['submit-btn'])) {
         $days = mysqli_real_escape_string($connection, $_POST["days2"]);
     }
 
+    $numberDays = $days;
 
     $chosenUrn = mysqli_real_escape_string($connection, $_POST["urn"]);
     $chosenPackage = mysqli_real_escape_string($connection, $_POST["package"]);
@@ -53,14 +58,48 @@ if (isset($_POST['submit-btn'])) {
     $contactEmail = mysqli_real_escape_string($connection, $_POST["contact-email"]);
     $contactRelationship = mysqli_real_escape_string($connection, $_POST["relationship"]);
 
-        $query = "INSERT INTO pl_gatheringcremation (benefactorID, benefactorFirstName, benefactorLastName, benefactorContact, benefactorAddress, 
-        benefactorEmail, planFor, beneficiaryID, beneficiaryFirstName, beneficiaryLastName, beneficiaryGender, beneficiaryBirthdate, beneficiaryAddress, service, package, urn, facilityType,
-        facility, days, contactFirstName, contactLastName, contactNumber, contactEmail, contactRelationship) VALUES ('$benefactorID','$benefactorfirstname', '$benefactorlastname', 
-        '$benefactornumber', '$benefactoraddress', '$benefactoremail', '$planfor', '$beneficiaryID', '$beneficiaryfirstname', '$beneficiarylastname', 
-        '$beneficiarygender', '$beneficiarybirthdate', '$beneficiaryaddress', 'Memorial Gathering After Cremation Service', '$chosenPackage', '$chosenUrn', '$chosenFacilityType', '$chosenFacility',
-        '$days', '$contactFirstName', '$contactLastName', '$contactNumber', '$contactEmail', '$contactRelationship')";
 
-        if (mysqli_query($connection, $query)) {
+    $urnQuery = "SELECT price FROM urns WHERE name = '$chosenUrn'";
+    $urnResult = mysqli_query($connection, $urnQuery);
+
+    if(mysqli_num_rows($urnResult) > 0) {
+        $urnRow = mysqli_fetch_assoc($urnResult);
+        $chosenUrnPrice = $urnRow['price'];
+    } else {
+        $chosenUrnPrice = 0;
+    }
+
+    $facilityQuery = "SELECT price FROM facilities WHERE name = '$chosenFacility'";
+    $facilityResult = mysqli_query($connection, $facilityQuery);
+
+    if(mysqli_num_rows($facilityResult) > 0) {
+        $facilityRow = mysqli_fetch_assoc($facilityResult);
+        $chosenFacilityPrice = $facilityRow['price'];
+    } else {
+        $chosenFacilityPrice = 0;
+    }
+    
+    $packageQuery = "SELECT price FROM package_memorial WHERE name = '$chosenPackage'";
+    $packageResult = mysqli_query($connection, $packageQuery);
+
+    if(mysqli_num_rows($packageResult) > 0) {
+        $packageRow = mysqli_fetch_assoc($packageResult);
+        $chosenPackagePrice = $packageRow['price'];
+    } else {
+        $chosenPackagePrice = 0;
+    }
+   
+    $facilityDuration = $chosenFacilityPrice * $numberDays;
+    $total = $chosenUrnPrice + $chosenPackagePrice + $facilityDuration;
+
+    $query = "INSERT INTO pl_gatheringcremation (benefactorID, benefactorFirstName, benefactorLastName, benefactorContact, benefactorAddress, 
+    benefactorEmail, planFor, beneficiaryID, beneficiaryFirstName, beneficiaryLastName, beneficiaryGender, beneficiaryBirthdate, beneficiaryAddress, service, package, packagePrice, urn, urnPrice, facilityType,
+    facility, facilityPrice, days, facilityDuration, total, contactFirstName, contactLastName, contactNumber, contactEmail, contactRelationship) VALUES ('$benefactorID','$benefactorfirstname', '$benefactorlastname', 
+    '$benefactornumber', '$benefactoraddress', '$benefactoremail', '$planfor', '$beneficiaryID', '$beneficiaryfirstname', '$beneficiarylastname', 
+    '$beneficiarygender', '$beneficiarybirthdate', '$beneficiaryaddress', 'Traditional Cremation Service', '$chosenPackage', '$chosenPackagePrice', '$chosenUrn', '$chosenUrnPrice', '$chosenFacilityType', '$chosenFacility',
+    '$chosenFacilityPrice','$days', '$facilityDuration', '$total', '$contactFirstName', '$contactLastName', '$contactNumber', '$contactEmail', '$contactRelationship')";
+       
+       if (mysqli_query($connection, $query)) {
             header("Location: planning-info-modal.html");
             exit();
         } else {
@@ -200,29 +239,29 @@ if (isset($_POST['submit-btn'])) {
             <div class="inputs">
             <select id="urn" name="urn" required>
                 <option value="" selected disabled>Select Urn</option>
-                <option value="Plain Brass">Plain Brass</option>
-                <option value="Plain Silver">Plain Silver</option>
-                <option value="Dark Brown Gold Plated">Dark Brown Gold Plated</option>
-                <option value="Plain Gold">Plain Gold</option>
-                <option value="Bronze">Bronze</option>
-                <option value="Radiance">Radiance</option>
-                <option value="Gatsby">Gatsby</option>
-                <option value="Chantique Gold">Chantique Gold</option>
-                <option value="Plain Gray">Plain Gray</option>
-                <option value="Marble Blue">Marble Blue</option>
-                <option value="Marble Pink">Marble Pink</option>
-                <option value="Marble Red">Marble Red</option>
-                <option value="Marble Black">Marble Black</option>
-                <option value="Marble White">Marble White</option>
-                <option value="Glass Forest">Glass Forest</option>
-                <option value="Glass Sea">Glass Sea</option>
-                <option value="Glass Ocean">Glass Ocean</option>
-                <option value="Glass Tree">Glass Tree</option>
-                <option value="Glass Leaves">Glass Leaves</option>
-                <option value="Marble Baby Blue">Marble Baby Blue</option>
-                <option value="Marble Baby Brown">Marble Baby Brown</option>
-                <option value="Marble Baby Pink">Marble Baby Pink</option>
-                <option value="Marble Baby White">Marble Baby White</option>
+                <option value="Plain Brass">Plain Brass - ₱6,000</option>
+                <option value="Plain Silver">Plain Silver - ₱9,000</option>
+                <option value="Dark Brown Gold Plated">Dark Brown Gold Plated - ₱10,000</option>
+                <option value="Plain Gold">Plain Gold - ₱12,000</option>
+                <option value="Bronze">Bronze - ₱6,000</option>
+                <option value="Radiance">Radiance - ₱9,000</option>
+                <option value="Gatsby">Gatsby - ₱10,000</option>
+                <option value="Chantique Gold">Chantique Gold - ₱12,000</option>
+                <option value="Plain Gray">Plain Gray - ₱4,000</option>
+                <option value="Marble Blue">Marble Blue - ₱9,000</option>
+                <option value="Marble Pink">Marble Pink - ₱10,000</option>
+                <option value="Marble Red">Marble Red - ₱12,000</option>
+                <option value="Marble Black">Marble Black - ₱4,000</option>
+                <option value="Marble White">Marble White - ₱4,000</option>
+                <option value="Glass Forest">Glass Forest - ₱7,000</option>
+                <option value="Glass Sea">Glass Sea - ₱7,600</option>
+                <option value="Glass Ocean">Glass Ocean - ₱7,200</option>
+                <option value="Glass Tree">Glass Tree - ₱8,000</option>
+                <option value="Glass Leaves">Glass Leaves - ₱7,800</option>
+                <option value="Marble Baby Blue">Marble Baby Blue - ₱4,000</option>
+                <option value="Marble Baby Brown">Marble Baby Brown - ₱4,000</option>
+                <option value="Marble Baby Pink">Marble Baby Pink - ₱4,000</option>
+                <option value="Marble Baby White">Marble Baby White - ₱4,000</option>
             </select>
         </div> <br>
         <p class="choose-service">PACKAGE  <a href="../section-services/Cremation Services.html" target="_blank">See packages here.</a></p>
@@ -230,8 +269,8 @@ if (isset($_POST['submit-btn'])) {
             <div class="inputs">
             <select id="package" name="package" required>
                 <option value="" selected disabled>Select package</option>
-                <option value="Memorial Gathering After Cremation Package 1">Memorial Gathering After Cremation Package 1</option>
-                <option value="Memorial Gathering After Cremation Package 2">Memorial Gathering After Cremation Package 2</option>
+                <option value="Memorial Gathering After Cremation Package 1">Memorial Gathering After Cremation Package 1 - ₱55,000</option>
+                <option value="Memorial Gathering After Cremation Package 2">Memorial Gathering After Cremation Package 2 - ₱50,000</option>
 
             </select>
         </div> 
@@ -258,10 +297,10 @@ if (isset($_POST['submit-btn'])) {
         <label for="facility1">Facility   <a href="../section-services/facilities.php" target="_blank">See facilities here.</a></label>
             <select id="facility1" name="facility1">
                 <option value="" selected disabled>Select Facility</option>
-                <option value="Air-Conditioned Facility 1">Air-Conditioned Facility 1</option>
-                <option value="Air-Conditioned Facility 2">Air-Conditioned Facility 2</option>
-                <option value="Non-Air-Conditioned Facility 1">Non-Air-Conditioned Facility 1</option>
-                <option value="Non-Air-Conditioned Facility 2">Non-Air-Conditioned Facility 2</option>
+                <option value="Air-Conditioned Facility 1">Air-Conditioned Facility 1 - ₱8,000/day</option>
+                <option value="Air-Conditioned Facility 2">Air-Conditioned Facility 2 - ₱8,000/day</option>
+                <option value="Non-Air-Conditioned Facility 1">Non-Air-Conditioned Facility 1 - ₱3,500/day</option>
+                <option value="Non-Air-Conditioned Facility 2">Non-Air-Conditioned Facility 2 - ₱3,500/day</option>
             </select>
         </div>
 

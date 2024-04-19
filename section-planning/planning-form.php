@@ -73,7 +73,7 @@
      <h3>Please choose your preferred service:</h3>
      <div class="button-container">
         <button onclick="window.location.href = 'planning-burial.php';">Burial Service</button>
-        <button onclick="window.location.href = 'planning-traditional.php';">Tradional Cremation Service</button>
+        <button onclick="window.location.href = 'planning-traditional.php';">Traditional Cremation Service</button>
         <button onclick="window.location.href = 'planning-gathering.php';">Memorial Gathering After Cremation Service</button>
         <button onclick="window.location.href = 'planning-direct.php';">Direct Cremation Service</button>
     </div>
