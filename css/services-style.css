@@ -577,7 +577,7 @@
 .title{
     font-size: 7px;
     position: relative;
-    top: -7px;
+    top: 1px;
 }
 
 .package{
@@ -595,6 +595,7 @@
     font-size: 14px;
     position: relative;
     top:10px;
+    text-align: left;
     color:#144067;
 }
 
@@ -603,6 +604,7 @@
     position: relative;
     top:20px;
     color:#144067;
+    text-align: left;
 }
 
 .select-btn{

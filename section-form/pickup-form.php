@@ -1,7 +1,16 @@
 <?php
+session_start();
 include '../database/config.php';
 
-if (isset($_POST['submit-btn'])) {
+$login_required = false;
+
+if (!isset($_SESSION['username'])) {
+    // User is not logged in, set a flag to indicate login is required
+    $login_required = true;
+}
+
+if (!$login_required && isset($_POST['submit-btn'])) {
+
     function handleFileUpload($file) {
         $img_name = $file['name'];
         $tmp_name = $file['tmp_name'];
@@ -33,6 +42,8 @@ if (isset($_POST['submit-btn'])) {
 
     $query = "INSERT INTO pickup (death, releasepaper, deceasedFirstName, deceasedLastName, location, date, time, contactFirstName, contactLastName, number, email, relationship) VALUES ('$deathcert', '$releasepaper', '$deceasedfirstname', '$deceasedlastname', '$location', '$date', '$time', '$contactfirstname', '$contactlastname', '$number', '$email', '$relationship')";
 
+
+    
     if (mysqli_query($connection, $query)) {
         header("Location: pickup-modal.html");
         exit();
@@ -167,13 +178,21 @@ if (isset($_POST['submit-btn'])) {
             <div class="inputs">
                 <div class="submit-btn-container">
                 <button type="button" onclick="back1()" class="submit-btn">BACK</button>
-                <button type="submit" class="submit-btn" name="submit-btn">SUBMIT</button>
+                <button type="submit" class="submit-btn" name="submit-btn" >SUBMIT</button>
                 </div>
             </div>
     </div>
         </form>
     </div>
 </div>
+
+<script>
+    var loginRequired = <?php echo json_encode($login_required); ?>;
+    if (loginRequired) {
+        // Trigger modal popup or redirect to login page
+        window.location.href = '../section-login-signup/login.php?redirect=../section-form/pickup-form.php';
+    }
+</script>
 <script src="../js/forms.js"></script>
 <script src="../js/validations.js" defer></script>
 </body>
