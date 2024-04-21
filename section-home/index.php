@@ -29,6 +29,7 @@
                             <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
                             <li><a href="../section-obituaries/obituaries.php">OBITUARIES</a></li>
                             <li><a href="../section-login-signup/signup.html">SIGN IN</a></li>
+                            <li><a href="../section-login-signup/logout.php">LOGOUT</a></li>
                         </ul>
                     </nav>
                     <div class="text-overlay"><p>Where Compassion Meets Comfort <br>
