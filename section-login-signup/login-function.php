@@ -19,7 +19,7 @@ session_start();
 
             if (password_verify($password, $user['password'])) {
                 $_SESSION['username'] = $username;
-                header("Location: login.html");
+                header("Location: ../section-form/pickup-form.php");
                 exit();
             } else {
                 header("Location: login.php?error=invalid_credentials");
@@ -29,5 +29,13 @@ session_start();
             header("Location: login.php?error=invalid_credentials");
             exit();
         }
+        $_SESSION['username'] = $username;  // Set username in session
+
+        // Redirect to the originally intended page or default to a specific page
+        $redirect_url = $_SESSION['redirect_url'] ?? 'default-page.php';
+        header("Location: $redirect_url");
+        exit();
     }
+
+
 ?>

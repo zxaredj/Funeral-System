@@ -45,7 +45,7 @@ if (isset($_GET['error'])) {
           <h5 style="color:white">Perpetual Funeral Services </h5>
         </div>
         <div class="d-flex flex-column text-center">
-          
+
           <form method="post" action="login-function.php">
           <?php if ($errorMsg != ""): ?>
         <div class="alert alert-danger" role="alert">
@@ -61,6 +61,7 @@ if (isset($_GET['error'])) {
               <a style="color:white; margin-right: 500px;">Password</a>
               <input type="password" class="form-control" id="password1" name="password" placeholder="***********">
             </div>
+            <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_GET['redirect'] ?? ''); ?>">
             <button type="submit" name="login" value="Login" class="btn btn-info btn-block btn-round">Login</button>
           </form>
           
