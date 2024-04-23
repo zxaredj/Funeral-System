@@ -5,9 +5,9 @@
 }
 
 .inika-bold, body {
-    font-family: "Inika", serif;
-    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
+    overflow-x: none;
 }
 
 .background-image {
@@ -16,7 +16,7 @@
 
 .background-image img {
     width: 100%; /* Adjust as needed */
-    height: 1000px; /* Maintain aspect ratio */
+    height: 100vh; /* Maintain aspect ratio */
 }
 
 .background-image nav {
@@ -36,6 +36,8 @@
     padding: 15px;
     margin: 0;
     border-radius: 10px;
+    font-weight: bold;
+    font-size: 17px;
 }
 
 .background-image nav ul li {
@@ -59,12 +61,44 @@
     transform: translate(-50%, -50%);
     padding: 20px;
     text-align: center;
+
 }
 
 .text-overlay p {
-    font-size: 40px;
+    font-size: 55px;
     font-weight: bold;
-    color: #464646; /* Text color */
+    color: #144067;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.logo-container img {
+    width: 130px;
+    height: auto;
+}
+
+.started-btn { 
+    margin-top: 10px;
+    background-color: #144067;
+    color: white;
+    width: 140px;
+    height: 45px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.started-btn:hover {
+    opacity: 0.8;
+}
+
+.started-btn:active {
+    transform: translateY(2px);
 }
 
 section.homepage-2, section.homepage-3, section.homepage-4 {
@@ -109,8 +143,8 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
 }
 
 .obituaries-item {
-    width: 280px;
-    height: 315px;
+    width: 290px;
+    height: 415px;
     margin: 10px 20px;
     text-align: center;
     border-radius: 5px;
@@ -163,6 +197,7 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
     color: #144067;
     font-weight: initial;
     text-align: center;
+    font-weight: bold;
 }
 
 .service-container-inner {
@@ -175,12 +210,13 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
 .service-item {
     position: relative;
     text-align: center;
-    margin: 70px 20px;
+    margin: 40px 10px; /* Adjust margin to make items smaller */
+    padding: 10px; /* Add padding to adjust spacing */
 }
 
 .service-item img {
     width: 300px;
-    height: 400px;
+    height: 380px;
     border-radius: 20px;
     display: block;
 }
@@ -191,9 +227,11 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    padding: 10px;
+    padding: 5px; /* Adjust padding to make description smaller */
     border-radius: 10px;
     font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
 
 .learn-more {
@@ -205,7 +243,7 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
     font-weight: bolder;
     color: #080808;
     font-size: 20px;
-    padding: 10px;
+    padding: 5px; /* Adjust padding to make learn more link smaller */
     border-radius: 5px;
     cursor: pointer;
 }
@@ -245,42 +283,57 @@ hr {
     text-align: center;
 }
 
+
 .obituary-container-content {
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: repeat(4, 300px);
-    margin-right: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
     color: black;
     font-weight: normal;
 }
 
 .obituary {
-    height: 500px;
-    width: 300px;
+    height: auto;
+    width: 100%; 
+    max-width: 300px;
     text-align: center;
     padding: 40px 20px;
-    margin-right: 50px;
+    margin-bottom: 20px;
     font-size: 20px;
-    background-color: #335889;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .obituary-picture {
-    width: 250px;
-    height: 250px;
-    padding: 5px;
+    width: 95%; 
+    max-width: 240px;
+    height: 220px;
+    padding: 2px;
+    border-radius: 10px;
 }
 
 .obituary-name {
-    margin-top: 20px;
+    margin-top: 25px; 
     margin-bottom: 0px;
-    color: white;
+    color: black;
+    font-weight: bold;
 }
 
 .obituary-date {
+    margin-bottom: 10px;
     font-style: italic;
-    color: white;
+    color: black;
+    font-size: 17px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .obituary-container-content {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjusted for smaller screens */
+    }
 }
 
 
@@ -293,6 +346,8 @@ hr {
     /* border: 1px solid #144067; */
     font-size: 20px;
     background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .review-container-content {
@@ -307,7 +362,7 @@ hr {
 }
 
 .review-icon {
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     width: 90px;
     border: 3px solid black;
     border-radius: 50%;
@@ -315,11 +370,13 @@ hr {
 }
 
 .review-name {
+    margin-top: 0px;
     margin-bottom: 0px;
+    font-weight: bold;
 }
 
 .review-testimonial {
-    margin: 10px 0px;
+    margin: 0px 0px;
     font-style: italic;
     color: #144067;
 }
@@ -384,6 +441,10 @@ hr {
     height: 50px;
     transition: 0.3s;
     background-color: #144067;
+    margin-right: 30px; 
+    font-family: 'Roboto', sans-serif; 
+    font-weight: bold;
+    text-decoration: none;
 }
   
 .original-button:hover {
@@ -422,13 +483,12 @@ hr {
 
 .input {
     width: calc(100% - 20px);
-    height: 40px;
+    height: 47px;
     margin: 10px;
     padding: 10px;
     box-sizing: border-box;
     border-radius: 10px;
     border: 2px solid #144067;
-    font-family: "Inika", serif;
 }
 
 .message-inquiry {
@@ -442,11 +502,21 @@ hr {
     cursor: pointer;
     text-align: center;
     width: 150px;
-    height: 40px;
+    height: 45px;
     transition: 0.3s;
     background-color: #144067;
     color: white;
     display: inline-block;
+    font-size: 18px;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+    background-color: #144067;
+    margin-right: 30px; 
+    font-family: 'Roboto', sans-serif; 
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .btn-submit:hover {

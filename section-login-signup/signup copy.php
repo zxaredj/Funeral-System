@@ -15,7 +15,7 @@ if (isset($_GET['error'])) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PFS | Sign up</title>
+    <title>Sign up</title>
     <!-- Bootstrap CSS -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
     <!-- Font Awesome CSS -->
@@ -42,40 +42,47 @@ if (isset($_GET['error'])) {
           </div>
           <div class="modal-body">
             <div class="form-title text-center">
-              <h1 style="color:white; font-family: 'Roboto', sans-serif; font-weight: bold;">SIGN UP</h1>
-              <h5 style="color:white; font-family: 'Roboto', sans-serif;">Perpetual Funeral Services</h5>
+              <h1 style="color:white">Sign up</h1>
+              <h5 style="color:white">Perpetual Funeral Services</h5>
             </div>
-          <div class="d-flex flex-column text-left">
-            <form method="post" action="signin-function.php">
-            <?php if (!empty($error_message)): ?>
+            <div class="d-flex flex-column text-center">
+              <form method="post" action="signin-function.php">
+
+              <?php if (!empty($error_message)): ?>
                   <div class="alert alert-danger" role="alert" style="padding: 5px 5px; margin-top:10px;">
                       <?php echo $error_message; ?>
                   </div>
-                <?php endif; ?> 
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="fname" style="color:white; font-family: 'Roboto', sans-serif; font-size: 16px;">First Name</label>
-                        <input type="text" class="form-control" id="fname" name="fname" placeholder="Juan" pattern="[a-zA-Z.]+(?:\s[a-zA-Z.]+)*" required title="Input letters only.">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="lname" style="color:white; font-family: 'Roboto', sans-serif; font-size: 16px;">Last Name</label>
-                        <input type="text" class="form-control" id="lname" name="lname" placeholder="Dela Cruz" pattern="[a-zA-Z.]+(?:\s[a-zA-Z.]+)*" required title="Input letters only.">
-                    </div>
+                <?php endif; ?>
+                <div class="form-name" style="display:flex;">
+                  <div class="form-group" style="width: 45%;">
+                      <a style="color:white; margin-right: 500px;">Firsname</a>
+                      <input type="text" class="form-control" id="email1" name="fname" placeholder="Juan">
+                  </div>
+
+                  <div class="form-group" style="width: 44%;
+                  position: relative;
+                  
+                  left: 35px;">
+                      <a style="color:white; margin-right: 500px;">Lastname</a>
+                      <input type="text" class="form-control" id="email1" name="lname" placeholder="Dela Cruz">
+                  </div>
                 </div>
                 <div class="form-group">
-                    <label for="email" style="color:white; font-family: 'Roboto', sans-serif; font-size: 16px;">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="perpetualfuneralservices@gmail.com" required>
+                  <a style="color:white; margin-right: 500px;">Email</a>
+                  <input type="email" class="form-control" id="email1" name="email" placeholder="perpetualfuneralservices@gmail.com">
                 </div>
                 <div class="form-group">
-                    <label for="username" style="color:white; font-family: 'Roboto', sans-serif; font-size: 16px;">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="perpetual123" required>
+                  <a style="color:white; margin-right: 500px;">Username</a>
+                  <input type="text" class="form-control" id="email1" name="username" placeholder="perpetual123">
                 </div>
                 <div class="form-group">
-                    <label for="password" style="color:white; font-family: 'Roboto', sans-serif; font-size: 16px;">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="***********" required>
+                  <a style="color:white; margin-right: 500px;">Password</a>
+                  <input type="password" class="form-control" id="password1" name="password" placeholder="***********">
                 </div>
-                <button type="submit" class="btn btn-info btn-block btn-round" style="font-family: 'Roboto', sans-serif; font-size: 16px;">SIGN UP</button>
-            </form>
+                <button type="submit" class="btn btn-info btn-block btn-round">Sign up</button>
+
+
+              </form>
               
               <br>
             <!-- <div class="d-flex justify-content-center social-buttons">
@@ -107,7 +114,7 @@ if (isset($_GET['error'])) {
   <!-- Bootstrap JS -->
   <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'></script>
    <!-- Custom Script -->      
-  <script  src="../js/modal-script.js"></script>
+  <script  src="../js/modal-script.js"></script>W
   
   </body>
 

@@ -34,41 +34,41 @@
 
           </button>
         </div>
-        <div class="modal-body">
-          <div class="form-title text-center">
-            <h1 style="color:white">Sign up</h1>
-            <h5 style="color:white">Perpetual Funeral Services</h5>
-          </div>
-          <div class="d-flex flex-column text-center">
+          <div class="modal-body">
+            <div class="form-title text-center">
+              <h1 style="color:white; font-family: 'Roboto', sans-serif; font-weight: bold;">SIGN UP</h1>
+              <h5 style="color:white; font-family: 'Roboto', sans-serif;">Perpetual Funeral Services</h5>
+            </div>
+          <div class="d-flex flex-column text-left">
             <form method="post" action="signin-function.php">
-              <div class="form-group" style="width: 45%;">
-                <a style="color:white; margin-right: 500px;">Firsname</a>
-                <input type="text" class="form-control" id="email1" name="fname" placeholder="Juan" pattern="[a-zA-Z.]+(?:\s[a-zA-Z.]+)*" required title="Input letters only.">
-              </div>
-              <div class="form-group" style="width: 44%;
-              position: absolute;
-              top: 124px;
-              left: 189px;">
-                <a style="color:white; margin-right: 500px;">Lastname</a>
-                <input type="text" class="form-control" id="email1" name="lname" placeholder="Dela Cruz" pattern="[a-zA-Z.]+(?:\s[a-zA-Z.]+)*" required title="Input letters only.">
-              </div>
-              <div class="form-group">
-                <a style="color:white; margin-right: 500px;">Email</a>
-                <input type="email" class="form-control" id="email1" name="email" placeholder="perpetualfuneralservices@gmail.com" required>
-              </div>
-              <div class="form-group">
-                <a style="color:white; margin-right: 500px;">Username</a>
-                <input type="text" class="form-control" id="email1" name="username" placeholder="perpetual123" required>
-              </div>
-              <div class="form-group">
-                <a style="color:white; margin-right: 500px;">Password</a>
-                <input type="password" class="form-control" id="password1" name="password" placeholder="***********" required>
-              </div>
-              <button type="submit" class="btn btn-info btn-block btn-round">Sign up</button>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="fname" style="color:white; font-family: 'Roboto', sans-serif; font-size: 19px;">First Name</label>
+                        <input type="text" class="form-control" id="fname" name="fname" placeholder="Juan" pattern="[a-zA-Z.]+(?:\s[a-zA-Z.]+)*" required title="Input letters only.">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lname" style="color:white; font-family: 'Roboto', sans-serif; font-size: 19px;">Last Name</label>
+                        <input type="text" class="form-control" id="lname" name="lname" placeholder="Dela Cruz" pattern="[a-zA-Z.]+(?:\s[a-zA-Z.]+)*" required title="Input letters only.">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" style="color:white; font-family: 'Roboto', sans-serif; font-size: 19px;">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="perpetualfuneralservices@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="username" style="color:white; font-family: 'Roboto', sans-serif; font-size: 19px;">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="perpetual123" required>
+                </div>
+                <div class="form-group">
+                    <label for="password" style="color:white; font-family: 'Roboto', sans-serif; font-size: 19px;">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="***********" required>
+                </div><br>
+                <button type="submit" class="btn btn-info btn-block btn-round" style="font-family: 'Roboto', sans-serif; font-size: 19px;">SIGN UP</button>
             </form>
-            
+        
+        
             <br>
-            <div class="d-flex justify-content-center social-buttons">
+            <!-- <div class="d-flex justify-content-center social-buttons">
               <button type="button" class="btn btn-secondary btn-round" data-toggle="tooltip" data-placement="top" title="Google">
                 <i class="fab fa-google"></i>
               </button>
@@ -76,8 +76,8 @@
                 <i class="fab fa-facebook"></i>
               </button>
               
-            </di>
-          </div>
+            </div>
+          </div> -->
         </div>
       </div>
         <div class="modal-footer d-flex justify-content-center">

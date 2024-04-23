@@ -12,7 +12,7 @@ if (isset($_GET['error'])) {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>PFS | Login</title>
     <!-- Bootstrap CSS -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
     <!-- Font Awesome CSS -->
@@ -41,8 +41,8 @@ if (isset($_GET['error'])) {
       </div>
       <div class="modal-body">
         <div class="form-title text-center">
-          <h1 style="color:white">Login</h1>
-          <h5 style="color:white">Perpetual Funeral Services </h5>
+        <h1 style="color:white; font-family: 'Roboto', sans-serif; font-weight: bold;">LOGIN</h1>
+        <h5 style="color:white; font-family: 'Roboto', sans-serif;">Perpetual Funeral Services</h5>
         </div>
         <div class="d-flex flex-column text-center">
 
@@ -54,15 +54,15 @@ if (isset($_GET['error'])) {
           <?php endif; ?>
 
             <div class="form-group">
-              <a style="color:white; margin-right: 500px;">Username</a>
+              <a style="color:white; margin-right: 500px; font-family: 'Roboto', sans-serif; font-size: 16px;">Username</a>
               <input type="text" class="form-control" id="email1" name="username" placeholder="perpetual123">
             </div>
             <div class="form-group">
-              <a style="color:white; margin-right: 500px;">Password</a>
+              <a style="color:white; margin-right: 500px; font-family: 'Roboto', sans-serif; font-size: 16px;">Password</a>
               <input type="password" class="form-control" id="password1" name="password" placeholder="***********">
-            </div>
-            <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($_GET['redirect'] ?? ''); ?>">
-            <button type="submit" name="login" value="Login" class="btn btn-info btn-block btn-round">Login</button>
+            </div><br>
+            
+            <button type="submit" name="login" value="Login" class="btn btn-info btn-block btn-round">LOG IN</button>
           </form>
           
           <br>
@@ -84,9 +84,6 @@ if (isset($_GET['error'])) {
   </div>
 </div>
 <!-- partial -->
-
-
-
   
   </article>
  </main>

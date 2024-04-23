@@ -1,5 +1,5 @@
 <?php
-session_start();    
+// session_start();    
 
     include '../database/config.php';
 
@@ -19,7 +19,7 @@ session_start();
 
             if (password_verify($password, $user['password'])) {
                 $_SESSION['username'] = $username;
-                header("Location: ../section-form/pickup-form.php");
+                header("Location: ../section-home/index.php");
                 exit();
             } else {
                 header("Location: login.php?error=invalid_credentials");

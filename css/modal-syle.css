@@ -2,7 +2,7 @@
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 * {
-   font-family: "Inika", serif;
+   font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -69,12 +69,12 @@
 .intro h1 {
    font-size: 18pt;
    padding-bottom: 15px;
-   font-family: "Inika", serif;
+   font-family: 'Roboto', sans-serif;
 
 }
 .intro p{
    font-size: 14px;
-   font-family: "Inika", serif;
+   font-family: 'Roboto', sans-serif;
 }
 
 .action{
@@ -126,7 +126,7 @@ a.btn {
  -webkit-transition: .3s;
  }
  .btn:before{
-   font-family: "Inika", serif;
+   font-family: 'Roboto', sans-serif;
    font-weight: normal;
    margin-right: 10px;
  }
@@ -140,11 +140,11 @@ a.btn {
      text-align: center;
      color: #333;
      margin-top: 40px;
-     font-family: "Inika", serif;
+     font-family: 'Roboto', sans-serif;
  
  }
  .credit span:before{
-   font-family: "Inika", serif;
+   font-family: 'Roboto', sans-serif;
     color: #e41b17;
     content: "\f004";
  
@@ -158,7 +158,7 @@ a.btn {
     color: #1DBF73; 
  }
  .credit a:hover:after{
-     font-family: "Inika", serif;
+     font-family: 'Roboto', sans-serif;
      content: "\f08e";
      font-size: 9pt;
      position: absolute;
@@ -173,7 +173,7 @@ a.btn {
  article li{
     color: #444;
     font-size: 15px;
-    font-family: "Inika", serif;
+    font-family: 'Roboto', sans-serif;
     margin-left: 33px;
     line-height: 1.5;
     padding: 5px;
@@ -188,7 +188,7 @@ a.btn {
  }
  article p{
    font-size: 15px;
-   font-family: "Inika", serif;
+   font-family: 'Roboto', sans-serif;
    line-height: 1.5;
  }
   
@@ -212,13 +212,13 @@ a.btn {
     padding: 0 15px;
     color: #333;
     font-size: 16px;
-    font-family: "Inika", serif;
+    font-family: 'Roboto', sans-serif;
  }
  .set-overlayer:after,
  .set-glass:after,
  .to-active:after,
  .set-sticky:after {
-   font-family: "Inika", serif;
+   font-family: 'Roboto', sans-serif;
    font-size: 18pt;
    position: relative;
    float: right;

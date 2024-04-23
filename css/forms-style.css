@@ -5,7 +5,7 @@
 }
 
 .inika-bold, body {
-    font-family: "Inika", serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-style: normal;
 }
@@ -36,6 +36,8 @@
     padding: 15px;
     margin: 0;
     border-radius: 10px;
+    font-weight: bold;
+    font-size: 17px;
 }
 
 .background-image nav ul li {
@@ -147,11 +149,13 @@
     margin: 10px 0px;
     height: 40px;
     width: 100px;
+    font-weight: bold;
 }
 
 .choose-service {
     font-size: 17.5px;
     color: #144067;
+    font-weight: bold;
 }
 
 .choose-btn {

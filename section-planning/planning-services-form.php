@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Planning | Services</title>
+    <title>PFS | Services</title>
     <link rel="stylesheet" href="../css/forms-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,8 +21,8 @@
             <li><a href="../section-services/Service Section.html">SERVICES</a></li>
             <li><a href="../section-form/pickup-form.php">FORM</a></li>
             <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
-            <li><a href="../section-obituaries/obituaries.php">OBITUARIES</a></li>
-            <li><a href="../section-login-signup/signup.html">SIGN IN</a></li>
+            <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li>
+            <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
         </ul>
       </nav>
     </div>

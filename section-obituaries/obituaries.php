@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obituaries</title>
+    <title>PFS | Obituary</title>
     <link rel="stylesheet" href="../css/obituaries-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,14 +27,14 @@
                     <li><a href="../section-services/Service Section.html">SERVICES</a></li>
                     <li><a href="../section-form/pickup-form.php">FORM</a></li>
                     <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
-                    <li><a href="../section-obituaries/obituaries.php">OBITUARIES</a></li>
-                    <li><a href="../section-login-signup/signup.html">SIGN IN</a></li>
+                    <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li>
+                    <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
                     </ul>
                 </nav>
             </div>
         </section>
         <div class="review-page-container">
-            <h1 class="review-title">OBITUARIES</h1>
+            <h1 class="review-title">OBITUARY</h1>
             <br>
             <div class="filter-container">
                 <input type="text" id="searchInput" placeholder="Search name" class="container">

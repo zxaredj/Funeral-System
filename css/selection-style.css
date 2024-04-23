@@ -5,7 +5,7 @@
 }
 
 .inika-bold, body {
-    font-family: "Inika", serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-style: normal;
 }
@@ -36,6 +36,8 @@
     padding: 15px;
     margin: 0;
     border-radius: 10px;
+    font-weight: bold;
+    font-size: 17px;
 }
 
 .background-image nav ul li {
@@ -93,24 +95,42 @@ hr {
     height: 9rem;
 }
  
-.box-container .box h3 {
+.box-container{
     margin:1rem 0;
     font-size: 15px;
     color: black;
-    font-family: "Inika", serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: normal;
     margin-bottom: 10px;
  }
  
-.box-container .box .price {
+.box-container {
     color: black;
     font-size: 16px;
-    font-family: "Inika", serif;
+    font-family: 'Roboto', sans-serif;
     font-weight:bold;
     color: black;
     cursor: pointer;
     margin-bottom: 5px;
  }
+
+
+ .item-name {
+    font-size: 14px;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
+.price {
+    font-size: 17px;
+    color:#144067;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
 
  .select-btn {
     background-color: #144067;
@@ -135,4 +155,9 @@ hr {
     color: black;
     text-align: center;
     margin-bottom: 20px;
+}
+
+.header-title {
+    color: #144067;
+    font-size: 30px;
 }
