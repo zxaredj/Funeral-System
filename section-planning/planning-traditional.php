@@ -59,6 +59,9 @@ if (isset($_POST['submit-btn'])) {
     $contactEmail = mysqli_real_escape_string($connection, $_POST["contact-email"]);
     $contactRelationship = mysqli_real_escape_string($connection, $_POST["relationship"]);
 
+    $obituaryOption = isset($_POST['obituary-option']) ? $_POST['obituary-option'] : '';
+    $obituaryOption = mysqli_real_escape_string($connection, $obituaryOption);
+
 
     $casketQuery = "SELECT price FROM caskets WHERE name = '$chosenCasket'";
     $casketResult = mysqli_query($connection, $casketQuery);
@@ -105,10 +108,10 @@ if (isset($_POST['submit-btn'])) {
 
     $query = "INSERT INTO pl_traditionalcremation (benefactorID, benefactorFirstName, benefactorLastName, benefactorContact, benefactorAddress, 
     benefactorEmail, planFor, beneficiaryID, beneficiaryFirstName, beneficiaryLastName, beneficiaryGender, beneficiaryBirthdate, beneficiaryAddress, service, package, packagePrice, casket, casketPrice, urn, urnPrice, facilityType,
-    facility, facilityPrice, days, facilityDuration, total, contactFirstName, contactLastName, contactNumber, contactEmail, contactRelationship) VALUES ('$benefactorID','$benefactorfirstname', '$benefactorlastname', 
+    facility, facilityPrice, days, facilityDuration, total, contactFirstName, contactLastName, contactNumber, contactEmail, contactRelationship, add_obituary) VALUES ('$benefactorID','$benefactorfirstname', '$benefactorlastname', 
     '$benefactornumber', '$benefactoraddress', '$benefactoremail', '$planfor', '$beneficiaryID', '$beneficiaryfirstname', '$beneficiarylastname', 
     '$beneficiarygender', '$beneficiarybirthdate', '$beneficiaryaddress', 'Traditional Cremation Service', '$chosenPackage', '$chosenPackagePrice', '$chosenCasket', '$chosenCasketPrice', '$chosenUrn', '$chosenUrnPrice', '$chosenFacilityType', '$chosenFacility',
-    '$chosenFacilityPrice','$days', '$facilityDuration', '$total', '$contactFirstName', '$contactLastName', '$contactNumber', '$contactEmail', '$contactRelationship')";
+    '$chosenFacilityPrice','$days', '$facilityDuration', '$total', '$contactFirstName', '$contactLastName', '$contactNumber', '$contactEmail', '$contactRelationship', '$obituaryOption')";
 
         if (mysqli_query($connection, $query)) {
             header("Location: planning-info-modal.html");
@@ -125,7 +128,7 @@ if (isset($_POST['submit-btn'])) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planning | Traditional Cremation</title>
+<title>PFS | Planning Traditional Cremation</title>
 <link rel="stylesheet" href="../css/forms-style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,8 +145,8 @@ if (isset($_POST['submit-btn'])) {
                     <li><a href="../section-services/Service Section.html">SERVICES</a></li>
                     <li><a href="../section-form/pickup-form.php">FORM</a></li>
                     <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
-                    <li><a href="../section-obituaries/obituaries.php">OBITUARIES</a></li>
-                    <li><a href="../section-login-signup/signup.html">SIGN IN</a></li>
+                    <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li>
+                    <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
                 </ul>
             </nav>
         </div>
@@ -156,8 +159,6 @@ if (isset($_POST['submit-btn'])) {
 <div class="container">
     <div class="box-1">
     <form id="multi-step-form" action="" method="POST" enctype="multipart/form-data" onsubmit="return validateTraditional()">
-
-    <br>        
         <div class="form-1 active" id="form-1">
 
             <h2 class="info-title">BENEFACTOR'S PERSONAL INFORMATION</h2>
@@ -195,6 +196,7 @@ if (isset($_POST['submit-btn'])) {
                         <option value="spouse">Spouse</option>
                         <option value="child">Child</option>
                         <option value="friend">Friend</option>
+                        <option value="myself">Myself</option>
                         <option value="Other">Other</option>
                     </select>
                 </div>
@@ -210,7 +212,7 @@ if (isset($_POST['submit-btn'])) {
                 <br>
                 <div class="inputs">
                     <div class="inputs">
-                        <p class="docu-name">Please upload any valid ID</p>
+                        <p class="docu-name">Please upload any picture of the beneficiary</p>
                         <input type="file" id="beneficiary-ID" name="beneficiary-ID" required>
                     </div>
                     <label for="beneficiary-firstname">First Name</label>
@@ -317,7 +319,7 @@ if (isset($_POST['submit-btn'])) {
         </div> 
             <br><hr>
             <br>
-            
+            <br>
             <div class="inputs">
                 <p class="choose-service">FUNERAL ARRANGEMENTS</p>
                 <br>
@@ -352,8 +354,6 @@ if (isset($_POST['submit-btn'])) {
                 </div>
             </div>
         </div>
-            <br>
-            
         <div id="facility-option2" class="hidden2">
             <div class="inputs">
                 <div class="inputs">
@@ -372,7 +372,7 @@ if (isset($_POST['submit-btn'])) {
         <br><hr>
         <br>
         <br>
-
+        <br>
         <p class="choose-service">CONTACT PERSON PERSONAL INFORMATION</p>
         <br>
 
@@ -407,11 +407,28 @@ if (isset($_POST['submit-btn'])) {
                 <option value="spouse">Spouse</option>
                 <option value="child">Child</option>
                 <option value="friend">Friend</option>
+                <option value="myself">Myself</option>
                 <option value="others">Others</option>
             </select>
+        </div>
+        <br><hr>
+        <br>
+        <br>
+        <p class="choose-service">OBITUARY</p>
+        <br>
+            <div class="inputs">
+            <label for="obituary-option">Would you like to include the beneficiary in the obituary upon their passing? <a href="../section-obituaries/obituaries.php" target="_blank">View Obituary here.</a></label>
+            <div class="radio-container">
+                <input type="radio" id="yes" name="obituary-option" value="YES" required>
+                <label for="yes" class="label-name"> YES</label>
+            </div>
+
+            <div class="radio-container">
+                <input type="radio" id="no" name="obituary-option" value="NO"> 
+                <label for="no" class="label-name"> NO</label>
+            </div>  
         </div>  
     </div>
-
         <div class="inputs">
             <div class="submit-btn-container">
             <button type="button" onclick="back()" class="submit-btn">BACK</button>

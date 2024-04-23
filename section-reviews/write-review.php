@@ -24,7 +24,7 @@
     <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Leave A Review</title>
+      <title>Write a Review</title>
       <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
       <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
     <link rel="stylesheet" href="../css/modal-syle.css">
@@ -47,24 +47,24 @@
         </div>
         <div class="modal-body">
           <div class="form-title text-center">
-            <h1 style="color:white">Leave A Review</h1>
+            <h1 style="color:white; font-family: 'Roboto', sans-serif; font-size: 30px; font-weight: bold;">Write a Review</h1>
           </div>
           <div class="d-flex flex-column text-center">
           <form action="" method="POST" id="review-form">
               <div class="form-group">
-                <a style="color:white; margin-right: 500px;">Name</a>
+                <a style="color:white; margin-right: 500px; font-family: 'Roboto', sans-serif; font-size: 16px;">Name</a>
                 <input type="text" class="form-control" id="review-name" name="review-name" placeholder="Juan Dela Cruz" required>
               </div>
               <div class="form-group">
-                <a style="color:white; margin-right: 500px;">Email</a>
+                <a style="color:white; margin-right: 500px; font-family: 'Roboto', sans-serif; font-size: 16px;">Email</a>
                 <input type="email" class="form-control" id="review-email" name="review-email" placeholder="perpetualfuneralservices@gmail.com" required>
               </div>
               <div class="form-group">
-                  <a style="color:white; margin-right: 500px;">Review</a>
-                  <textarea name="review-testimonial" id="review-testimonial" cols="42" rows="10" placeholder="Your review" style="margin-bottom: 18px;" required></textarea>
+                  <a style="color:white; margin-right: 490px; font-family: 'Roboto', sans-serif; font-size: 16px;">Review</a>
+                  <textarea name="review-testimonial" id="review-testimonial" cols="39" rows="9" placeholder="Your review" style="margin-bottom: 10px;" required></textarea>
                 </div>
               <!-- <button type="button" class="btn btn-info btn-blok btn-round" style="width: 45%;  position: absolute; left: 10px; bottom: 5px;" >Review Ratings</button> -->
-              <button type="submit" name="submit-btn" class="btn btn-info btn-block btn-round; width:50%;">Submit</button>
+              <button type="submit" name="submit-btn" class="btn btn-info btn-block btn-round; width:50%;">SUBMIT</button>
             </form>
         </div>
   </div>
@@ -85,7 +85,7 @@
 
       if(!textValidation.test(reviewName)) {
           alert("Invalid name. Please input proper name.");
-          return false;
+          return false; 
       }
       return true;
   }

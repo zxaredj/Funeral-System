@@ -2,10 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 .inika-bold, body {
-    font-family: "Inika", serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-style: normal;
 }
@@ -35,6 +36,8 @@
     padding: 15px;
     margin: 0;
     border-radius: 10px;
+    font-weight: bold;
+    font-size: 17px;
 }
 
 .background-image nav ul li {
@@ -77,19 +80,30 @@
     margin: 60px 200px 40px 200px;
 }
 
-.search-container, .sort-date-container {
-    background-color: #FFFEFE;
-    border-radius: 5px;
-}
-
 .search-container {
     height: 45px;
     width: 60%;
 }
 
+#searchInput {
+    width: 500px;
+    height: 50px;
+    border: 3px solid black;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+#filter-dropdown {
+    width: 100px;
+    height: 50px;
+    border: 3px solid black;
+    font-family: 'Roboto', sans-serif;
+
+}
+
 .sort-date-container {
     height: 45px;
-    width: 150px;
+    width: 200px;
     border: 1px solid #ccc;
     padding: 5px;
     text-align: center;
@@ -97,7 +111,7 @@
 
 .sort-date-container option {
     background-color: #FFF;
-    color: #333;
+    color: #144067;
     text-align: center;
 }
 
@@ -139,8 +153,16 @@
 
 .obituary-name, .obituary-date {
     margin: 5px 0;
+}
+
+.obituary-name {
+    font-weight: bold;
+    font-size: 25px;
+    color: #144067;
+}
+
+.obituary-date {
     font-size: 20px;
-    color: black;
 }
 
 .filter-container {
@@ -220,19 +242,19 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 20px;
+    padding: 30px 30px;
     background-color: #f9f9f9;
-    /* border-radius: 10px; */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 40px 20px;
-    /* border: 3px solid #144067; */
     width: 43%;
 }
 
 .review img {
     height: 200px;
-    width: 200px;
+    width: 210px;
     margin-right: 20px;
+    border-radius: 10px;
 }
 
 .review-details {

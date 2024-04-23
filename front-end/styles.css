@@ -5,7 +5,7 @@
 }
 
 .inika-bold, body {
-    font-family: "Inika", serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-style: normal;
 }
@@ -54,7 +54,7 @@
 
 .about-us{
     position:absolute;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 4rem;
     transform: translate(70%, 110%);

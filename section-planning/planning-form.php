@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planning</title>
+<title>PFS | Planning</title>
 <link rel="stylesheet" href="../css/forms-style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,8 +56,8 @@
                     <li><a href="../section-services/Service Section.html">SERVICES</a></li>
                     <li><a href="../section-form/pickup-form.php">FORM</a></li>
                     <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
-                    <li><a href="../section-obituaries/obituaries.php">OBITUARIES</a></li>
-                    <li><a href="../section-login-signup/signup.html">SIGN IN</a></li>
+                    <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li>
+                    <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
                 </ul>
             </nav>
         </div>
@@ -72,10 +72,10 @@
     <h2 class="info-title">SERVICE OPTION</h2><br>
      <h3>Please choose your preferred service:</h3>
      <div class="button-container">
-        <button onclick="window.location.href = 'planning-burial.php';">Burial Service</button>
-        <button onclick="window.location.href = 'planning-traditional.php';">Traditional Cremation Service</button>
-        <button onclick="window.location.href = 'planning-gathering.php';">Memorial Gathering After Cremation Service</button>
-        <button onclick="window.location.href = 'planning-direct.php';">Direct Cremation Service</button>
+        <button onclick="window.location.href = 'planning-burial.php';">BURIAL SERVICE</button>
+        <button onclick="window.location.href = 'planning-traditional.php';">TRADITIONAL CREMATION SERVICE</button>
+        <button onclick="window.location.href = 'planning-gathering.php';">MERMORIAL GATHERING AFTER CREMATION</button>
+        <button onclick="window.location.href = 'planning-direct.php';">DIRECT CREMATION SERVICE</button>
     </div>
 </form>
 </div>

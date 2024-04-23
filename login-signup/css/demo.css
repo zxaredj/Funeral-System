@@ -145,7 +145,7 @@ a.btn {
  -webkit-transition: .3s;
  }
  .btn:before{
-   font-family: FontAwesome;
+   font-family: 'Roboto', sans-serif;
    font-weight: normal;
    margin-right: 10px;
  }
@@ -162,9 +162,9 @@ a.btn {
  
  }
  .credit span:before{
-    font-family: FontAwesome;
-    color: #e41b17;
-    content: "\f004";
+   font-family: 'Roboto', sans-serif;
+   color: #e41b17;
+   content: "\f004";
  
  
  }
@@ -176,11 +176,11 @@ a.btn {
     color: #1DBF73; 
  }
  .credit a:hover:after{
-     font-family: FontAwesome;
-     content: "\f08e";
-     font-size: 9pt;
-     position: absolute;
-     margin: 3px;
+   font-family: 'Roboto', sans-serif;
+   content: "\f08e";
+   font-size: 9pt;
+   position: absolute;
+   margin: 3px;
  }
  main{
    background: #fff;
@@ -233,10 +233,10 @@ a.btn {
  .set-glass:after,
  .to-active:after,
  .set-sticky:after {
-    font-family: FontAwesome;
-    font-size: 18pt;
-    position: relative;
-    float: right;
+   font-family: 'Roboto', sans-serif;
+   font-size: 18pt;
+   position: relative;
+   float: right;
  }
  .set-overlayer:after,
  .set-glass:after,

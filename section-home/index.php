@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Funeral System</title>
+    <title>PFS | Home</title>
     <link rel="stylesheet" href="../css/home-style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,13 +27,19 @@
                             <li><a href="../section-services/Service Section.html">SERVICES</a></li>
                             <li><a href="../section-form/pickup-form.php">FORM</a></li>
                             <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
-                            <li><a href="../section-obituaries/obituaries.php">OBITUARIES</a></li>
-                            <li><a href="../section-login-signup/signup.html">SIGN IN</a></li>
-                            <li><a href="../section-login-signup/logout.php">LOGOUT</a></li>
+                            <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li>
+                            <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
+                            <!-- <li><a href="../section-login-signup/logout.php">LOGOUT</a></li> -->
                         </ul>
                     </nav>
-                    <div class="text-overlay"><p>Where Compassion Meets Comfort <br>
-                        Your Trusted Guide in Times of Loss</p>
+                    
+                    <div class="text-overlay">
+                        <div class="logo-container">
+                            <img src="../pictures/package-pictures/pigeon.png" class="pigeon">
+                        </div>    
+                    
+                        <p>PERPETUAL FUNERAL <br> SERVICES</p>
+                        <button class="started-btn" onclick="window.location.href = '../section-form/pickup-form.php'">GET STARTED</button>
                     </div>
                 </div>
         </section>
@@ -59,19 +65,19 @@
                     </div>
                     <div class="service-item">
                         <img src="../pictures/homepage-pictures/service4.jpg" alt="Obituaries Tributes">
-                        <p class="service-description">Obituaries Tributes</p>
+                        <p class="service-description">Obituary Tributes</p>
                         <p class="learn-more"><a href="../section-obituaries/obituaries.php" style="text-decoration: none; color: black">Learn More</a></p>
                     </div>
                 </div>
             </div>
             <h2 class="homepage-title">Welcome to Perpetual Funeral Services</h2>
             <p class="homepage-2-description">Discover a compassionate and dignified online experience at our funeral home's website, <br> where we provide support and guidance during difficult times.</p>
-            <br><br><br><hr>
+           <br><hr>
             <br>
         </section>
         <section class="homepage-3" id="obituaries">
             <br>
-           <h1 class="homepage-title">OBITUARIES</h1>
+           <h1 class="homepage-title">OBITUARY</h1>
             <div class="under-title">
                 <br>
                 <!-- <div class="stars-container" style="margin-right: 20px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
@@ -110,7 +116,7 @@
             <br>
             <!-- <hr style="margin: 0 150px;"> -->
             <div class="view-container">
-                <button class="original-button" style="margin: 10px auto 80px auto; width: 50%;"><a href="../section-obituaries/obituaries.php" style="text-decoration: none; color: white;">VIEW ALL OBITUARIES</a></button>
+                <button class="original-button" style="margin: 10px auto 80px auto; width: 50%;"><a href="../section-obituaries/obituaries.php" style="text-decoration: none; color: white; font-family: 'Roboto', sans-serif; font-weight: bold;">VIEW OBITUARY</a></button>
             </div><hr>
             <!-- <hr>
             <br>
@@ -226,9 +232,9 @@
             <br>
             <br><br>
             <div class="review-container-footer">
-                <a href="../section-reviews/all_reviews.php" target="_blank" class="original-button" style="margin-right: 30px;">View All Reviews</a>
+                <a href="../section-reviews/all_reviews.php" target="_blank" class="original-button">VIEW REVIEWS</a>
 
-                <button class="original-button" id="openReviewFormModal"><a href="../section-reviews/write-review.php" style="text-decoration: none; color: white; font-weight: bold;">Write A Review</a></button>
+                <button class="original-button" id="openReviewFormModal"><a href="../section-reviews/write-review.php" style="text-decoration: none; color: white; font-weight: bold;">WRITE A REVIEW</a></button>
                 
             </div>
             <!--
@@ -265,22 +271,22 @@
         <div class="wrapper-container">
             <div class="left-wrapper-container">
                 <div class="left-wrapper-item">
-                <h2 style="font-size: 40px; color: black;">DIRECTIONS</h2>
+                <h2 style="font-size: 40px; color: #144067;">DIRECTIONS</h2>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.0610417880775!2d120.96950667590495!3d14.652476375802863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b5ccc6d9badd%3A0x7e0ea7cff476121!2sFloresco%20Building%2C%20A.%20Mabini%20St%2C%20Dagat-Dagatan%2C%20Caloocan%2C%20Metro%20Manila!5e0!3m2!1sfil!2sph!4v1709841733811!5m2!1sfil!2sph" width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <div class="right-wrapper-container">
                 <div class="right-wrapper-item">
                     <div class="form-container">
-                        <h2 style="font-size: 40px; color: black;">GET IN TOUCH</h2>
+                        <h2 style="font-size: 40px; color: #144067;">GET IN TOUCH</h2>
                         <form method="post" action="send-email.php" id="inquiry-form">
-                        <input type="text" name="name" id="name" class="input" placeholder="Juan Dela Cruz" pattern="[a-zA-Z.]+(?:\s[a-zA-Z.]+)*" required title="Input letters only.">
+                        <input type="text" name="name" id="name" class="input" placeholder="Name" pattern="[a-zA-Z.]+(?:\s[a-zA-Z.]+)*" required title="Input letters only.">
                             <br>
-                            <input type="email" name="email" id="email" class="input" placeholder="perpetualfuneralservice@gmail.com" required>
+                            <input type="email" name="email" id="email" class="input" placeholder="Email Address" required>
                             <br>
-                            <input class="input" type="text" name="subject" id="subject" placeholder="Casket recommendations" required>
+                            <input class="input" type="text" name="subject" id="subject" placeholder="Subject" required>
                             <br>
-                            <textarea class="message-inquiry input" name="message" id="message" placeholder="Can you please give me casket recommendations?" required></textarea>
+                            <textarea class="message-inquiry input" name="message" id="message" placeholder="Message" required></textarea>
                             <br>
                             <button class="btn-submit" value="Submit">SUBMIT</button>
                         </form>

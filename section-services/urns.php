@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urns</title>
+    <title>PFS | Urns</title>
     <link rel="stylesheet" href="../css/selection-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,8 +21,8 @@
                             <li><a href="../section-services/Service Section.html">SERVICES</a></li>
                             <li><a href="../section-form/pickup-form.php">FORM</a></li>
                             <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
-                            <li><a href="../section-obituaries/obituaries.php">OBITUARIES</a></li>
-                            <li><a href="../section-login-signup/signup.html">SIGN IN</a></li>
+                            <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li>
+                            <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -30,11 +30,11 @@
             </main>
 
 <div class="main-caskets">
-<h1 class="service-title">OUR URN SELECTION</h1>
+<h1 class="service-title">URNS OFFERED</h1>
 <p class="service-intro">We are proud to provide high-quality urns at the best prices in our area. We want you to be able to see, touch and feel the urn you select for your loved one.</p>
 
 <br>
-<h2>METAL URNS</h2>
+<h2 class="header-title">METAL URN</h2>
 <hr>
     <div class="box-container">
         <?php
@@ -59,7 +59,7 @@
         ?>
     </div>
     <br><br>
-    <h2>MARBLE URNS</h2>
+    <h2 class="header-title">MARBLE URN</h2>
 <hr>
     <div class="box-container">
         <?php
@@ -82,7 +82,7 @@
         ?>
     </div>
     <br><br>
-    <h2>GLASS URNS</h2>
+    <h2 class="header-title">GLASS URN</h2>
 <hr>
     <div class="box-container">
         <?php
@@ -106,7 +106,7 @@
         ?>
     </div>
     <br><br>
-    <h2>BABY URNS</h2>
+    <h2 class="header-title">BABY URN</h2>
 <hr>
     <div class="box-container">
         <?php
@@ -119,7 +119,7 @@
         <form action="" method="post">
             <div class="box">
                 <img src="../pictures/urns-pictures/<?php echo $fetch_product['picture']; ?>" alt="<?php echo $fetch_product['name']; ?>">
-                <h3><?php echo $fetch_product['name']; ?></h3>
+                <h3 class="item-name"><?php echo $fetch_product['name']; ?></h3>
                 <div class="price">₱<?php echo number_format($fetch_product['price'], 2); ?></div>
                 <input type="hidden" name="id" value="<?php echo $fetch_product['id']; ?>">
                 <!-- <input type="submit" class="select-btn" value="SELECT" name="select"> -->

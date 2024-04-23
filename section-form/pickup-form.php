@@ -1,15 +1,15 @@
 <?php
-session_start();
+// session_start();
 include '../database/config.php';
 
-$login_required = false;
+// $login_required = false;
 
-if (!isset($_SESSION['username'])) {
-    // User is not logged in, set a flag to indicate login is required
-    $login_required = true;
-}
+// if (!isset($_SESSION['username'])) {
+//     // User is not logged in, set a flag to indicate login is required
+//     $login_required = true;
+// }
 
-if (!$login_required && isset($_POST['submit-btn'])) {
+if (isset($_POST['submit-btn'])) {
 
     function handleFileUpload($file) {
         $img_name = $file['name'];
@@ -59,7 +59,7 @@ if (!$login_required && isset($_POST['submit-btn'])) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Form</title>
+<title>PFS | Form</title>
     <link rel="stylesheet" href="../css/forms-style.css">
     <link rel="preconnection" href="https://fonts.googleapis.com">
     <link rel="preconnection" href="https://fonts.gstatic.com" crossorigin>
@@ -77,8 +77,8 @@ if (!$login_required && isset($_POST['submit-btn'])) {
                             <li><a href="../section-services/Service Section.html">SERVICES</a></li>
                             <li><a href="../section-form/pickup-form.php">FORM</a></li>
                             <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
-                            <li><a href="../section-obituaries/obituaries.php">OBITUARIES</a></li>
-                            <li><a href="../section-login-signup/signup.html">SIGN IN</a></li>
+                            <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li>
+                            <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -93,6 +93,7 @@ if (!$login_required && isset($_POST['submit-btn'])) {
 
     <form id="multi-step-form" action="" method="POST" enctype="multipart/form-data">
     <div class="form-1 active" id="form-1">
+    <h2 class="info-title">DECEASED PERSONAL INFORMATION</h2>
         <h2 class="docu-text">Please upload the following documents:</h2>
           <div class="inputs">
                 <p class="docu-name">Death Certificate</p>
@@ -103,8 +104,6 @@ if (!$login_required && isset($_POST['submit-btn'])) {
                 <p class="docu-name">Release Paper</p>
                 <input type="file" id="release-paper" name="release-paper" required>
             </div>
-
-        <h2 class="info-title">Deceased Personal Information</h2>
       
             <div class="inputs">
                 <label for="deceased-firstname">First Name</label>
@@ -138,7 +137,7 @@ if (!$login_required && isset($_POST['submit-btn'])) {
             </div>
     </div>
     <div class="form-2" id="form-2" style="display: none;">
-        <h2 class="info-title">Contact Person Personal Information</h2>
+        <h2 class="info-title">CONTACT PERSON PERSONAL INFORMATION</h2>
             
             <div class="inputs">
                 <div class="inputs">
@@ -185,14 +184,6 @@ if (!$login_required && isset($_POST['submit-btn'])) {
         </form>
     </div>
 </div>
-
-<script>
-    var loginRequired = <?php echo json_encode($login_required); ?>;
-    if (loginRequired) {
-        // Trigger modal popup or redirect to login page
-        window.location.href = '../section-login-signup/login.php?redirect=../section-form/pickup-form.php';
-    }
-</script>
 <script src="../js/forms.js"></script>
 <script src="../js/validations.js" defer></script>
 </body>
