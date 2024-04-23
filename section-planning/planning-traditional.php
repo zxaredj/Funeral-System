@@ -33,8 +33,12 @@ if (isset($_POST['submit-btn'])) {
 
     $chosenFacilityType = $_POST["facility-type"];
     $chosenFacility = '';
-    $days = '';
-
+    $days = 0;
+    $chosenCasketPrice = 0;
+    $chosenUrnPrice = 0;
+    $chosenFacilityPrice = 0;
+    $chosenPackagePrice = 0;
+    $facilityDuration = 0;
 
     if ($chosenFacilityType === "Funeral Service at Funeral Home") {
         $chosenFacility = mysqli_real_escape_string($connection, $_POST["facility1"]);
@@ -44,6 +48,7 @@ if (isset($_POST['submit-btn'])) {
         $days = mysqli_real_escape_string($connection, $_POST["days2"]);
     }
 
+    $numberDays = $days;
 
     $chosenCasket = mysqli_real_escape_string($connection, $_POST["casket"]);
     $chosenUrn = mysqli_real_escape_string($connection, $_POST["urn"]);
@@ -54,12 +59,56 @@ if (isset($_POST['submit-btn'])) {
     $contactEmail = mysqli_real_escape_string($connection, $_POST["contact-email"]);
     $contactRelationship = mysqli_real_escape_string($connection, $_POST["relationship"]);
 
-        $query = "INSERT INTO pl_traditionalcremation (benefactorID, benefactorFirstName, benefactorLastName, benefactorContact, benefactorAddress, 
-        benefactorEmail, planFor, beneficiaryID, beneficiaryFirstName, beneficiaryLastName, beneficiaryGender, beneficiaryBirthdate, beneficiaryAddress, service, package, casket, urn, facilityType,
-        facility, days, contactFirstName, contactLastName, contactNumber, contactEmail, contactRelationship) VALUES ('$benefactorID','$benefactorfirstname', '$benefactorlastname', 
-        '$benefactornumber', '$benefactoraddress', '$benefactoremail', '$planfor', '$beneficiaryID', '$beneficiaryfirstname', '$beneficiarylastname', 
-        '$beneficiarygender', '$beneficiarybirthdate', '$beneficiaryaddress', 'Traditional Cremation Service', '$chosenPackage', '$chosenCasket', '$chosenUrn', '$chosenFacilityType', '$chosenFacility',
-        '$days', '$contactFirstName', '$contactLastName', '$contactNumber', '$contactEmail', '$contactRelationship')";
+
+    $casketQuery = "SELECT price FROM caskets WHERE name = '$chosenCasket'";
+    $casketResult = mysqli_query($connection, $casketQuery);
+
+    if(mysqli_num_rows($casketResult) > 0) {
+        $casketRow = mysqli_fetch_assoc($casketResult);
+        $chosenCasketPrice = $casketRow['price'];
+    } else {
+        $chosenCasketPrice = 0;
+    }
+
+    $urnQuery = "SELECT price FROM urns WHERE name = '$chosenUrn'";
+    $urnResult = mysqli_query($connection, $urnQuery);
+
+    if(mysqli_num_rows($urnResult) > 0) {
+        $urnRow = mysqli_fetch_assoc($urnResult);
+        $chosenUrnPrice = $urnRow['price'];
+    } else {
+        $chosenUrnPrice = 0;
+    }
+
+    $facilityQuery = "SELECT price FROM facilities WHERE name = '$chosenFacility'";
+    $facilityResult = mysqli_query($connection, $facilityQuery);
+
+    if(mysqli_num_rows($facilityResult) > 0) {
+        $facilityRow = mysqli_fetch_assoc($facilityResult);
+        $chosenFacilityPrice = $facilityRow['price'];
+    } else {
+        $chosenFacilityPrice = 0;
+    }
+    
+    $packageQuery = "SELECT price FROM package_traditional WHERE name = '$chosenPackage'";
+    $packageResult = mysqli_query($connection, $packageQuery);
+
+    if(mysqli_num_rows($packageResult) > 0) {
+        $packageRow = mysqli_fetch_assoc($packageResult);
+        $chosenPackagePrice = $packageRow['price'];
+    } else {
+        $chosenPackagePrice = 0;
+    }
+   
+    $facilityDuration = $chosenFacilityPrice * $numberDays;
+    $total = $chosenCasketPrice + $chosenUrnPrice + $chosenPackagePrice + $facilityDuration;
+
+    $query = "INSERT INTO pl_traditionalcremation (benefactorID, benefactorFirstName, benefactorLastName, benefactorContact, benefactorAddress, 
+    benefactorEmail, planFor, beneficiaryID, beneficiaryFirstName, beneficiaryLastName, beneficiaryGender, beneficiaryBirthdate, beneficiaryAddress, service, package, packagePrice, casket, casketPrice, urn, urnPrice, facilityType,
+    facility, facilityPrice, days, facilityDuration, total, contactFirstName, contactLastName, contactNumber, contactEmail, contactRelationship) VALUES ('$benefactorID','$benefactorfirstname', '$benefactorlastname', 
+    '$benefactornumber', '$benefactoraddress', '$benefactoremail', '$planfor', '$beneficiaryID', '$beneficiaryfirstname', '$beneficiarylastname', 
+    '$beneficiarygender', '$beneficiarybirthdate', '$beneficiaryaddress', 'Traditional Cremation Service', '$chosenPackage', '$chosenPackagePrice', '$chosenCasket', '$chosenCasketPrice', '$chosenUrn', '$chosenUrnPrice', '$chosenFacilityType', '$chosenFacility',
+    '$chosenFacilityPrice','$days', '$facilityDuration', '$total', '$contactFirstName', '$contactLastName', '$contactNumber', '$contactEmail', '$contactRelationship')";
 
         if (mysqli_query($connection, $query)) {
             header("Location: planning-info-modal.html");
@@ -202,27 +251,28 @@ if (isset($_POST['submit-btn'])) {
             <div class="inputs">
             <select id="casket" name="casket" required>
                 <option value="" selected disabled>Select Casket</option>
-                <option value="Non-gasketed Red Casket">Non-gasketed Red Casket</option>
-                <option value="Non-gasketed Silver Casket">Non-gasketed Silver Casket</option>
-                <option value="Non-gasketed Crepe Silver Casket">Non-gasketed Crepe Silver Casket</option>
-                <option value="Non-gasketed White Casket">Non-gasketed White Casket</option>
-                <option value="Non-gasketed Light Blue Casket">Non-gasketed Light Blue Casket</option>
-                <option value="Non-gasketed Royal Blue Casket">Non-gasketed Royal Blue Casket</option>
-                <option value="Non-gasketed Yellow Casket">Non-gasketed Yellow Casket</option>
-                <option value="Non-gasketed Blue Casket">Non-gasketed Blue Casket</option>
-                <option value="Non-gasketed White Gold Casket">Non-gasketed White Gold Casket</option>
-                <option value="Non-gasketed White Pink Casket">Non-gasketed White Pink Casket</option>
-                <option value="Non-gasketed Light Pink Casket">Non-gasketed Light Pink Casket</option>
-                <option value="Non-gasketed Copper Casket">Non-gasketed Copper Casket</option>
-                <option value="Non-gasketed Rose Pink Casket">Non-gasketed Rose Pink Casket</option>
-                <option value="Non-gasketed Dark Green Casket">Non-gasketed Dark Green Casket</option>
-                <option value="Non-gasketed Green Casket">Non-gasketed Green Casket</option>
-                <option value="Solid Dark Mahogany Casket">Solid Dark Mahogany Casket</option>
-                <option value="Solid Poplar Gold Stripe Casket">Solid Poplar Gold Stripe Casket</option>
-                <option value="Solid Poplar Oak Casket">Solid Poplar Oak Casket</option>
-                <option value="Solid Poplar with Gold Casket">Solid Poplar with Gold Casket</option>
-                <option value="Solid Crepe Copper Casket">Solid Poplar Brown Gold Casket</option>
-                <option value="Small Hardwood Infant Casket">Small Hardwood Infant Casket</option>
+                <option value="Non-gasketed Red Casket">Non-gasketed Red Casket - ₱160,000</option>
+                <option value="Non-gasketed Silver Casket">Non-gasketed Silver Casket - ₱170,000</option>
+                <option value="Non-gasketed Crepe Silver Casket">Non-gasketed Crepe Silver Casket - ₱180,000</option>
+                <option value="Non-gasketed White Casket">Non-gasketed White Casket - ₱165,000</option>
+                <option value="Non-gasketed Light Blue Casket">Non-gasketed Light Blue Casket - ₱170,000</option>
+                <option value="Non-gasketed Royal Blue Casket">Non-gasketed Royal Blue Casket - ₱170,000</option>
+                <option value="Non-gasketed Yellow Casket">Non-gasketed Yellow Casket - ₱170,000</option>
+                <option value="Non-gasketed Blue Casket">Non-gasketed Blue Casket - ₱160,000</option>
+                <option value="Non-gasketed White Gold Casket">Non-gasketed White Gold Casket - ₱150,000</option>
+                <option value="Non-gasketed White Pink Casket">Non-gasketed White Pink Casket - ₱170,000</option>
+                <option value="Non-gasketed Light Pink Casket">Non-gasketed Light Pink Casket - ₱175,000</option>
+                <option value="Non-gasketed Copper Casket">Non-gasketed Copper Casket - ₱180,000</option>
+                <option value="Non-gasketed Rose Pink Casket">Non-gasketed Rose Pink Casket - ₱175,000</option>
+                <option value="Non-gasketed Dark Green Casket">Non-gasketed Dark Green Casket - ₱180,000</option>
+                <option value="Non-gasketed Green Casket">Non-gasketed Green Casket - ₱160,000</option>
+                <option value="Solid Dark Mahogany Casket">Solid Dark Mahogany Casket - ₱175,000</option>
+                <option value="Solid Poplar Gold Stripe Casket">Solid Poplar Gold Stripe Casket - ₱170,000</option>
+                <option value="Solid Poplar Oak Casket">Solid Poplar Oak Casket - ₱180,000</option>
+                <option value="Solid Poplar with Gold Casket">Solid Poplar with Gold Casket - ₱180,000</option>
+                <option value="Solid Crepe Copper Casket">Solid Crepe Copper Casket - ₱165,000</option>
+                <option value="Solid Poplar Brown Gold Casket">Solid Poplar Brown Gold Casket - ₱175,000</option>
+                <option value="Small Hardwood Infant Casket">Small Hardwood Infant Casket - ₱20,000</option>
             </select>
         </div> <br>
 
@@ -230,30 +280,30 @@ if (isset($_POST['submit-btn'])) {
         <br>
             <div class="inputs">
             <select id="urn" name="urn" required>
-            <option value="" selected disabled>Select Urn</option>
-                <option value="Plain Brass">Plain Brass</option>
-                <option value="Plain Silver">Plain Silver</option>
-                <option value="Dark Brown Gold Plated">Dark Brown Gold Plated</option>
-                <option value="Plain Gold">Plain Gold</option>
-                <option value="Bronze">Bronze</option>
-                <option value="Radiance">Radiance</option>
-                <option value="Gatsby">Gatsby</option>
-                <option value="Chantique Gold">Chantique Gold</option>
-                <option value="Plain Gray">Plain Gray</option>
-                <option value="Marble Blue">Marble Blue</option>
-                <option value="Marble Pink">Marble Pink</option>
-                <option value="Marble Red">Marble Red</option>
-                <option value="Marble Black">Marble Black</option>
-                <option value="Marble White">Marble White</option>
-                <option value="Glass Forest">Glass Forest</option>
-                <option value="Glass Sea">Glass Sea</option>
-                <option value="Glass Ocean">Glass Ocean</option>
-                <option value="Glass Tree">Glass Tree</option>
-                <option value="Glass Leaves">Glass Leaves</option>
-                <option value="Marble Baby Blue">Marble Baby Blue</option>
-                <option value="Marble Baby Brown">Marble Baby Brown</option>
-                <option value="Marble Baby Pink">Marble Baby Pink</option>
-                <option value="Marble Baby White">Marble Baby White</option>
+                <option value="" selected disabled>Select Urn</option>
+                <option value="Plain Brass">Plain Brass - ₱6,000</option>
+                <option value="Plain Silver">Plain Silver - ₱9,000</option>
+                <option value="Dark Brown Gold Plated">Dark Brown Gold Plated - ₱10,000</option>
+                <option value="Plain Gold">Plain Gold - ₱12,000</option>
+                <option value="Bronze">Bronze - ₱6,000</option>
+                <option value="Radiance">Radiance - ₱9,000</option>
+                <option value="Gatsby">Gatsby - ₱10,000</option>
+                <option value="Chantique Gold">Chantique Gold - ₱12,000</option>
+                <option value="Plain Gray">Plain Gray - ₱4,000</option>
+                <option value="Marble Blue">Marble Blue - ₱9,000</option>
+                <option value="Marble Pink">Marble Pink - ₱10,000</option>
+                <option value="Marble Red">Marble Red - ₱12,000</option>
+                <option value="Marble Black">Marble Black - ₱4,000</option>
+                <option value="Marble White">Marble White - ₱4,000</option>
+                <option value="Glass Forest">Glass Forest - ₱7,000</option>
+                <option value="Glass Sea">Glass Sea - ₱7,600</option>
+                <option value="Glass Ocean">Glass Ocean - ₱7,200</option>
+                <option value="Glass Tree">Glass Tree - ₱8,000</option>
+                <option value="Glass Leaves">Glass Leaves - ₱7,800</option>
+                <option value="Marble Baby Blue">Marble Baby Blue - ₱4,000</option>
+                <option value="Marble Baby Brown">Marble Baby Brown - ₱4,000</option>
+                <option value="Marble Baby Pink">Marble Baby Pink - ₱4,000</option>
+                <option value="Marble Baby White">Marble Baby White - ₱4,000</option>
             </select>
             </div> <br>
         <p class="choose-service">PACKAGE  <a href="../section-services/Cremation Services.html" target="_blank">See packages here.</a></p>
@@ -261,8 +311,8 @@ if (isset($_POST['submit-btn'])) {
             <div class="inputs">
             <select id="package" name="package" required>
                 <option value="" selected disabled>Select package</option>
-                <option value="Traditional Cremation Package 1">Traditional Cremation Package 1</option>
-                <option value="Traditional Cremation Package 2">Traditional Cremation Package 2</option>
+                <option value="Traditional Cremation Package 1">Traditional Cremation Package 1 - ₱65,000</option>
+                <option value="Traditional Cremation Package 2">Traditional Cremation Package 2 - ₱60,000</option>
             </select>
         </div> 
             <br><hr>
@@ -288,10 +338,10 @@ if (isset($_POST['submit-btn'])) {
         <label for="facility1">Facility   <a href="../section-services/facilities.php" target="_blank">See facilities here.</a></label>
             <select id="facility1" name="facility1">
                 <option value="" selected disabled>Select Facility</option>
-                <option value="Air-Conditioned Facility 1">Air-Conditioned Facility 1</option>
-                <option value="Air-Conditioned Facility 2">Air-Conditioned Facility 2</option>
-                <option value="Non-Air-Conditioned Facility 1">Non-Air-Conditioned Facility 1</option>
-                <option value="Non-Air-Conditioned Facility 2">Non-Air-Conditioned Facility 2</option>
+                <option value="Air-Conditioned Facility 1">Air-Conditioned Facility 1 - ₱8,000/day</option>
+                <option value="Air-Conditioned Facility 2">Air-Conditioned Facility 2 - ₱8,000/day</option>
+                <option value="Non-Air-Conditioned Facility 1">Non-Air-Conditioned Facility 1 - ₱3,500/day</option>
+                <option value="Non-Air-Conditioned Facility 2">Non-Air-Conditioned Facility 2 - ₱3,500/day</option>
             </select>
         </div>
 
