@@ -288,7 +288,7 @@
                             <br>
                             <textarea class="message-inquiry input" name="message" id="message" placeholder="Message" required></textarea>
                             <br>
-                            <button class="btn-submit" value="Submit">SUBMIT</button>
+                            <button class="btn-submit" value="Submit" name="submit-btn">SUBMIT</button>
                         </form>
                     </div>
                 </div>

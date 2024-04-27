@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2024 at 04:42 PM
+-- Generation Time: Apr 27, 2024 at 02:22 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -86,6 +86,34 @@ INSERT INTO `facilities` (`id`, `category`, `name`, `price`, `picture`) VALUES
 (2, 'aircon', 'Air-Conditioned Facility 2', 8000, 'facility-2.png'),
 (3, 'non-aircon', 'Non-Air-Conditioned Facility 1', 3500, 'facility-3.png'),
 (4, 'non-aircon', 'Non-Air-Conditioned Facility 2', 3500, 'facility-4.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inquiries`
+--
+
+CREATE TABLE `inquiries` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `inquiries`
+--
+
+INSERT INTO `inquiries` (`id`, `name`, `email`, `subject`, `message`, `timestamp`) VALUES
+(1, 'Angeline N. Mercado', 'angelinemercado806@gmail.com', 'Recommended casket', 'What is your recommended casket?', '2024-04-27 11:29:17'),
+(2, 'Perseus Daracan', 'perseusdaracan@gmail.com', 'Opening hours', 'Are you open 24 hours a day, 7 times a week?', '2024-04-27 11:33:18'),
+(3, 'Czarina Baguio', 'czarina@gmail.com', 'Walk-in', 'Do you accept walk-ins?', '2024-04-27 11:33:59'),
+(4, 'Angeline Mercado', 'angelinemercado806@gmail.com', 'Cheap casket', 'What is the cheapest casket?', '2024-04-27 11:59:23'),
+(5, 'Zxared Mallillin', 'zxared@gmail.com', 'Package', 'Which package is better in burial service?', '2024-04-27 12:00:31'),
+(6, 'Angeline Mercado', 'angelinemercado806@gmail.com', 'Facility', 'Which facility is the largest?', '2024-04-27 12:01:03'),
+(7, 'Mercado Angeline', 'angelinemercado806@gmail.com', 'Cheapest Urn', 'What is your cheapest urn?', '2024-04-27 12:18:20');
 
 -- --------------------------------------------------------
 
@@ -599,6 +627,12 @@ ALTER TABLE `facilities`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `inquiries`
+--
+ALTER TABLE `inquiries`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
@@ -697,6 +731,12 @@ ALTER TABLE `caskets`
 --
 ALTER TABLE `facilities`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `inquiries`
+--
+ALTER TABLE `inquiries`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `login`
