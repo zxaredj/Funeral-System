@@ -144,16 +144,17 @@ if (isset($_POST['submit-btn'])) {
                     <li><a href="../section-about/About Us.html">ABOUT</a></li>
                     <li><a href="../section-services/Service Section.html">SERVICES</a></li>
                     <li><a href="../section-form/pickup-form.php">FORM</a></li>
-                    <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
-                    <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li>
+                    <!-- <li><a href="../section-planning/planning-form.php">PLANNING</a></li> -->
+                    <!-- <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li> -->
                     <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
                 </ul>
             </nav>
         </div>
     </section>
 </main>
-
-<h1 class="title">PLANNING FORM</h1>
+<br><br><br><br><br><br>
+<button type="button" onclick="window.location.href='../section-planning/planning-form.php#services'" class="submit-btn1">BACK</button>
+<h1 class="title1">TRADITIONAL CREMATION SERVICE <br> PLANNING FORM</h1>
 <p class="form-intro">Take charge of your final arrangements by planning ahead, ensuring your loved ones are spared the burden and your wishes are honored with peace of mind.</p>
 
 <div class="container">

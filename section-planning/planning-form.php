@@ -55,19 +55,20 @@
                     <li><a href="../section-about/About Us.html">ABOUT</a></li>
                     <li><a href="../section-services/Service Section.html">SERVICES</a></li>
                     <li><a href="../section-form/pickup-form.php">FORM</a></li>
-                    <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
-                    <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li>
+                    <!-- <li><a href="../section-planning/planning-form.php">PLANNING</a></li> -->
+                    <!-- <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li> -->
                     <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
                 </ul>
             </nav>
         </div>
     </section>
 </main>
-
-<h1 class="title">PLANNING FORM</h1>
+<br><br><br><br><br><br>
+<button type="button" onclick="window.location.href='../section-home/index.php#services'" class="submit-btn1">BACK</button>
+<h1 class="title1">PLANNING FORM</h1>
 <p class="form-intro">Take charge of your final arrangements by planning ahead, ensuring your loved ones are spared the burden and your wishes are honored with peace of mind.</p>
 
-<div class="container">
+<div class="container" id="services">
     <div class="box-1">
     <h2 class="info-title">SERVICE OPTION</h2><br>
      <h3>Please choose your preferred service:</h3>

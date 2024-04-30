@@ -20,15 +20,17 @@
                             <li><a href="../section-about/About Us.html">ABOUT</a></li>
                             <li><a href="../section-services/Service Section.html">SERVICES</a></li>
                             <li><a href="../section-form/pickup-form.php">FORM</a></li>
-                            <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
-                            <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li>
+                            <!-- <li><a href="../section-planning/planning-form.php">PLANNING</a></li> -->
+                            <!-- <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li> -->
                             <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
                         </ul>
                     </nav>
                 </div>
             </section>
             </main>
-
+            <br><br><br><br>
+<br>
+<button type="button" onclick="window.location.href='../section-services/Service Section.html#services-option'" class="submit-btn1">BACK</button>
 <div class="main-caskets">
 <h1 class="service-title">FACILITIES OFFERED</h1>
 <p class="service-intro">We are proud to offer top-notch facilities at the most competitive rates in our region. We maintain a comprehensive array of facilities that cater to the preferences of our families. We believe in providing you with the opportunity to experience, interact with, and choose the facility that best honors your loved one.</p>

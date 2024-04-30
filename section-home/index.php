@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inika:wght@700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53e9ba7f8c.js" crossorigin="anonymous"></script>
-    
 </head>
 <body>
     <main>
@@ -22,12 +21,12 @@
                     <nav>
                         <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
                         <ul>
-                            <li><a href="../section-home/index.php">HOME</a></li>
+                            <li><a href="#home">HOME</a></li>
                             <li><a href="../section-about/About Us.html">ABOUT</a></li>
-                            <li><a href="../section-services/Service Section.html">SERVICES</a></li>
+                            <li><a href="#services">SERVICES</a></li>
                             <li><a href="../section-form/pickup-form.php">FORM</a></li>
-                            <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
-                            <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li>
+                            <!-- <li><a href="../section-planning/planning-form.php">PLANNING</a></li> -->
+                            <!-- <li><a href="#obituaries">OBITUARY</a></li> -->
                             <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
                             <!-- <li><a href="../section-login-signup/logout.php">LOGOUT</a></li> -->
                         </ul>
@@ -50,17 +49,17 @@
                 <div class="service-container-inner">
                     <div class="service-item">
                         <img src="../pictures/homepage-pictures/service1.jpg" alt="Burial Services">
-                        <p class="service-description">Burial Services</p>
-                        <p class="learn-more"><a href="../section-services/Burial Services.html" style="text-decoration: none; color: black">Learn More</a></p>
+                        <p class="service-description">Burial and Cremation Services</p>
+                        <p class="learn-more"><a href="../section-services/Service Section.html" style="text-decoration: none; color: black">Learn More</a></p>
                     </div>
-                    <div class="service-item">
+                    <!-- <div class="service-item">
                         <img src="../pictures/homepage-pictures/service2.jpg" alt="Cremation Services">
                         <p class="service-description">Cremation Services</p>
                         <p class="learn-more"><a href="../section-services/Cremation Services.html" style="text-decoration: none; color: black">Learn More</a></p>
-                    </div>
+                    </div> -->
                     <div class="service-item">
                         <img src="../pictures/homepage-pictures/service3.jpg" alt="Planning Ahead">
-                        <p class="service-description">Planning Ahead</p>
+                        <p class="service-description">Advance Planning</p>
                         <p class="learn-more"><a href="../section-planning/planning-form.php" style="text-decoration: none; color: black">Learn More</a></p>
                     </div>
                     <div class="service-item">
@@ -72,7 +71,7 @@
             </div>
             <h2 class="homepage-title">Welcome to Perpetual Funeral Services</h2>
             <p class="homepage-2-description">Discover a compassionate and dignified online experience at our funeral home's website, <br> where we provide support and guidance during difficult times.</p>
-           <br><hr>
+           <br><br><br><br><hr>
             <br>
         </section>
         <section class="homepage-3" id="obituaries">
@@ -123,7 +122,9 @@
         </section>
         <section class="homepage-4">
         <br><br><br> !-->
-        <br><br>
+
+        <div class="reviews" id="reviews">
+            <br><br><br>
             <h1 class="homepage-title">REVIEWS</h1>
             <div class="under-title">
                 <br>
@@ -131,7 +132,7 @@
                 <p class="review-description">5.0 rating of 53</p> -->
             </div>
             <?php 
-                $sql = "SELECT * FROM review LIMIT 4";
+                $sql = "SELECT * FROM review ORDER BY review_timestamp DESC LIMIT 4";
                 $result = mysqli_query($connection, $sql);
                 
                 // Step 3: Fetch Data and Generate HTML
@@ -232,10 +233,11 @@
             <br>
             <br><br>
             <div class="review-container-footer">
-                <a href="../section-reviews/all_reviews.php" target="_blank" class="original-button">VIEW REVIEWS</a>
+                <a href="../section-reviews/all_reviews.php" class="original-button">VIEW REVIEWS</a>
 
                 <button class="original-button" id="openReviewFormModal"><a href="../section-reviews/write-review.php" style="text-decoration: none; color: white; font-weight: bold;">WRITE A REVIEW</a></button>
                 
+            </div>
             </div>
             <!--
             <div class="form-container" id="reviewFormContainer">

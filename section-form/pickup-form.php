@@ -76,15 +76,14 @@ if (isset($_POST['submit-btn'])) {
                             <li><a href="../section-about/About Us.html">ABOUT</a></li>
                             <li><a href="../section-services/Service Section.html">SERVICES</a></li>
                             <li><a href="../section-form/pickup-form.php">FORM</a></li>
-                            <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
-                            <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li>
+                            <!-- <li><a href="../section-planning/planning-form.php">PLANNING</a></li> -->
+                            <!-- <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li> -->
                             <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
                         </ul>
                     </nav>
                 </div>
             </section>
       </main>
-
 <h1 class="title">PICK-UP OF DECEASED FORM</h1>
 <p class="form-intro">Provide information about picking up the deceased before proceeding to funeral arrangements. After submitting the form, wait for the confirmation.</p>
 
