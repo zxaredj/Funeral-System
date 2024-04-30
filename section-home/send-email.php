@@ -30,8 +30,23 @@ $mail->Body = $message;
 
 $mail->addReplyTo($email, $name);
 
+
+include '../database/config.php';
+
 if ($mail->send()) {
-    header("Location: inquiry-modal.html");
+    $name = mysqli_real_escape_string($connection, $name);
+    $email = mysqli_real_escape_string($connection, $email);
+    $subject = mysqli_real_escape_string($connection, $subject);
+    $message = mysqli_real_escape_string($connection, $message);
+
+    $query = "INSERT INTO inquiries (name, email, subject, message) 
+    VALUES ('$name', '$email', '$subject', '$message')";
+
+    if(mysqli_query($connection, $query)) {
+        header("Location: inquiry-modal.html");
+    } else {
+        echo "Error inserting record: " . mysqli_error($connection);
+    }
 } else {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }

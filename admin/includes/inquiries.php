@@ -1,6 +1,9 @@
+<?php
+   include '../../database/config.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="utf-8">
@@ -453,7 +456,7 @@
 
                     <!-- Page Heading -->
                     <br>
-                    <h1 class="h3 mb-2 text-gray-800">INQUIRIES</h1>
+                    <h1 class="table-title">INQUIRIES</h1>
                     <br>
                     <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
@@ -470,26 +473,39 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
+                                            <th>Email</th>
+                                            <th>Message</th>
+                                            <th>Date</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
+                                    <!-- <tfoot>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
+                                            <th>Username</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
                                         </tr>
-                                    </tfoot>
+                                    </tfoot> -->
                                     <tbody>
+
+                                    <?php 
+                                    include('../../database/config.php');
+                                    $select = mysqli_query($connection, "SELECT * FROM `inquiries`");
+                                    
+
+                                    if(mysqli_num_rows($select) > 0){
+                                    while($fetch = mysqli_fetch_assoc($select)){
+                                    ?>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
+                                            <td><?php echo $fetch['name'];?></td>
+                                            <td><?php echo $fetch['email']; ?></td>
+                                            <td><?php echo $fetch['message']; ?></td>
+                                            <td><?php echo $fetch['timestamp']; ?></td>
                                         </tr>
+                                        <?php
+                                    };
+                                };
+                                ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -504,9 +520,9 @@
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
+                    <!-- <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Your Website 2020</span>
-                    </div>
+                    </div> -->
                 </div>
             </footer>
             <!-- End of Footer -->

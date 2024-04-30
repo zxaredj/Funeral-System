@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customers' Reviews</title>
+    <title>PFS | Reviews</title>
     <link rel="stylesheet" href="../css/home-style.css">
     <link rel="stylesheet" href="../css/reviews-style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
@@ -12,10 +12,28 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inika:wght@700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53e9ba7f8c.js" crossorigin="anonymous"></script>
-
 </head>
+<style>
+.submit-btn1-container {
+    text-align: center;
+}
+
+.submit-btn1 {
+    background-color: #144067;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0px 10px 20px;
+    height: 40px;
+    width: 100px;
+    font-weight: bold;
+}
+</style>
 <body>
-    <main>
+    <main>  
         <section class="homepage-1" id="home">
             <div class="background-image">
                 <!-- <img src="../front-end/pictures/homepage-pictures/bg-header.jpg" alt="Background Picture" style="height: 150px;"> -->
@@ -26,13 +44,15 @@
                     <li><a href="../section-about/About Us.html">ABOUT</a></li>
                     <li><a href="../section-services/Service Section.html">SERVICES</a></li>
                     <li><a href="../section-form/pickup-form.php">FORM</a></li>
-                    <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
-                    <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li>
+                    <!-- <li><a href="../section-planning/planning-form.php">PLANNING</a></li> -->
+                    <!-- <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li> -->
                     <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
                     </ul>
                 </nav>
             </div>
         </section>
+        <br><br><br><br><br><br>
+        <button type="button" onclick="window.location.href='../section-home/index.php#reviews'" class="submit-btn1">BACK</button>
         <div class="review-page-container">
             <h1 class="review-title">REVIEWS</h1>
             <div class="filter-container">
@@ -51,7 +71,7 @@
                         // Connect to your database
                         include('../database/config.php');
 
-                        $sql = "SELECT * FROM review";
+                        $sql = "SELECT * FROM review ORDER BY review_timestamp DESC";
                         $result = mysqli_query($connection, $sql);
                 
                         // Output review data in HTML

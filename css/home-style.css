@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .inika-bold, body {
@@ -204,7 +209,7 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
     display: grid;
     justify-content: center;
     align-items: center;
-    grid-template-columns: repeat(4, 350px);
+    grid-template-columns: repeat(3, 350px);
 }
 
 .service-item {
@@ -246,6 +251,14 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
     padding: 5px; /* Adjust padding to make learn more link smaller */
     border-radius: 5px;
     cursor: pointer;
+}
+
+.homepage-2 {
+    padding-top: 30px;
+}
+
+.homepage-3 {
+    padding-top: 45px;
 }
 
 h2.homepage-2-title {
@@ -336,7 +349,9 @@ hr {
     }
 }
 
-
+.reviews {
+    padding: 20px;
+}
 .review {
     height: 350px;
     width: 300px;

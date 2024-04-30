@@ -9,11 +9,35 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inika:wght@700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/53e9ba7f8c.js" crossorigin="anonymous"></script>
-    
-    <style>
-
-    </style>
 </head>
+<style>
+    .submit-btn1-container {
+        text-align: center;
+    }
+
+    .submit-btn1 {
+        background-color: #144067;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 10px 0px 10px 20px;
+        height: 40px;
+        width: 100px;
+        font-weight: bold;
+    }
+
+    .review-title {
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    color: #144067;
+    font-size: 50px;
+}
+
+</style>
 <body>
     <main>
         <section class="homepage-1" id="home">
@@ -26,13 +50,15 @@
                     <li><a href="../section-about/About Us.html">ABOUT</a></li>
                     <li><a href="../section-services/Service Section.html">SERVICES</a></li>
                     <li><a href="../section-form/pickup-form.php">FORM</a></li>
-                    <li><a href="../section-planning/planning-form.php">PLANNING</a></li>
-                    <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li>
+                    <!-- <li><a href="../section-planning/planning-form.php">PLANNING</a></li> -->
+                    <!-- <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li> -->
                     <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
                     </ul>
                 </nav>
             </div>
         </section>
+        <br><br><br><br><br><br>
+        <button type="button" onclick="window.location.href='../section-home/index.php#obituaries'" class="submit-btn1">BACK</button>
         <div class="review-page-container">
             <h1 class="review-title">OBITUARY</h1>
             <br>

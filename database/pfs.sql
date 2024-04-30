@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2024 at 04:42 PM
+-- Generation Time: Apr 30, 2024 at 08:26 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,28 +40,28 @@ CREATE TABLE `caskets` (
 --
 
 INSERT INTO `caskets` (`id`, `category`, `name`, `price`, `picture`) VALUES
-(1, 'metal', 'Non-gasketed Red Casket', 160000, '20 gauge non-gasketed red casket.png'),
-(2, 'metal', 'Non-gasketed Silver Casket', 170000, '20 gauge non-gasketed silver casket.png'),
-(3, 'metal', 'Non-gasketed Crepe Silver Casket', 180000, '20 gauge non-gasketed crepe silver casket.png'),
-(4, 'metal', 'Non-gasketed White Casket', 165000, '20 gauge non-gasketed white casket.png'),
-(5, 'metal', 'Non-gasketed Light Blue Casket', 170000, '20 gauge non-gasketed light blue casket.png'),
-(6, 'metal', 'Non-gasketed Royal Blue Casket', 170000, '20 gauge non-gasketed royal blue casket.png'),
-(7, 'metal', 'Non-gasketed Yellow Casket', 170000, '20 gauge non-gasketed yellow casket.png'),
-(8, 'metal', 'Non-gasketed Blue Casket', 160000, '20 gauge non-gasketed blue casket.png'),
-(9, 'metal', 'Non-gasketed White Gold Casket', 150000, '20 gauge non-gasketed white gold casket.png'),
-(10, 'metal', 'Non-gasketed White Pink Casket', 170000, '20 gauge non-gasketed white gold casket.png'),
-(11, 'metal', 'Non-gasketed Light Pink Casket', 175000, '20 gauge non-gasketed light pink casket.png'),
-(12, 'metal', 'Non-gasketed Copper Casket', 180000, '20 gauge non-gasketed copper casket.png'),
-(13, 'metal', 'Non-gasketed Rose Pink Casket', 175000, '20 gauge non-gasketed rose pink casket.png'),
-(14, 'metal', 'Non-gasketed Dark Green Casket', 180000, '20 gauge non-gasketed dark green casket.png'),
-(15, 'metal', 'Non-gasketed Green Casket', 160000, '20 gauge non-gasketed green casket.png'),
-(16, 'wood', 'Solid Dark Mahogany Casket', 175000, 'solid dark mahogany casket.png'),
-(17, 'wood', 'Solid Poplar Gold Stripe Casket', 170000, 'solid poplar gold stripe casket.png'),
-(18, 'wood', 'Solid Poplar Oak Casket', 180000, 'Solid poplar oak casket.png'),
-(19, 'wood', 'Solid Poplar with Gold Casket', 180000, 'solid poplar with gold casket.png'),
-(20, 'wood', 'Solid Crepe Copper Casket', 165000, '20 gauge non-gasketed crepe copper casket.png'),
-(21, 'wood', 'Solid Poplar Brown Gold Casket', 175000, 'solid poplar gold casket.png'),
-(22, 'baby', 'Small Hardwood Infant Casket', 20000, 'baby-casket.png');
+(1, 'metal', 'Non-gasketed Red Casket', 16000, '20 gauge non-gasketed red casket.png'),
+(2, 'metal', 'Non-gasketed Silver Casket', 17000, '20 gauge non-gasketed silver casket.png'),
+(3, 'metal', 'Non-gasketed Crepe Silver Casket', 18000, '20 gauge non-gasketed crepe silver casket.png'),
+(4, 'metal', 'Non-gasketed White Casket', 16500, '20 gauge non-gasketed white casket.png'),
+(5, 'metal', 'Non-gasketed Light Blue Casket', 17000, '20 gauge non-gasketed light blue casket.png'),
+(6, 'metal', 'Non-gasketed Royal Blue Casket', 17000, '20 gauge non-gasketed royal blue casket.png'),
+(7, 'metal', 'Non-gasketed Yellow Casket', 17000, '20 gauge non-gasketed yellow casket.png'),
+(8, 'metal', 'Non-gasketed Blue Casket', 16000, '20 gauge non-gasketed blue casket.png'),
+(9, 'metal', 'Non-gasketed White Gold Casket', 15000, '20 gauge non-gasketed white gold casket.png'),
+(10, 'metal', 'Non-gasketed White Pink Casket', 17000, '20 gauge non-gasketed white gold casket.png'),
+(11, 'metal', 'Non-gasketed Light Pink Casket', 17500, '20 gauge non-gasketed light pink casket.png'),
+(12, 'metal', 'Non-gasketed Copper Casket', 18000, '20 gauge non-gasketed copper casket.png'),
+(13, 'metal', 'Non-gasketed Rose Pink Casket', 17500, '20 gauge non-gasketed rose pink casket.png'),
+(14, 'metal', 'Non-gasketed Dark Green Casket', 18000, '20 gauge non-gasketed dark green casket.png'),
+(15, 'metal', 'Non-gasketed Green Casket', 16000, '20 gauge non-gasketed green casket.png'),
+(16, 'wood', 'Solid Dark Mahogany Casket', 17500, 'solid dark mahogany casket.png'),
+(17, 'wood', 'Solid Poplar Gold Stripe Casket', 17000, 'solid poplar gold stripe casket.png'),
+(18, 'wood', 'Solid Poplar Oak Casket', 18000, 'Solid poplar oak casket.png'),
+(19, 'wood', 'Solid Poplar with Gold Casket', 18000, 'solid poplar with gold casket.png'),
+(20, 'wood', 'Solid Crepe Copper Casket', 16500, '20 gauge non-gasketed crepe copper casket.png'),
+(21, 'wood', 'Solid Poplar Brown Gold Casket', 17500, 'solid poplar gold casket.png'),
+(22, 'baby', 'Small Hardwood Infant Casket', 10000, 'baby-casket.png');
 
 -- --------------------------------------------------------
 
@@ -86,6 +86,34 @@ INSERT INTO `facilities` (`id`, `category`, `name`, `price`, `picture`) VALUES
 (2, 'aircon', 'Air-Conditioned Facility 2', 8000, 'facility-2.png'),
 (3, 'non-aircon', 'Non-Air-Conditioned Facility 1', 3500, 'facility-3.png'),
 (4, 'non-aircon', 'Non-Air-Conditioned Facility 2', 3500, 'facility-4.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inquiries`
+--
+
+CREATE TABLE `inquiries` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `inquiries`
+--
+
+INSERT INTO `inquiries` (`id`, `name`, `email`, `subject`, `message`, `timestamp`) VALUES
+(1, 'Angeline N. Mercado', 'angelinemercado806@gmail.com', 'Recommended casket', 'What is your recommended casket?', '2024-04-27 11:29:17'),
+(2, 'Perseus Daracan', 'perseusdaracan@gmail.com', 'Opening hours', 'Are you open 24 hours a day, 7 times a week?', '2024-04-27 11:33:18'),
+(3, 'Czarina Baguio', 'czarina@gmail.com', 'Walk-in', 'Do you accept walk-ins?', '2024-04-27 11:33:59'),
+(4, 'Angeline Mercado', 'angelinemercado806@gmail.com', 'Cheap casket', 'What is the cheapest casket?', '2024-04-27 11:59:23'),
+(5, 'Zxared Mallillin', 'zxared@gmail.com', 'Package', 'Which package is better in burial service?', '2024-04-27 12:00:31'),
+(6, 'Angeline Mercado', 'angelinemercado806@gmail.com', 'Facility', 'Which facility is the largest?', '2024-04-27 12:01:03'),
+(7, 'Mercado Angeline', 'angelinemercado806@gmail.com', 'Cheapest Urn', 'What is your cheapest urn?', '2024-04-27 12:18:20');
 
 -- --------------------------------------------------------
 
@@ -537,7 +565,12 @@ INSERT INTO `review` (`review_id`, `review_name`, `review_email`, `review_testim
 (33, 'Zxared Jay Mallillin', 'zxared@gmail.com', 'Guidance and support provided with empathy and professionalism.', '2024-04-23 03:11:12'),
 (34, 'Angeline Mercado', 'angelinemercado@gmail.com', 'Experienced team that handled everything with grace and compassion.', '2024-04-23 03:10:40'),
 (35, 'Perseus Daracan', 'perseus@gmail.com', 'Efficient and caring service, making a difficult time more manageable.', '2024-04-23 03:10:19'),
-(39, 'Angeline Mercado', 'angeline@gmail.com', 'Caring staff facilitated a heartfelt tribute, leaving lasting memories.', '2024-04-23 14:22:55');
+(39, 'Angeline Mercado', 'angeline@gmail.com', 'Caring staff facilitated a heartfelt tribute, leaving lasting memories.', '2024-04-23 14:22:55'),
+(40, 'John Smith', 'johnsmith@gmail.com', 'Efficient and caring service, making a difficult time more manageable.', '2024-04-30 03:51:37'),
+(41, 'Juan Dela Cruz', 'juan@gmail.com', 'Above and beyond accommodations with professionalism and compassion.', '2024-04-30 03:53:55'),
+(42, 'Juan Dela Cruz', 'juan@gmail.com', 'Above and beyond accommodations with professionalism and compassion.', '2024-04-30 03:54:26'),
+(43, 'Angeline Mercado', 'angelinemercado806@gmail.com', 'Sensitive to individual needs, ensuring a personalized and dignified farewell.', '2024-04-30 06:09:55'),
+(44, 'Perseus Daracan', 'perseusdaracan@gmail.com', 'Thoughtful gestures and attention to detail ensured a meaningful ceremony.', '2024-04-30 06:21:50');
 
 -- --------------------------------------------------------
 
@@ -596,6 +629,12 @@ ALTER TABLE `caskets`
 -- Indexes for table `facilities`
 --
 ALTER TABLE `facilities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `inquiries`
+--
+ALTER TABLE `inquiries`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -699,6 +738,12 @@ ALTER TABLE `facilities`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `inquiries`
+--
+ALTER TABLE `inquiries`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
@@ -774,7 +819,7 @@ ALTER TABLE `pl_traditionalcremation`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `urns`
