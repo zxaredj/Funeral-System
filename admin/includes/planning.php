@@ -499,7 +499,8 @@
                                             <td><?php echo $fetch['beneficiaryFirstName'] . " " . $fetch['beneficiaryLastName'];?></td>
                                             <td><?php echo $fetch['planFor']; ?></td>
                                             <td><?php echo $fetch['service']; ?></td>
-                                            <td><button class="delete-btn" id="full-details">FULL DETAILS</button> <button class="delete-btn" id="activate">ACTIVATE</button></td>
+                                            <td><button class="delete-btn" id="full-details"><a href="../full-details-planning.php?view=<?php echo $fetch['id']; ?>">FULL DETAILS</a></button> 
+                                            <button class="delete-btn" id="activate">ACTIVATE</button></td>
  
                                         </tr>
                                         <?php

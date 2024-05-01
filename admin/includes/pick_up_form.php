@@ -1,4 +1,5 @@
 <?php
+
    include '../../database/config.php';
 
    if(isset($_GET['remove'])){
@@ -510,7 +511,8 @@
                                             <td><?php echo $fetch['contactFirstName'] . " " . $fetch['contactLastName']; ?></td>
                                             <td><?php echo date('F j, Y g:i a', strtotime($fetch['date'] . " " . $fetch['time'])); ?></td>
                                             <td><?php echo $fetch['location']; ?></td>
-                                            <td><button class="delete-btn" id="full-details">FULL DETAILS</button> <button class="delete-btn" id="activate"><a href="pick_up_form.php?remove=<?php echo $fetch['id']; ?>" onclick="return confirm('Are you sure you want to delete this?')">DELETE</a></button></td>
+                                            <td><button class="delete-btn" id="full-details" name="full-details"><a href="../full-details.php?view=<?php echo $fetch['id']; ?>">FULL DETAILS</a></button>
+                                            <button class="delete-btn" id="activate"><a href="pick_up_form.php?remove=<?php echo $fetch['id']; ?>" onclick="return confirm('Are you sure you want to delete this?')">DELETE</a></button></td>
  
                                         </tr>
                                         <?php
