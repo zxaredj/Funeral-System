@@ -1,31 +1,25 @@
-<?php
-   include '../../database/config.php';
-
-   if(isset($_GET['remove'])){
-      $remove_id = $_GET['remove'];
-      mysqli_query($connection, "DELETE FROM `pickup` WHERE id = '$remove_id'");
-      header('location:pick_up_form.php');
-      exit();
-   };
-   ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PFS | Pick-Up Requests</title>
+    <title>PFS | Cremation Service</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
@@ -35,6 +29,23 @@
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="../css/table-style.css" rel="stylesheet">
 
+    <style>
+    #direct_modal {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .modal-content {
+        border-radius: 20px;
+    }
+
+    .nav-item a {
+        color: black;
+    }
+
+    .nav-link {
+        font-family: 'Poppins', sans-serif;
+    }
+    </style>
 </head>
 
 <body id="page-top">
@@ -71,6 +82,7 @@
             </div>
 
             <!-- HERE IS THE TABLE FROM DATABASE -->
+
             <div class="row">
                 <div class="col">
                     <li class="nav-item">
@@ -166,10 +178,11 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
+
+
         </ul>
         <!-- End of Sidebar -->
 
-        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
@@ -377,141 +390,216 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
+                <div id="cremation" class="container-fluid tab-content">
                     <br>
-                    <h1 class="table-title">PICK-UP REQUESTS</h1>
+                    <h1 class=" table-title">Direct Cremation Service</h1>
                     <br>
-                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p> -->
-
-                    <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <!-- <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Sample User Table</h6>
-                        </div> -->
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Deceased Name</th>
-                                            <th>Contact Person Name</th>
-                                            <th>Pick-Up Date and Time</th>
-                                            <th>Pick-Up Location</th>
+                                            <th>Benefactor's Name</th>
+                                            <th>Beneficiary's Name</th>
+                                            <th>Relationship to Beneficiary</th>
+                                            <th>Type of Service</th>
                                             <th>Action</th>
-
                                         </tr>
                                     </thead>
-                                    <!-- <tfoot>
-                                        <tr>
-                                            <th>Username</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Email</th>
-                                        </tr>
-                                    </tfoot> -->
                                     <tbody>
 
                                         <?php 
-                                    include('../../database/config.php');
-                                    $select = mysqli_query($connection, "SELECT * FROM `pickup`");
-                                    
-
-                                    if(mysqli_num_rows($select) > 0){
-                                    while($fetch = mysqli_fetch_assoc($select)){
-                                    ?>
+                                            include('./config.php');
+                                            
+                                            $sql = "SELECT * FROM pl_directcremation";
+                                            
+                                            $result = mysqli_query($conn, $sql);
+                                            if (mysqli_num_rows($result) > 0) {
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                        ?>
                                         <tr>
-                                            <td><?php echo $fetch['deceasedFirstName'] . " " . $fetch['deceasedFirstName'];?>
+                                            <td><?php echo $row['benefactorFirstName'] . " " . $row['benefactorLastName'];?>
                                             </td>
-                                            <td><?php echo $fetch['contactFirstName'] . " " . $fetch['contactLastName']; ?>
+                                            <td><?php echo $row['beneficiaryFirstName'] . " " . $row['beneficiaryLastName'];?>
                                             </td>
-                                            <td><?php echo date('F j, Y g:i a', strtotime($fetch['date'] . " " . $fetch['time'])); ?>
+                                            <td><?php echo $row['planFor']; ?></td>
+                                            <td><?php echo $row['service']; ?></td>
+                                            <td style="display: flex; justify-content: center; align-items: center;">
+                                                <button class="delete-btn" style="margin-right: 20px; width: 150px;"
+                                                    onclick="openDirectModal(<?php echo $row['id'];?>)"
+                                                    data-bs-toggle='modal' data-bs-target='#direct_modal'>FULL
+                                                    DETAILS</button>
+                                                <button class="delete-btn" id="activate">ACTIVATE</button>
                                             </td>
-                                            <td><?php echo $fetch['location']; ?></td>
-                                            <td><button class="delete-btn" id="full-details">FULL DETAILS</button>
-                                                <button class="delete-btn" id="activate"><a
-                                                        href="pick_up_form.php?remove=<?php echo $fetch['id']; ?>"
-                                                        onclick="return confirm('Are you sure you want to delete this?')">DELETE</a></button>
-                                            </td>
-
                                         </tr>
                                         <?php
-                                    };
-                                };
-                                ?>
+                                                };
+                                            };
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <!-- /.container-fluid -->
 
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
 
-
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2020</span>
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <a class="btn btn-primary" href="login.html">Logout</a>
+                            </div>
                         </div>
                     </div>
-                </footer>
-                <!-- End of Footer -->
+                </div>
 
-            </div>
-            <!-- End of Content Wrapper -->
-
-        </div>
-        <!-- End of Page Wrapper -->
-
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                <div class="modal fade" id="direct_modal" tabindex="-1" aria-labelledby="direct_modalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true" style="color: black;">×</span>
+                                </button>
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="benefactor-tab" data-toggle="tab"
+                                            href="#benefactor" role="tab" aria-controls="benefactor"
+                                            aria-selected="true">Benefactor</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="beneficiary-tab" data-toggle="tab" href="#beneficiary"
+                                            role="tab" aria-controls="beneficiary" aria-selected="false">Beneficiary
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content mt-3">
+                                    <div class="tab-pane fade show active" id="benefactor" role="tabpanel"
+                                        aria-labelledby="benefactor-tab">
+                                        <!-- Benefactor details -->
+                                        <p><i class="fa-solid fa-user"></i> <span id="direct_benefactor_name"></span>
+                                        </p>
+                                        <p><i class="fa-solid fa-location-dot"></i> <span
+                                                id="direct_benefactor_address"></span>
+                                        </p>
+                                        <p><i class="fa-solid fa-phone"></i> <span
+                                                id="direct_benefactor_contact"></span>
+                                        </p>
+                                        <p><i class="fa-solid fa-envelope"></i> <span
+                                                id="direct_benefactor_email"></span>
+                                        </p>
+                                        <p><i class="fa-solid fa-id-card"></i></p>
+                                        <img id="direct_benefactor_id" src="" alt="Memorial Image"
+                                            style="width: 50px; height: 50px">
+                                    </div>
+                                    <div class="tab-pane fade" id="beneficiary" role="tabpanel"
+                                        aria-labelledby="beneficiary-tab">
+                                        <!-- Beneficiary details -->
+                                        <p><i class="fa-solid fa-user"></i> <span id="direct_beneficiary_name"></span>
+                                        </p>
+                                        <p><i class="fa-solid fa-location-dot"></i> <span
+                                                id="direct_beneficiary_address"></span></p>
+                                        <p><i class="fa-solid fa-person-half-dress"></i> <span
+                                                id="direct_beneficiary_gender"></span></p>
+                                        <p><i class="fa-solid fa-cake-candles"></i> <span
+                                                id="direct_beneficiary_birthdate"></span></p>
+                                        <p><i class="fa-solid fa-id-card"></i></p>
+                                        <img id="direct_beneficiary_id" src="" alt="Memorial Image"
+                                            style="width: 50px; height: 50px">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="../vendor/jquery/jquery.min.js"></script>
-        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script>
+        function openDirectModal(id) {
+            console.log(id);
 
-        <!-- Custom scripts for all pages-->
-        <script src="../js/sb-admin-2.min.js"></script>
+            $.ajax({
+                url: 'GET/view_direct.php',
+                method: 'GET',
+                data: {
+                    id: id
+                },
+                success: function(response) {
+                    console.log(response);
+                    var directData = JSON.parse(response);
+                    // Populate modal fields with fetched data
 
-        <!-- Page level plugins -->
-        <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+                    // Benefactor Details
+                    $('#direct_benefactor_name').text(directData.benefactorFirstName + " " +
+                        directData
+                        .benefactorLastName);
+                    $('#direct_benefactor_relationship').text(directData.planFor);
+                    $('#direct_benefactor_id').attr(directData.benefactorID);
+                    $('#direct_benefactor_address').text(directData.benefactorAddress);
+                    $('#direct_benefactor_email').text(directData.benefactorEmail);
+                    $('#direct_benefactor_contact').text(directData.benefactorContact);
 
-        <!-- Page level custom scripts -->
-        <script src="../js/demo/datatables-demo.js"></script>
-        <script src="https://kit.fontawesome.com/53e9ba7f8c.js" crossorigin="anonymous"></script>
+                    // Beneficiary
+                    $('#direct_beneficiary_name').text(directData.beneficiaryFirstName + " " +
+                        directData
+                        .beneficiaryLastName);
+                    $('#direct_beneficiary_id').attr(directData.beneficiaryID);
+                    $('#direct_beneficiary_address').text(directData.beneficiaryAddress);
+                    $('#direct_beneficiary_gender').text(directData.beneficiaryGender);
+                    $('#direct_beneficiary_birthdate').text(directData.beneficiaryBirthdate);
+
+
+                    // Show the modal
+                    $('#direct_modal').modal('show');
+                },
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText);
+                }
+            });
+        }
+
+        // Close Modal Burial Services
+        function closeDirectModal() {
+            $('#direct_modal').modal('hide');
+        }
+        </script>
 </body>
+<!-- Bootstrap core JavaScript-->
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="../js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="../js/demo/datatables-demo.js"></script>
+<script src="https://kit.fontawesome.com/53e9ba7f8c.js" crossorigin="anonymous"></script>
 
 </html>
