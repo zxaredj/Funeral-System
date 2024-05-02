@@ -19,8 +19,11 @@
                 <div class="background-image">
                     <img src="../pictures/homepage-pictures/bg-header.jpg" alt="Background Picture">
                     <nav>
-                        <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
-                        <ul>
+                            <div class="pigeon-container">
+                                <img src="../pictures/package-pictures/pigeon.png" class="logo">
+                            </div>
+                    <h1 class="name">PERPETUAL FUNERAL SERVICES</h1>
+                    <ul>
                             <li><a href="#home">HOME</a></li>
                             <li><a href="../section-about/About Us.html">ABOUT</a></li>
                             <li><a href="#services">SERVICES</a></li>
