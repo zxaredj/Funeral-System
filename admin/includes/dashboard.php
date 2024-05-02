@@ -477,7 +477,7 @@
                                 <?php 
                                 include 'config.php';
 
-                                $sql = "SELECT COUNT(*) AS count FROM pickup";
+                                $sql = "SELECT COUNT(*) AS count FROM inquiries";
                                 $result = $conn->query($sql);
 
                                 if ($result->num_rows > 0) {
