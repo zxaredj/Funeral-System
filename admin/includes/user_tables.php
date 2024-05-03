@@ -34,7 +34,13 @@
        <!-- Custom styles for this page -->
        <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
        <link href="../css/table-style.css" rel="stylesheet">
-
+       <style>
+       .header-container {
+           display: flex;
+           justify-content: space-between;
+           margin: 1rem 2rem 1rem 2rem;
+       }
+       </style>
    </head>
 
    <body id="page-top">
@@ -385,11 +391,16 @@
 
                    <!-- Begin Page Content -->
                    <div class="container-fluid">
-
+                       <div class="header-container">
+                           <div class="header-title">
+                               <h1 class="table-title">REGISTERED USERS</h1>
+                           </div>
+                           <div class="header-button">
+                               <button type="button" class="btn btn-primary" id="createNewUserModal">Create New
+                                   User</button>
+                           </div>
+                       </div>
                        <!-- Page Heading -->
-                       <br>
-                       <h1 class="table-title">REGISTERED USERS</h1>
-                       <br>
                        <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p> -->
@@ -493,6 +504,14 @@
                    </div>
                </div>
            </div>
+
+           <script>
+           // Add event listener to the button
+           document.getElementById("createNewUserModal").addEventListener("click", function() {
+               // Redirect to create_employee.php
+               window.location.href = "create_employee.php";
+           });
+           </script>
 
            <!-- Bootstrap core JavaScript-->
            <script src="../vendor/jquery/jquery.min.js"></script>
