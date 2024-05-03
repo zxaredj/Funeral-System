@@ -65,14 +65,15 @@
             <div class="filter-container">
                 <input type="text" id="searchInput" placeholder="Search name" class="container">
                 <div class="dropdown">
-                    <select id="filter-dropdown">
-                        <option value="by-year" disabled selected>By Year:</option>
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                    </select>
+                <select id="filter-dropdown">
+    <option value="all">All</option>
+    <option value="2024">2024</option>
+    <option value="2023">2023</option>
+    <option value="2022">2022</option>
+    <option value="2021">2021</option>
+    <option value="2020">2020</option>
+</select>
+
                 </div>
             </div>
        
@@ -156,28 +157,37 @@
     });
 
     const filterDropdown = document.getElementById('filter-dropdown');
-    filterDropdown.addEventListener('change', function() {
-        const selectedYear = parseInt(this.value);
-        const reviewData = document.querySelectorAll('.obituary-date');
-        let anyObituariesFoundForYear = false;
-        reviewData.forEach(function(review) {
-            const dateRange = review.textContent.split('-').map(item => item.trim());
-            const dob = new Date(dateRange[0]);
-            const year = dob.getFullYear();
+const reviewItems = document.querySelectorAll('.review');
+const noResultsMessage = document.getElementById('noResultsMessage');
 
-            if (year === selectedYear) {
-                review.parentNode.parentNode.style.display = 'block';
-                anyObituariesFoundForYear = true;
-            } else {
-                review.parentNode.parentNode.style.display = 'none';
-            }
-        });
-        if (!anyObituariesFoundForYear) {
-            document.getElementById('noResultsMessage').style.display = 'block';
+filterDropdown.addEventListener('change', function() {
+    const selectedYear = this.value;
+
+    reviewItems.forEach(function(review) {
+        const obituaryDateElement = review.querySelector('.obituary-date');
+        const obituaryDateText = obituaryDateElement.textContent;
+        const obituaryYear = parseInt(obituaryDateText.substring(obituaryDateText.lastIndexOf(' ') + 1));
+
+        if (selectedYear === 'all' || selectedYear == obituaryYear) {
+            review.style.display = 'block';
+            review.querySelector('.review-details').style.visibility = 'visible';
         } else {
-            document.getElementById('noResultsMessage').style.display = 'none';
+            review.style.display = 'none';
+            review.querySelector('.review-details').style.visibility = 'hidden';
         }
     });
+
+    const anyObituariesFound = Array.from(reviewItems).some(review => review.style.display === 'block');
+
+    if (!anyObituariesFound) {
+        noResultsMessage.style.display = 'block';
+    } else {
+        noResultsMessage.style.display = 'none';
+    }
+});
+
+
+
 </script>
 </body>
 </html>

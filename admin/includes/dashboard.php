@@ -3,29 +3,33 @@
 
    if(isset($_GET['remove'])){
       $remove_id = $_GET['remove'];
-      mysqli_query($connection, "DELETE FROM `pickup` WHERE id = '$remove_id'");
-      header('location:pick_up_form.php');
+      mysqli_query($connection, "DELETE FROM `login` WHERE user_id = '$remove_id'");
+      header('location:user_tables.php');
       exit();
    };
-   ?>
-
-
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PFS | Pick-Up Requests</title>
+    <title>PFS | Dashboard</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
@@ -35,6 +39,63 @@
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="../css/table-style.css" rel="stylesheet">
 
+    <style>
+    .card-container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .content-containers {
+        width: 20%;
+        height: 180px;
+        padding: 1rem;
+        border-radius: 20px;
+        font-family: "Poppins", sans-serif;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .categories a {
+        font-weight: 700;
+        font-size: 20px;
+        color: black;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .count {
+        font-size: 35px;
+        font-weight: 900;
+    }
+
+    label {
+        font-size: 25px;
+        font-weight: 700;
+        color: black;
+    }
+
+    #dataTable_filter {
+        display: none;
+    }
+
+    .burial {
+        background-color: #c9e4de;
+    }
+
+    .direct {
+        background-color: #c6def1;
+    }
+
+    .memorial {
+        background-color: #f2c6de;
+    }
+
+    .traditional {
+        background-color: #faedcb;
+    }
+    </style>
 </head>
 
 <body id="page-top">
@@ -71,6 +132,7 @@
             </div>
 
             <!-- HERE IS THE TABLE FROM DATABASE -->
+
             <div class="row">
                 <div class="col">
                     <li class="nav-item">
@@ -166,10 +228,11 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
+
+
         </ul>
         <!-- End of Sidebar -->
 
-        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
@@ -248,7 +311,8 @@
                                     </div>
                                     <div>
                                         <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                        <span class="font-weight-bold">A new monthly report is ready to
+                                            download!</span>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -319,7 +383,8 @@
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                        <div class="text-truncate">Last month's report looks great, I am very happy
+                                            with
                                             the progress so far, keep up the good work!</div>
                                         <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                                     </div>
@@ -331,12 +396,15 @@
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because
+                                            someone
+                                            told me that people say this to all dogs, even if they aren't good...
+                                        </div>
                                         <div class="small text-gray-500">Chicken the Dog · 2w</div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More
+                                    Messages</a>
                             </div>
                         </li>
 
@@ -377,141 +445,230 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
                     <br>
-                    <h1 class="table-title">PICK-UP REQUESTS</h1>
-                    <br>
-                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p> -->
+                    <h1 class="table-title">Dashboard</h1>
+                    <label class="ml-5" for="cards">Services</label>
+                    <div class="card-container" id="cards">
+                        <div class="burial content-containers">
+                            <div class="categories"><a href="user_tables.php">Users</a></div>
+                            <div class="count">
+                                <?php 
+                                include 'config.php';
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <!-- <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Sample User Table</h6>
-                        </div> -->
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Deceased Name</th>
-                                            <th>Contact Person Name</th>
-                                            <th>Pick-Up Date and Time</th>
-                                            <th>Pick-Up Location</th>
-                                            <th>Action</th>
+                                $sql = "SELECT COUNT(*) AS count FROM login"; 
+                                $result = $conn->query($sql);
 
-                                        </tr>
-                                    </thead>
-                                    <!-- <tfoot>
-                                        <tr>
-                                            <th>Username</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Email</th>
-                                        </tr>
-                                    </tfoot> -->
-                                    <tbody>
+                                if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                        echo $row["count"];
+                                    }
+                                } else {
+                                    echo "0";
+                                }
+                                $conn->close();
 
-                                        <?php 
-                                    include('../../database/config.php');
-                                    $select = mysqli_query($connection, "SELECT * FROM `pickup`");
-                                    
-
-                                    if(mysqli_num_rows($select) > 0){
-                                    while($fetch = mysqli_fetch_assoc($select)){
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $fetch['deceasedFirstName'] . " " . $fetch['deceasedFirstName'];?>
-                                            </td>
-                                            <td><?php echo $fetch['contactFirstName'] . " " . $fetch['contactLastName']; ?>
-                                            </td>
-                                            <td><?php echo date('F j, Y g:i a', strtotime($fetch['date'] . " " . $fetch['time'])); ?>
-                                            </td>
-                                            <td><?php echo $fetch['location']; ?></td>
-                                            <td><button class="delete-btn" id="full-details">FULL DETAILS</button>
-                                                <button class="delete-btn" id="activate"><a
-                                                        href="pick_up_form.php?remove=<?php echo $fetch['id']; ?>"
-                                                        onclick="return confirm('Are you sure you want to delete this?')">DELETE</a></button>
-                                            </td>
-
-                                        </tr>
-                                        <?php
-                                    };
-                                };
                                 ?>
-                                    </tbody>
-                                </table>
+                            </div>
+                        </div>
+                        <div class="direct content-containers">
+                            <div class="categories"><a href="inquiries.php">Inquiries</a></div>
+                            <div class="count">
+                                <?php 
+                                include 'config.php';
+
+                                $sql = "SELECT COUNT(*) AS count FROM inquiries";
+                                $result = $conn->query($sql);
+
+                                if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                        echo $row["count"];
+                                    }
+                                } else {
+                                    echo "0";
+                                }
+                                $conn->close();
+
+                                ?>
+                            </div>
+                        </div>
+                        <div class="memorial content-containers">
+                            <div class="categories"><a href="pick_up_form.php">Pick Up Form</a>
+                            </div>
+                            <div class="count">
+                                <?php 
+                                include 'config.php';
+                                
+                                $sql = "SELECT COUNT(*) AS count FROM pickup"; 
+                                $result = $conn->query($sql);
+
+                                if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                        echo $row["count"];
+                                    }
+                                } else {
+                                    echo "0";
+                                }
+                                $conn->close();
+                                ?>
+                            </div>
+                        </div>
+                        <div class="traditional content-containers">
+                            <div class="categories"><a href="on_going_transaction.php">On-Going Transaction</a>
+                            </div>
+                            <div class="count">
+                                <?php 
+                                include 'config.php';
+                                
+                                $sql = "SELECT COUNT(*) AS count FROM pickup"; 
+                                $result = $conn->query($sql);
+
+                                if ($result->num_rows > 0) {
+                                    while($row = $result->fetch_assoc()) {
+                                        echo $row["count"];
+                                    }
+                                } else {
+                                    echo "0";
+                                }
+                                $conn->close();
+                                ?>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="container-fluid">
+                    <?php
+                        include 'config.php';
+
+                        // Function to fetch data from a table and indicate the table name
+                        function fetchDataFromTable($conn, $table, $firstName, $lastName, $secondName, $secLastName, $tableName, &$totalCount) {
+                            $sql = "SELECT $firstName, $lastName, $secondName, $secLastName FROM $table";
+                            $result = $conn->query($sql);
+                            $data = array();
+
+                            if ($result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    $row['table_name'] = $tableName;
+                                    $data[] = $row;
+                                }
+                            }
+
+                            return $data;
+                        }
+
+                        // Fetch data from each table
+                        $tables = array(
+                            "pl_traditionalcremation" => "Traditional Cremation",
+                            "pl_gatheringcremation" => "Gathering Cremation",
+                            "pl_directcremation" => "Direct Cremation",
+                            "pl_burial" => "Burial"
+                        );
+                        $firstName = "beneficiaryFirstName"; 
+                        $lastName = "beneficiaryLastName"; 
+                        $secondName = "benefactorFirstName"; 
+                        $secLastName = "benefactorLastName"; 
+                        $combinedData = array();
+
+                        foreach ($tables as $table => $tableName) {
+                            $combinedData = array_merge($combinedData, fetchDataFromTable($conn, $table, $firstName, $lastName, $secondName, $secLastName, $tableName, $totalCount));
+                        }
+
+                        // Display combined data as a table
+                        echo "
+                            <div id='burial' class='container-fluid tab-content'>
+                            <br>
+                            <br>
+                            <h1 class='table-title'>List of Services</h1>
+                            <div class='card shadow mb-4'>
+                                <div class='card-body'>
+                                    <div class='table-responsive'>
+                                        <table border='1' class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
+                                            <thead>
+                                                <tr>
+                                                    <th>Benefactor's Name</th>
+                                                    <th>Beneficiary's Name</th>
+                                                    <th>Type of Service</th>
+                                                </tr>
+                                            </thead>";
+
+                        $tableUrls = array(
+                            "Traditional Cremation" => "traditional_service.php",
+                            "Gathering Cremation" => "memorial_service.php",
+                            "Direct Cremation" => "direct_service.php",
+                            "Burial" => "burial_service.php"
+                        );
+                        foreach ($combinedData as $data) {
+                             $href = isset($tableUrls[$data['table_name']]) ? $tableUrls[$data['table_name']] : "#";
+                            echo "
+                            <tbody>
+                                <tr>
+                                    <td>".$data[$firstName]." ".$data[$lastName]."</td>
+                                    <td>".$data[$secondName]." ".$data[$secLastName]."</td>
+                                    <td><a href='".$href."' style='color: black;'>".$data['table_name']."</a></td>
+                                </tr>
+                            </tbody>
+                            ";
+                        }
+                        echo "
+                                    </table>
+                                </div>
+                            </div>
+                        </div>";
+                        // Close database connection
+                        $conn->close();
+                        ?>
 
                 </div>
-                <!-- /.container-fluid -->
 
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
 
-
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2020</span>
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Select "Logout" below if you are ready to end your current
+                                session.
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <a class="btn btn-primary" href="../login.html">Logout</a>
+                            </div>
                         </div>
                     </div>
-                </footer>
-                <!-- End of Footer -->
-
-            </div>
-            <!-- End of Content Wrapper -->
-
-        </div>
-        <!-- End of Page Wrapper -->
-
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
-                    </div>
                 </div>
+
             </div>
         </div>
-
-        <!-- Bootstrap core JavaScript-->
-        <script src="../vendor/jquery/jquery.min.js"></script>
-        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Core plugin JavaScript-->
-        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-        <!-- Custom scripts for all pages-->
-        <script src="../js/sb-admin-2.min.js"></script>
-
-        <!-- Page level plugins -->
-        <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-        <!-- Page level custom scripts -->
-        <script src="../js/demo/datatables-demo.js"></script>
-        <script src="https://kit.fontawesome.com/53e9ba7f8c.js" crossorigin="anonymous"></script>
+    </div>
 </body>
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="../js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="../js/demo/datatables-demo.js"></script>
+<script src="https://kit.fontawesome.com/53e9ba7f8c.js" crossorigin="anonymous"></script>
 
 </html>

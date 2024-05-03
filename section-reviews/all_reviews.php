@@ -56,29 +56,31 @@
         <div class="review-page-container">
             <h1 class="review-title">REVIEWS</h1>
             <div class="filter-container">
-                <div class="dropdown">
-                    <select id="filter-dropdown">
-                        <option value="by-date" disabled selected>By Date:</option>
-                        <option value="this-week">This Week</option>
-                        <option value="past-few-weeks">Past Few Weeks</option>
-                        <option value="past-few-months">Past Few Months</option>
-                    </select>
-                </div>
-            </div>
+    <div class="dropdown">
+        <select id="filter-dropdown">
+            <option value="all" selected>All</option>
+            <option value="this-week">This Week</option>
+            <option value="past-few-weeks">Past Few Weeks</option>
+            <option value="past-few-months">Past Few Months</option>
+        </select>
+    </div>
+</div>
+
             <div class="review-page">
                 <div class="review-data">
                     <?php
+                        
                         // Connect to your database
                         include('../database/config.php');
-
+                    
                         $sql = "SELECT * FROM review ORDER BY review_timestamp DESC";
                         $result = mysqli_query($connection, $sql);
-                
+                    
                         // Output review data in HTML
                         if (mysqli_num_rows($result) > 0) {
                             while ($row = mysqli_fetch_assoc($result)) {
                                 // Output review data
-                                echo "<div class='review'>";
+                                echo "<div class='review' data-date='" . date("Y-m-d", strtotime($row["review_timestamp"])) . "'>";
                                 echo '<br>';
                                 echo '<img src="../pictures/reviews-pictures/icon.png" alt="Icon Profile" class="review-icon">';
                                 echo '<p class="review-name">' . $row["review_name"] . '</p><br>';
@@ -90,6 +92,7 @@
                             echo "No reviews found.";
                         }
                     ?>
+                    
                 </div>
             </div>
         </div>
@@ -114,51 +117,45 @@
     </main>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Get reference to review data container
-            const reviewData = document.querySelector(".review-data");
+    // Get reference to review data container
+    const reviewData = document.querySelector(".review-data");
 
-            // Get reference to filter buttons
-            const thisWeekBtn = document.getElementById("this-week");
-            const pastFewWeeksBtn = document.getElementById("past-few-weeks");
-            const pastFewMonthsBtn = document.getElementById("past-few-months");
+    // Get reference to filter dropdown
+    const filterDropdown = document.getElementById("filter-dropdown");
 
-            // Function to filter reviews by date range
-            function filterReviews(dateRange) {
-                // Retrieve current date
-                const currentDate = new Date();
-                // Iterate through review elements
-                const reviews = reviewData.querySelectorAll(".review");
-                reviews.forEach(review => {
-                    const reviewDateStr = review.querySelector("p:nth-child(2)").textContent.split(": ")[1];
-                    const reviewDate = new Date(reviewDateStr);
-                    const timeDiff = currentDate.getTime() - reviewDate.getTime();
-                    const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-                    // Hide or show review based on date range
-                    if (dateRange === "thisWeek" && diffDays <= 7) {
-                        review.style.display = "block";
-                    } else if (dateRange === "pastFewWeeks" && diffDays <= 30) {
-                        review.style.display = "block";
-                    } else if (dateRange === "pastFewMonths" && diffDays <= 90) {
-                        review.style.display = "block";
-                    } else {
-                        review.style.display = "none";
-                    }
-                });
+    // Function to filter reviews by date range
+    function filterReviews(dateRange) {
+        // Retrieve current date
+        const currentDate = new Date();
+        // Iterate through review elements
+        const reviews = reviewData.querySelectorAll(".review");
+        reviews.forEach(review => {
+            const reviewDateStr = review.getAttribute("data-date");
+            const reviewDate = new Date(reviewDateStr);
+            const timeDiff = currentDate.getTime() - reviewDate.getTime();
+            const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+            // Show or hide review based on date range
+            if (dateRange === "all") {
+                review.style.display = "block";
+            } else if (dateRange === "this-week" && diffDays <= 7) {
+                review.style.display = "block";
+            } else if (dateRange === "past-few-weeks" && diffDays <= 30) {
+                review.style.display = "block";
+            } else if (dateRange === "past-few-months" && diffDays <= 90) {
+                review.style.display = "block";
+            } else {
+                review.style.display = "none";
             }
-
-            // Add event listeners to filter buttons
-            thisWeekBtn.addEventListener("click", function() {
-                filterReviews("thisWeek");
-            });
-
-            pastFewWeeksBtn.addEventListener("click", function() {
-                filterReviews("pastFewWeeks");
-            });
-
-            pastFewMonthsBtn.addEventListener("click", function() {
-                filterReviews("pastFewMonths");
-            });
         });
+    }
+
+    // Add event listener to filter dropdown
+    filterDropdown.addEventListener("change", function() {
+        const selectedValue = this.value;
+        filterReviews(selectedValue);
+    });
+});
+
     </script>
 </body>
 </html>

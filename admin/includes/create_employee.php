@@ -3,38 +3,73 @@
 
    if(isset($_GET['remove'])){
       $remove_id = $_GET['remove'];
-      mysqli_query($connection, "DELETE FROM `pickup` WHERE id = '$remove_id'");
-      header('location:pick_up_form.php');
+      mysqli_query($connection, "DELETE FROM `login` WHERE user_id = '$remove_id'");
+      header('location:user_tables.php');
       exit();
    };
-   ?>
-
-
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PFS | Pick-Up Requests</title>
+    <title>PFS | Create Employee</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-
+    <!-- SweetAlert CSS -->
     <!-- Custom styles for this page -->
     <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="../css/table-style.css" rel="stylesheet">
 
+    <style>
+    .container {
+        width: 100%;
+        padding: 4rem 1rem 2rem 1rem;
+    }
+
+    .side-one {
+        width: 20%;
+    }
+
+    .container-fluid {
+        width: 80%;
+        background-color: #4E73DF;
+        padding: 1rem 2rem 2rem 2rem;
+        border-radius: 20px;
+    }
+
+    label {
+        color: white;
+    }
+
+    .w-100 {
+        margin-top: 2rem;
+    }
+
+    .input-group-append {
+        background-color: white;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    </style>
 </head>
 
 <body id="page-top">
@@ -71,6 +106,7 @@
             </div>
 
             <!-- HERE IS THE TABLE FROM DATABASE -->
+
             <div class="row">
                 <div class="col">
                     <li class="nav-item">
@@ -166,10 +202,11 @@
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
+
+
         </ul>
         <!-- End of Sidebar -->
 
-        <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
             <!-- Main Content -->
@@ -248,7 +285,8 @@
                                     </div>
                                     <div>
                                         <div class="small text-gray-500">December 12, 2019</div>
-                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                        <span class="font-weight-bold">A new monthly report is ready to
+                                            download!</span>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
@@ -319,7 +357,8 @@
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                        <div class="text-truncate">Last month's report looks great, I am very happy
+                                            with
                                             the progress so far, keep up the good work!</div>
                                         <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                                     </div>
@@ -331,12 +370,15 @@
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because
+                                            someone
+                                            told me that people say this to all dogs, even if they aren't good...
+                                        </div>
                                         <div class="small text-gray-500">Chicken the Dog · 2w</div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More
+                                    Messages</a>
                             </div>
                         </li>
 
@@ -375,143 +417,154 @@
                     </ul>
 
                 </nav>
+
+                <div class="container">
+                    <div class="side-one"></div>
+                    <form id="requestForm" method="POST" enctype="multipart/form-data">
+                        <div class="container-fluid">
+                            <div class="col-sm">
+                                <div class="w-100">
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" class="form-control" name="firstname" id="firstname">
+                                </div>
+                                <div class="w-100">
+                                    <label for="lastname">Last Name</label>
+                                    <input type="text" class="form-control" name="lastname" id="lastname">
+                                </div>
+                                <div class="w-100">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" name="username" id="username">
+                                </div>
+                                <div class="w-100">
+                                    <label for="password">Password</label>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control" name="password" id="password">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-100">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" name="email" id="email">
+                                </div>
+                                <div class="w-100">
+                                    <label for="occupation">Occupation</label>
+                                    <input type="text" class="form-control" name="occupation" id="occupation">
+                                </div>
+                                <div class="mt-5">
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
                 <!-- End of Topbar -->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <br>
-                    <h1 class="table-title">PICK-UP REQUESTS</h1>
-                    <br>
-                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank"
-                            href="https://datatables.net">official DataTables documentation</a>.</p> -->
-
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <!-- <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Sample User Table</h6>
-                        </div> -->
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Deceased Name</th>
-                                            <th>Contact Person Name</th>
-                                            <th>Pick-Up Date and Time</th>
-                                            <th>Pick-Up Location</th>
-                                            <th>Action</th>
-
-                                        </tr>
-                                    </thead>
-                                    <!-- <tfoot>
-                                        <tr>
-                                            <th>Username</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Email</th>
-                                        </tr>
-                                    </tfoot> -->
-                                    <tbody>
-
-                                        <?php 
-                                    include('../../database/config.php');
-                                    $select = mysqli_query($connection, "SELECT * FROM `pickup`");
-                                    
-
-                                    if(mysqli_num_rows($select) > 0){
-                                    while($fetch = mysqli_fetch_assoc($select)){
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $fetch['deceasedFirstName'] . " " . $fetch['deceasedFirstName'];?>
-                                            </td>
-                                            <td><?php echo $fetch['contactFirstName'] . " " . $fetch['contactLastName']; ?>
-                                            </td>
-                                            <td><?php echo date('F j, Y g:i a', strtotime($fetch['date'] . " " . $fetch['time'])); ?>
-                                            </td>
-                                            <td><?php echo $fetch['location']; ?></td>
-                                            <td><button class="delete-btn" id="full-details">FULL DETAILS</button>
-                                                <button class="delete-btn" id="activate"><a
-                                                        href="pick_up_form.php?remove=<?php echo $fetch['id']; ?>"
-                                                        onclick="return confirm('Are you sure you want to delete this?')">DELETE</a></button>
-                                            </td>
-
-                                        </tr>
-                                        <?php
-                                    };
-                                };
-                                ?>
-                                    </tbody>
-                                </table>
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Select "Logout" below if you are ready to end your current
+                                session.
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                                <a class="btn btn-primary" href="../login.html">Logout</a>
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <!-- /.container-fluid -->
-
-
-
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2020</span>
-                        </div>
-                    </div>
-                </footer>
-                <!-- End of Footer -->
 
             </div>
-            <!-- End of Content Wrapper -->
-
         </div>
-        <!-- End of Page Wrapper -->
-
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bootstrap core JavaScript-->
-        <script src="../vendor/jquery/jquery.min.js"></script>
-        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Core plugin JavaScript-->
-        <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-        <!-- Custom scripts for all pages-->
-        <script src="../js/sb-admin-2.min.js"></script>
-
-        <!-- Page level plugins -->
-        <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-        <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-        <!-- Page level custom scripts -->
-        <script src="../js/demo/datatables-demo.js"></script>
-        <script src="https://kit.fontawesome.com/53e9ba7f8c.js" crossorigin="anonymous"></script>
+    </div>
 </body>
+
+
+<!-- Font Awesome -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<!-- SweetAlert -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+    document.getElementById('togglePassword').addEventListener('click', function() {
+        var passwordInput = document.getElementById('password');
+        var icon = document.querySelector('#togglePassword i');
+
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    });
+    document.getElementById('requestForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+
+        // Submit the form data via AJAX
+        var formData = new FormData(this);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'process_form.php', true);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                // Display a success message using SweetAlert
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: 'New record created successfully',
+                });
+                // Clear the form fields after successful submission
+                document.getElementById('requestForm').reset();
+            } else {
+                // Display an error message if something went wrong
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error: " . $conn->error . "',
+                });
+            }
+        };
+        xhr.send(formData);
+    });
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<!-- Bootstrap core JavaScript-->
+<script src="../vendor/jquery/jquery.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="../js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="../js/demo/datatables-demo.js"></script>
+<script src="https://kit.fontawesome.com/53e9ba7f8c.js" crossorigin="anonymous"></script>
 
 </html>
