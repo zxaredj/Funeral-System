@@ -170,8 +170,10 @@ filterDropdown.addEventListener('change', function() {
 
         if (selectedYear === 'all' || selectedYear == obituaryYear) {
             review.style.display = 'block';
+            review.querySelector('.review-details').style.visibility = 'visible';
         } else {
             review.style.display = 'none';
+            review.querySelector('.review-details').style.visibility = 'hidden';
         }
     });
 
@@ -183,10 +185,6 @@ filterDropdown.addEventListener('change', function() {
         noResultsMessage.style.display = 'none';
     }
 });
-
-
-
-
 
 
 
