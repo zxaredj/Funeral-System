@@ -15,24 +15,6 @@ if(isset($_GET['view'])) {
 }
 
 
-    if (isset($_POST['submit-btn'])) {
-
-        $deathcert = handleFileUpload($_FILES['death-cert']);
-        $releasepaper = handleFileUpload($_FILES['release-paper']);
-        
-        $deceasedfirstname = mysqli_real_escape_string($connection, $_POST["deceased-firstname"]);
-        $deceasedlastname = mysqli_real_escape_string($connection, $_POST["deceased-lastname"]);
-        $location = mysqli_real_escape_string($connection, $_POST["location"]);
-        $date = mysqli_real_escape_string($connection, $_POST["pickup-date"]);
-        $time = mysqli_real_escape_string($connection, $_POST["pickup-time"]);
-        
-        $contactfirstname = mysqli_real_escape_string($connection, $_POST["contact-firstname"]);
-        $contactlastname = mysqli_real_escape_string($connection, $_POST["contact-lastname"]);
-        $number = mysqli_real_escape_string($connection, $_POST["number"]);
-        $email = mysqli_real_escape_string($connection, $_POST["email"]);
-        $relationship = mysqli_real_escape_string($connection, $_POST["relationship"]);
-
-    }
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +36,7 @@ if(isset($_GET['view'])) {
         if (mysqli_num_rows($detail) > 0){ 
             while ($fetch_detail = mysqli_fetch_assoc($detail)) {
     ?>
-<button type="button" onclick="window.location.href='../section-home/index.php#services'" class="submit-btn1">BACK</button>
+<button type="button" onclick="window.location.href='includes/pick_up_form.php'" class="submit-btn1">BACK</button>
 <h1 class="title">PICK-UP OF DECEASED FORM</h1>
 
 <div class="container">
@@ -133,7 +115,7 @@ if(isset($_GET['view'])) {
             </div>
     </div>
             <div class="submit-btn-container">
-                <button type="button" onclick="window.location.href = 'includes/pick_up_form.php'" class="submit-btn">ACTIVATE  </button>
+                <button type="button" style="margin-right: 20px; width: 120px;" onclick="window.location.href = 'includes/pick_up_form.php'" class="submit-btn">ACTIVATE</button>
             </div>
     <?php 
         }

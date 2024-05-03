@@ -130,6 +130,7 @@
 
 }
 
+
 .inputs label {
     display: block;
     margin-bottom: 5px;
@@ -163,7 +164,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
     margin: 10px 0px;
     height: 40px;
     width: 100px;
