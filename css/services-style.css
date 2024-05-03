@@ -4,9 +4,13 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+
+}
+
 .inika-bold, body {
     font-family: 'Roboto', sans-serif;
-    font-weight: 500;
     font-style: normal;
 }
 
@@ -15,16 +19,16 @@
 }
 
 .background-image img {
-    width: 100%; /* Adjust as needed */
-    height: 100vh; /* Maintain aspect ratio */
+    width: 100%;
+    height: 100vh;
 }
 
 .background-image nav {
     position: fixed; 
     left: 0;
     right: 0;
-    text-align: center;
-    top: 20px;
+    text-align: right;
+    top: 0px;
     margin: 0 auto; 
     z-index: 1000;
 }
@@ -33,64 +37,73 @@
     background-color: #144067;
     opacity: 100%;
     list-style: none;
-    padding: 15px;
+    padding: 24px;
     margin: 0;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     font-weight: bold;
-    font-size: 17px;
+    font-size: 19px;
 }
-
 
 .background-image nav ul li {
     display: inline-block;
-    margin-right: 50px; /* Adjust spacing between list items */
+    margin-right: 30px;
 }
 
 .background-image nav ul li:last-child {
-    margin-right: 0; /* Remove margin from last list item */
+    margin-right: 20px;
 }
 
 .background-image nav ul li a {
     text-decoration: none;
-    color: #ffffff; /* Adjust link color as needed */
+    color: #ffffff;
 }
 
-.navbar {
-    background-color: rgba(39, 39, 39, 0.3);
-    width: 80%;
-    left:10%;
-    top:2rem;
-    margin-bottom:4rem;    
+.background-image nav ul li a:hover {
+    text-decoration: none;
+    color: black;
 }
-.navbar-nav {
-    width: 60%;
-    margin-left:20%;
-    justify-content: center; 
-    background-color: rgba(39, 39, 39, 0.4);
-    border-radius: 20px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
+
+.pigeon-container {
+    position: absolute;
+    top: 35px;
+    transform: translateY(-50%);
+    left: 30px;
 }
-.nav-link {
-    color: #ffffff;
-    margin-left: 10px;
-    margin-right: 10px;
+
+.pigeon-container img {
+    width: 40px;
+    height: auto;
 }
-.nav-link:hover {
-    color: #ffffff; 
+
+.name {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #fff;
+    z-index: 1;
+    font-size: 19px;
+    text-decoration: none;
+    color: white;
 }
-.navbar-brand img {
-    height: 50px; 
+
+.name:hover {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: black;
+    z-index: 1;
+    font-size: 19px;
 }
-.navbar-brand span {
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin-left: 5px;
-    color: #ffffff; 
-}
+
+
 .image-container {
     position: relative;
 }
+
 .overlay {
     position: absolute;
     top: 50%;
@@ -118,7 +131,6 @@
     width: 100px;
     font-weight: bold;
 }
-
 
 .submit-btn1-container {
     text-align: center;
@@ -233,14 +245,13 @@
     }
 }
 
-
 .box-flex {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     flex-wrap: wrap;
-
-    margin: 20px 50px 50px 50px;
+    margin: 0px 30px;
+    padding: 30px;
 }
 
 .flex-1 {
@@ -274,16 +285,16 @@
 }
 
 .img-box {
-    width: 100%;
-    max-width: 360px; 
-    height: 330px;
+    width: 80%;
+    max-width: 320px; 
+    height: 300px;
 }
 
 .view-btn {
     text-decoration: none;
     color: black;
-    width: 100%; 
-    max-width: 360px; 
+    width: 40%; 
+    max-width: 300px; 
     height: 40px;
     margin-top: 0; 
     background-color: #144067;
@@ -373,6 +384,7 @@ color: white;
 .service-container {
     display: flex;
     margin: 0px 30px;
+    padding: 30px;
 }
   
 .service-item1 {
@@ -399,7 +411,7 @@ color: white;
 .container {
     font-family: 'Roboto', sans-serif;
     font-weight: normal;
-    margin: 0;
+    margin: 0px;
 }
 
 .card-title {
@@ -560,7 +572,6 @@ color: white;
     font-size: 4rem;
 }
 
-
 .footer{
     width: 100%;
     text-align: center;
@@ -586,21 +597,30 @@ color: white;
     transform: translate(-50%,-5%);
 }
 
-
 .main-caskets {
     margin: 120px;
     padding: 20px;
 }
 
+.package-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    /* margin: 0px 30px; */
+    /* padding: 30px; */
+}
+
 .service-title {
     text-align: center;
-    font-size: 45px;
+    font-weight: bold;
     color: #144067;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 10px;
 }
 
 .service-intro {
-    max-width: 900px;
-    margin: 20px auto 60px auto;
+    margin: 20px 0px;
     text-align: center;
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
@@ -610,7 +630,7 @@ color: white;
     text-align: center;
     position: relative;
     top: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     color:#144067;
 }
 
@@ -619,40 +639,52 @@ color: white;
 }
 
 .burial-package-container{
-    text-align: center;
+    /* text-align: left; */
+    /* background-color: black; */
+    margin-bottom: 20px;
 }
 
 .burial-packages{
     display:grid;
-    grid-template-columns: repeat(2, 550px);
+    grid-template-columns: repeat(2, 650px);
     justify-content: center;
     align-items: center;
-    gap: 5rem;
+    gap: 2rem;
+    width: 100%;
+    font-size: 17px;
 }
 
 .burial-grid1{
     background-color: rgb(230, 229, 194);
-    padding: 7%;
-    margin-top: 5px;
-    margin-bottom: 40px;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0px;
 }
 
 .burial-box{
-    border: #144067 8px solid;
-    padding: 5%;
+    border: #144067 5px solid;
+    border-radius: 10px;
+    padding: 20px;
 }
 
-.burial-border{
+/* .burial-border{
     border: #144067 1px solid;
     padding: 30px 30px;
     text-align: center;
-}
+} */
 
 .pigeon{
     width: 3rem;
 }
 
-.title{
+
+li {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 6px;
+}
+
+.title {
     font-size: 12px;
     position: relative;
     top: 1px;
@@ -666,6 +698,8 @@ color: white;
     color:#144067;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .price{
@@ -673,7 +707,8 @@ color: white;
     color:#144067;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 
@@ -684,6 +719,7 @@ color: white;
     text-align: left;
     color:#144067;
     font-family: 'Roboto', sans-serif;
+    max-width: 300px;
 }
 
 .inclusion2{
@@ -735,4 +771,4 @@ color: white;
         grid-template-rows: repeat(1, 400px);
         margin-top: 25%;
     }
-}
+}   

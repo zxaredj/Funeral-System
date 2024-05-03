@@ -19,10 +19,10 @@
                 <div class="background-image">
                     <img src="../pictures/homepage-pictures/bg-header.jpg" alt="Background Picture">
                     <nav>
-                            <div class="pigeon-container">
+                            <!-- <div class="pigeon-container">
                                 <img src="../pictures/package-pictures/pigeon.png" class="logo">
-                            </div>
-                    <h1 class="name">PERPETUAL FUNERAL SERVICES</h1>
+                            </div> -->
+                    <h1><a href = '../section-about/About Us.html' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
                     <ul>
                             <li><a href="#home">HOME</a></li>
                             <li><a href="../section-about/About Us.html">ABOUT</a></li>
@@ -118,7 +118,7 @@
             <br>
             <!-- <hr style="margin: 0 150px;"> -->
             <div class="view-container">
-                <button class="original-button" style="margin: 10px auto 80px auto; width: 50%;"><a href="../section-obituaries/obituaries.php" style="text-decoration: none; color: white; font-family: 'Roboto', sans-serif; font-weight: bold;">VIEW OBITUARY</a></button>
+                <button class="original-button" style="margin: 10px auto 80px auto; width: 20%;"><a href="../section-obituaries/obituaries.php" style="text-decoration: none; color: white; font-family: 'Roboto', sans-serif; font-weight: bold;">VIEW OBITUARY</a></button>
             </div><hr>
             <!-- <hr>
             <br>
@@ -357,6 +357,16 @@
 
     // Event listener for the close button (X)
     closeButton.addEventListener("click", hideForm);
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+    animateOnLoad();
+});
+
+function animateOnLoad() {
+    var textOverlay = document.querySelector(".text-overlay");
+    textOverlay.classList.add("animate");
+}
 
 </script>
 </html>

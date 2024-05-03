@@ -39,6 +39,7 @@
                 <!-- <img src="../front-end/pictures/homepage-pictures/bg-header.jpg" alt="Background Picture" style="height: 150px;"> -->
                 <nav>
                     <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
+                    <h1><a href = '../section-about/About Us.html' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
                     <ul>
                     <li><a href="../section-home/index.php">HOME</a></li>
                     <li><a href="../section-about/About Us.html">ABOUT</a></li>

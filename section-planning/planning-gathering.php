@@ -127,6 +127,7 @@ if (isset($_POST['submit-btn'])) {
     <section class="form-section">
         <div class="background-image">
             <nav>
+            <h1><a href = '../section-about/About Us.html' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
                 <ul>
                     <li><a href="../section-home/index.php">HOME</a></li>
                     <li><a href="../section-about/About Us.html">ABOUT</a></li>
