@@ -46,10 +46,10 @@
     }
 
     .content-containers {
-        width: 20%;
-        height: 180px;
+        width: 22%;
+        height: 200px;
         padding: 1rem;
-        border-radius: 20px;
+        border-radius: 15px;
         font-family: "Poppins", sans-serif;
         color: black;
         display: flex;
@@ -68,6 +68,7 @@
     .count {
         font-size: 35px;
         font-weight: 900;
+        margin: 0px;
     }
 
     label {
@@ -82,18 +83,22 @@
 
     .burial {
         background-color: #c9e4de;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
 
     .direct {
         background-color: #c6def1;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
 
     .memorial {
         background-color: #f2c6de;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
 
     .traditional {
         background-color: #faedcb;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
     </style>
 </head>
@@ -448,7 +453,7 @@
                 <div class="container-fluid">
                     <br>
                     <h1 class="table-title">Dashboard</h1>
-                    <label class="ml-5" for="cards">Services</label>
+                    <!-- <label class="ml-5" for="cards">Services</label> -->
                     <div class="card-container" id="cards">
                         <div class="burial content-containers">
                             <div class="categories"><a href="user_tables.php">Users</a></div>

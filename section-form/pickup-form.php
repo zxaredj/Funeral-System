@@ -71,6 +71,7 @@ if (isset($_POST['submit-btn'])) {
             <div class="background-image">
                     <nav>
                         <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
+                        <h1><a href = '../section-about/About Us.html' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
                         <ul>
                             <li><a href="../section-home/index.php">HOME</a></li>
                             <li><a href="../section-about/About Us.html">ABOUT</a></li>
