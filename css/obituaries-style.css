@@ -190,24 +190,23 @@ html {
     margin-bottom: 70px;
 }
 
-.obituaries-info {
-    width: 280px;
-    margin: 10px 20px;
-    text-align: center;
-}
-
 .obituary-name, .obituary-date {
     margin: 5px 0;
 }
 
 .obituary-name {
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px; /* Adjusted font size */
     color: #144067;
+    height: 50px; /* Fixed height */
+    overflow: hidden; /* Prevent overflow */
 }
 
 .obituary-date {
-    font-size: 20px;
+    font-size: 16px; /* Adjusted font size */
+    height: 30px; /* Fixed height */
+    overflow: hidden; /* Prevent overflow */
+    color: #666; /* Adjusted color */
 }
 
 .filter-container {
@@ -291,6 +290,7 @@ html {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 40px 20px;
     width: 43%;
+    min-height: 250px; /* Ensure minimum height for consistent layout */
 }
 
 .review img {
@@ -302,6 +302,8 @@ html {
 
 .review-details {
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 #noResultsMessage {
