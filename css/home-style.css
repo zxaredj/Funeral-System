@@ -228,13 +228,21 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
     text-align: center;
 }
 
-.obituaries-name {
-    margin-top: 20px; /* Add some space between the name and date */
-    font-weight: bold; /* Make the name bold */
+.obituary-name, .obituary-date {
+    margin: 5px 0;
 }
 
-.obituaries-date {
-    margin-top: 5px; /* Add some space between the name and date */
+.obituary-name {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #144067;
+    overflow: hidden;
+}
+
+.obituary-date {
+    font-size: 16px;
+    color: #666;
 }
 
 .homepage-title {
@@ -274,7 +282,7 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
     color: white;
     padding: 5px; /* Adjust padding to make description smaller */
     border-radius: 10px;
-    font-size: 40px;
+    font-size: 35px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
 }
@@ -284,11 +292,11 @@ section.homepage-2, section.homepage-3, section.homepage-4 {
     top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(231, 229, 229, 0.3);
     font-weight: bolder;
     color: #080808;
     font-size: 20px;
-    padding: 5px; /* Adjust padding to make learn more link smaller */
+    padding: 10px; /* Adjust padding to make learn more link smaller */
     border-radius: 5px;
     cursor: pointer;
 }
@@ -365,23 +373,26 @@ hr {
     max-width: 240px;
     height: 220px;
     padding: 2px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .obituary-name {
-    margin-top: 25px; 
+    margin-top: 20px;
     margin-bottom: 0px;
-    color: black;
     font-weight: bold;
+    font-size: 19px;
+    color: #144067;
+    overflow: hidden;
 }
 
 .obituary-date {
-    margin-bottom: 10px;
-    font-style: italic;
-    color: black;
-    font-size: 17px;
+    margin-top: 0px;
+    color: #666;
+    text-align: center;
+    font-style: normal;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
 }
-
 
 @media screen and (max-width: 768px) {
     .obituary-container-content {

@@ -57,8 +57,8 @@
         </div>
 
         <div class="flex-2">
-            <img src="../pictures/cremation-pictures/service-pic1.PNG" class="img-box"><br><br>
-            <img src="../pictures/cremation-pictures/service-pic2.jpg" class="img-box">
+            <img src="../pictures/cremation-pictures/service-pic1.PNG" class="img-box img-clickable" data-bs-toggle="modal" data-bs-target="#fullImageModal" data-src="../pictures/cremation-pictures/service-pic1.PNG"><br><br>
+            <img src="../pictures/cremation-pictures/service-pic2.jpg" class="img-box img-clickable" data-bs-toggle="modal" data-bs-target="#fullImageModal" data-src="../pictures/cremation-pictures/service-pic2.jpg">
             <!-- <button class="view-btn"><a href="urns.php" class="view-btn">VIEW URNS</a></button> -->
         </div>
     </div>
@@ -275,19 +275,26 @@
         </div>
     </div>
 <br><br>
-<!-- <footer>
-    <div class="footer">
-        <h6 class="footer-text">Contact Details</h6>
-        <p> <img src="../pictures/burial-pictures/dove.png" class="dove-footer"> Philip Sabino Funeral Services</p>
-            <div class="footer-icons">
-                <i class="bi bi-facebook footer-icons1"></i> <i class="bi bi-telephone-fill footer-icons1"></i>
+<div class="modal fade" id="fullImageModal" tabindex="-1" aria-labelledby="fullImageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="" class="img-fluid" id="modalImage" alt="Full Size Image">
             </div>
-        <p>92 Interior Sabino Compound, Maysan, Valenzuela, Philippines</p>
-        <div class="footer-bottom">
-            <br>
         </div>
     </div>
-</footer> -->
+</div>
+
+<script>
+    const imgClickables = document.querySelectorAll('.img-clickable');
+    const modalImage = document.getElementById('modalImage');
+
+    imgClickables.forEach(img => {
+        img.addEventListener('click', () => {
+            modalImage.src = img.getAttribute('data-src');
+        });
+    });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>

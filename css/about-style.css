@@ -100,11 +100,24 @@ html {
 }
 
 .gallery-text {
-    margin: 10px 40px 20px 40px; 
+    margin: 30px 40px 20px 40px; 
     color:#144067; 
     text-align: center;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
-    font-size: 45px;
+    font-size: 35px;
+}
+
+.gallery-box{
+    margin: 30px 20px;
+}
+
+.modal-content {
+    max-width: 550px;
+    margin: auto;
+}
+
+.modal-body {
+    text-align: center;
 }
 

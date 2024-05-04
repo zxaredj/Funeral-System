@@ -86,7 +86,7 @@
                 <p class="review-description">5.0 rating of 53</p> -->
             </div>
             <?php 
-                $sql = "SELECT * FROM obituaries LIMIT 4";
+                $sql = "SELECT * FROM obituaries ORDER BY obituary_dod DESC LIMIT 4";
                 $result = mysqli_query($connection, $sql);
                 
                 // Step 3: Fetch Data and Generate HTML

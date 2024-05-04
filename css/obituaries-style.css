@@ -99,135 +99,57 @@ html {
     font-size: 19px;
 }
 
-.text-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    text-align: center;
-}
-
-.text-overlay p {
-    font-size: 40px;
-    font-weight: bold;
-    color: #464646;
-}
-
-.section-background {
-    background-color: rgba(60, 137, 172, 0.2);
-}
-
-.sort-filter-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 60px 200px 40px 200px;
-}
-
-.search-container {
-    height: 45px;
-    width: 60%;
-}
-
-#searchInput {
-    width: 500px;
-    height: 50px;
-    border: 3px solid black;
+.review-page-container {
+    width: 75%;
+    margin: 0px auto;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     font-family: 'Roboto', sans-serif;
-
+    border-radius: 10px;
+    /* border: 1px solid black; */
 }
 
-#filter-dropdown {
-    width: 100px;
-    height: 50px;
-    border: 3px solid black;
+.review-data {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px;
     font-family: 'Roboto', sans-serif;
-
 }
 
-.sort-date-container {
-    height: 45px;
-    width: 200px;
-    border: 1px solid #ccc;
-    padding: 5px;
+.review {
+    flex: 0 1 calc(33.33% - 20px);
+    /* background-color: #f9f9f9; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 15px 0px;
+    color: black;
+    padding: 30px 20px; 
+    font-family: 'Roboto', sans-serif;
+    height: 470px;
+}
+
+/* .review p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.5;
+} */
+
+.review-title {
     text-align: center;
-}
-
-.sort-date-container option {
-    background-color: #FFF;
+    margin-top: 10px;
+    margin-bottom: 20px;
     color: #144067;
-    text-align: center;
-}
-
-.obituaries-container {
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    margin-top: 80px;
-}
-
-.obituaries-item {
-    width: 280px;
-    height: 315px;
-    margin: 10px 0px;
-    text-align: left;
-    border-radius: 5px;
-}
-
-.obituaries-item:nth-child(even) {
-    background-color: #335889;
-}
-
-.obituaries-item:nth-child(odd) {
-    background-color: #144067;
-}
-
-.obituaries-info-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 70px;
-}
-
-.obituary-name, .obituary-date {
-    margin: 5px 0;
-}
-
-.obituary-name {
-    font-weight: bold;
-    font-size: 20px; /* Adjusted font size */
-    color: #144067;
-    height: 50px; /* Fixed height */
-    overflow: hidden; /* Prevent overflow */
-}
-
-.obituary-date {
-    font-size: 16px; /* Adjusted font size */
-    height: 30px; /* Fixed height */
-    overflow: hidden; /* Prevent overflow */
-    color: #666; /* Adjusted color */
+    font-size: 50px;
 }
 
 .filter-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin: 20px 50px;
-}
-
-
-.container {
-    margin-right: 15px;
-    width: 300px;
-    appearance: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: 2px solid black;
-    border-radius: 5px;
-    background-color: #fff;
-    outline: none;
-    height: 45px;
+    width: 80%;
+    margin: 0px auto;
+    padding: 30px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .dropdown {
@@ -238,72 +160,67 @@ html {
     appearance: none;
     padding: 10px 20px;
     font-size: 16px;
-    border: 2px solid black;
+    border: 2px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
     outline: none;
+    /* border: 1px solid black; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 120px;
     height: 45px;
 }
 
 .dropdown select::after {
     content: '\25BC';
     font-size: 12px;
-    color: #144067;
+    color: #555;
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
 }
 
-.review-page-container {
-    margin: 30px 0px;
-    padding: 0px;
-}
 
-.review-title {
+.submit-btn1-container {
     text-align: center;
-    margin-top: 0px;
-    margin-bottom: 20px;
-    color: #144067;
-    font-size: 50px;
 }
 
-.review-data-1 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 0px;
-    /* border-radius: 10px; */
-    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-    margin: 10px 0px;
+.submit-btn1 {
+    background-color: #144067;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0px 10px 20px;
+    height: 40px;
+    width: 100px;
+    font-weight: bold;
 }
 
-.review {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 30px 30px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 40px 20px;
-    width: 43%;
-    min-height: 250px; /* Ensure minimum height for consistent layout */
+@media only screen and (max-width: 768px) {
+    .review {
+        flex-basis: calc(50% - 20px);
+    }
+}
+
+.searchInput {
+    margin-right: 15px;
+    width: 300px;
+    appearance: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    height: 45px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .review img {
     height: 200px;
     width: 210px;
     margin-right: 20px;
-    border-radius: 10px;
-}
-
-.review-details {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
 }
 
 #noResultsMessage {
@@ -311,11 +228,41 @@ html {
     text-align: center;
     font-size: 1.2em;
     color: #555;
-    margin-top: 80px;
+    margin: 80px;
+}
+
+.obituary-name, .obituary-date {
+    margin: 5px 0;
+}
+
+.obituary-name {
+    margin: 20px 0px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #144067;
+    overflow: hidden;
+}
+
+.obituary-date {
+    font-size: 80%;
+    color: #666;
+    text-align: left;
+    font-style: normal;
+    font-family: 'Roboto', sans-serif;
+}
+
+.obituary-date i {
+    color: #144067;
 }
 
 @media only screen and (max-width: 768px) {
-    .review {
-        flex-basis: calc(50% - 20px);
+    .obituary-date {
+        font-size: 90%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .obituary-date {
+        font-size: 80%;
     }
 }

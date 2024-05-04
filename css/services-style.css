@@ -301,6 +301,7 @@ html {
     color: white;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
+    border-radius: 7px;
 }
 
 .view-btn:hover {
@@ -404,8 +405,9 @@ color: white;
 }
 
 .service-img {
-    max-width: 500px;
+    max-width: 480px;
     height: 300px;
+    border-radius: 8px;
 }
 
 .container {
@@ -616,7 +618,7 @@ color: white;
     font-weight: bold;
     color: #144067;
     font-family: 'Roboto', sans-serif;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .service-intro {
@@ -655,11 +657,12 @@ color: white;
 }
 
 .burial-grid1{
-    background-color: rgb(230, 229, 194);
+    background-color: white;
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     margin-bottom: 0px;
+    max-width: 600px;
 }
 
 .burial-box{
@@ -772,3 +775,13 @@ li {
         margin-top: 25%;
     }
 }   
+
+.modal-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.modal-body {
+    text-align: center;
+}
+
