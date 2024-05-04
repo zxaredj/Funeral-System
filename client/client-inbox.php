@@ -12,25 +12,28 @@
     <script src="https://kit.fontawesome.com/53e9ba7f8c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <main>
-        <section class="homepage-1" id="home">
+<main>
+        <section class="form-section">
             <div class="background-image">
-                <!-- <img src="../front-end/pictures/homepage-pictures/bg-header.jpg" alt="Background Picture" style="height: 150px;"> -->
-                <nav>
-                    <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
-                    <ul>
-                    <li><a href="../section-home/index.php">HOME</a></li>
-                    <li><a href="../section-about/About Us.html">ABOUT</a></li>
-                    <li><a href="../section-services/Service Section.html">SERVICES</a></li>
-                    <li><a href="../section-form/pickup-form.php">FORM</a></li>
-                    <!-- <li><a href="../section-planning/planning-form.php">PLANNING</a></li> -->
-                    <!-- <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li> -->
-                    <li><a href="../section-login-signup/signup.php">MY ACCOUNT</a></li>
-                    <li><a href="../section-login-signup/signup.php">LOGOUT</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </section>
+                    <nav>
+                        <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
+                        <h1><a href = '../section-about/About Us.html' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
+                        <ul>
+                            <li><a href="../section-home/index.php">HOME</a></li>
+                            <li><a href="../section-about/About Us.html">ABOUT</a></li>
+                            <li><a href="../section-services/Service Section.html">SERVICES</a></li>
+                            <li><a href="../section-form/pickup-form.php">FORM</a></li>
+                            <!-- <li><a href="../section-planning/planning-form.php">PLANNING</a></li> -->
+                            <!-- <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li> -->
+                            <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+            </main>
+            <br><br><br><br>
+<br>
+        <h1 class="review-title">INBOX</h1>
     <div class="box">
         <div class="edit-credentials">
             <h2 class="title">EDIT CREDENTIALS</h2><br>
