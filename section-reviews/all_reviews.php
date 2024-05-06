@@ -39,6 +39,7 @@
                 <!-- <img src="../front-end/pictures/homepage-pictures/bg-header.jpg" alt="Background Picture" style="height: 150px;"> -->
                 <nav>
                     <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
+                    <h1><a href = '../section-about/About Us.html' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
                     <ul>
                     <li><a href="../section-home/index.php">HOME</a></li>
                     <li><a href="../section-about/About Us.html">ABOUT</a></li>
@@ -53,19 +54,18 @@
         </section>
         <br><br><br><br><br><br>
         <button type="button" onclick="window.location.href='../section-home/index.php#reviews'" class="submit-btn1">BACK</button>
+        <h1 class="review-title">REVIEWS</h1>
+        <div class="filter-container">
+            <div class="dropdown">
+                <select id="filter-dropdown">
+                    <option value="all" selected>All</option>
+                    <option value="this-week">This Week</option>
+                    <option value="past-few-weeks">Past Few Weeks</option>
+                    <option value="past-few-months">Past Few Months</option>
+                </select>
+            </div>
+        </div>
         <div class="review-page-container">
-            <h1 class="review-title">REVIEWS</h1>
-            <div class="filter-container">
-    <div class="dropdown">
-        <select id="filter-dropdown">
-            <option value="all" selected>All</option>
-            <option value="this-week">This Week</option>
-            <option value="past-few-weeks">Past Few Weeks</option>
-            <option value="past-few-months">Past Few Months</option>
-        </select>
-    </div>
-</div>
-
             <div class="review-page">
                 <div class="review-data">
                     <?php
@@ -96,6 +96,7 @@
                 </div>
             </div>
         </div>
+        <br><br><br><br>
         <!-- <footer>
             <div class="footer-container">
                 <div class="footer-item contact-title">

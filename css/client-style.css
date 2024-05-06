@@ -2,14 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .inika-bold, body {
     font-family: 'Roboto', sans-serif;
-    font-weight: 500;
     font-style: normal;
-    overflow-x: hidden;
+    overflow-x: none;
 }
 
 .background-image {
@@ -18,15 +20,15 @@
 
 .background-image img {
     width: 100%;
-    height: auto;
+    height: 100vh;
 }
 
 .background-image nav {
     position: fixed; 
     left: 0;
     right: 0;
-    text-align: center;
-    top: 20px;
+    text-align: right;
+    top: 0px;
     margin: 0 auto; 
     z-index: 1000;
 }
@@ -35,20 +37,20 @@
     background-color: #144067;
     opacity: 100%;
     list-style: none;
-    padding: 15px;
+    padding: 24px;
     margin: 0;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     font-weight: bold;
-    font-size: 17px;
+    font-size: 19px;
 }
 
 .background-image nav ul li {
     display: inline-block;
-    margin-right: 50px;
+    margin-right: 30px;
 }
 
 .background-image nav ul li:last-child {
-    margin-right: 0;
+    margin-right: 20px;
 }
 
 .background-image nav ul li a {
@@ -56,11 +58,52 @@
     color: #ffffff;
 }
 
+.background-image nav ul li a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.pigeon-container {
+    position: absolute;
+    top: 35px;
+    transform: translateY(-50%);
+    left: 30px;
+}
+
+.pigeon-container img {
+    width: 40px;
+    height: auto;
+}
+
+.name {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #fff;
+    z-index: 1;
+    font-size: 19px;
+    text-decoration: none;
+    color: white;
+}
+
+.name:hover {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: black;
+    z-index: 1;
+    font-size: 19px;
+}
+
 .box {
     display: flex;
     max-width: 1500px;
     height: 600px;
-    margin: 100px 100px 0px 100px;
+    margin: 30px 100px 0px 100px;
     padding: 30px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -133,6 +176,14 @@
     background-color: black;
     color: white;
     transform: translateY(2px);
+}
+
+.review-title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    color: #144067;
+    font-size: 50px;
 }
 
 .title {
