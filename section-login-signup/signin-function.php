@@ -9,11 +9,11 @@ session_start();
         $password = $_REQUEST["password"];
         $firstname = filter_var($_REQUEST["fname"], FILTER_SANITIZE_STRING);
         $lastname = filter_var($_REQUEST["lname"], FILTER_SANITIZE_STRING);
-        $email = filter_var($_REQUEST["email"], FILTER_SANITIZE_EMAIL);
+        $number = filter_var($_REQUEST["number"], FILTER_SANITIZE_STRING);
     }
 
-$stmt = $connection->prepare("SELECT * FROM login WHERE username = ? OR email = ?");
-$stmt->bind_param("ss", $username, $email);
+$stmt = $connection->prepare("SELECT * FROM login WHERE username = ? OR number = ?");
+$stmt->bind_param("ss", $username, $number);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
@@ -23,12 +23,12 @@ if ($row) {
     exit();
 
 } else {
-    if (!empty($username) && !empty($password) && !empty($email))
+    if (!empty($username) && !empty($password) && !empty($number))
     {
         $hash_pass = password_hash($password, PASSWORD_DEFAULT);
 
-        $stmt = $connection->prepare("INSERT into login (username, password, fname, lname, email) VALUES (?, ?, ?, ?, ?)") ;
-        $stmt->bind_param("sssss", $username, $hash_pass, $firstname, $lastname, $email);
+        $stmt = $connection->prepare("INSERT into login (username, password, fname, lname, number) VALUES (?, ?, ?, ?, ?)") ;
+        $stmt->bind_param("sssss", $username, $hash_pass, $firstname, $lastname, $number);
         $stmt->execute();
 
         header("Location:login.php");

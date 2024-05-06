@@ -18,6 +18,7 @@ if (isset($_POST['submit-btn'])) {
 
     $benefactorID = handleFileUpload($_FILES['benefactor-ID']);
     $beneficiaryID = handleFileUpload($_FILES['beneficiary-ID']);
+    $discountID = handleFileUpload($_FILES['discount-ID']);
     $benefactorfirstname = mysqli_real_escape_string($connection, $_POST["benefactor-firstname"]);
     $benefactorlastname = mysqli_real_escape_string($connection, $_POST["benefactor-lastname"]);
     $benefactornumber = mysqli_real_escape_string($connection, $_POST["benefactor-number"]);
@@ -98,10 +99,10 @@ if (isset($_POST['submit-btn'])) {
     $total = $chosenCasketPrice + $chosenPackagePrice + $facilityDuration;
 
     $query = "INSERT INTO pl_burial (benefactorID, benefactorFirstName, benefactorLastName, benefactorContact, benefactorAddress, 
-    benefactorEmail, planFor, beneficiaryID, beneficiaryFirstName, beneficiaryLastName, beneficiaryGender, beneficiaryBirthdate, beneficiaryAddress, service, package, packagePrice, casket, casketPrice, facilityType,
+    benefactorEmail, planFor, beneficiaryID, beneficiaryFirstName, beneficiaryLastName, beneficiaryGender, beneficiaryBirthdate, beneficiaryAddress, service, discountID, package, packagePrice, casket, casketPrice, facilityType,
     facility, facilityPrice, days, facilityDuration, cemetery, total, contactFirstName, contactLastName, contactNumber, contactEmail, contactRelationship, add_obituary) VALUES ('$benefactorID','$benefactorfirstname', '$benefactorlastname', 
     '$benefactornumber', '$benefactoraddress', '$benefactoremail', '$planfor', '$beneficiaryID', '$beneficiaryfirstname', '$beneficiarylastname', 
-    '$beneficiarygender', '$beneficiarybirthdate', '$beneficiaryaddress', 'Burial Service', '$chosenPackage', '$chosenPackagePrice', '$chosenCasket', '$chosenCasketPrice', '$chosenFacilityType', '$chosenFacility', '$chosenFacilityPrice',
+    '$beneficiarygender', '$beneficiarybirthdate', '$beneficiaryaddress', 'Burial Service', '$discountID', '$chosenPackage', '$chosenPackagePrice', '$chosenCasket', '$chosenCasketPrice', '$chosenFacilityType', '$chosenFacility', '$chosenFacilityPrice',
     '$days', '$facilityDuration', '$cementeryAddress', '$total', '$contactFirstName', '$contactLastName', '$contactNumber', '$contactEmail', '$contactRelationship', '$obituaryOption')";
 
         if (mysqli_query($connection, $query)) {
@@ -240,6 +241,10 @@ if (isset($_POST['submit-btn'])) {
             </div>
 
     <div class="form-3" id="form-3" style="display: none;">
+             <div class="inputs">
+                <p class="docu-name1">If Senior Citizen/PWD, upload ID for discount (20%)</p>
+                <input type="file" id="discount-ID" name="discount-ID">
+            </div><br><hr><br><br>
         <p class="choose-service">CASKET  <a href="../section-services/caskets.php" target="_blank">See Caskets here.</a></p>
         <br>
             <div class="inputs">
@@ -389,6 +394,7 @@ if (isset($_POST['submit-btn'])) {
         <br>
             <div class="inputs">
             <label for="obituary-option">Would you like to include the beneficiary in the obituary upon their passing? <a href="../section-obituaries/obituaries.php" target="_blank">View Obituary here.</a></label>
+            <br>
             <div class="radio-container">
                 <input type="radio" id="yes" name="obituary-option" value="YES" required>
                 <label for="yes" class="label-name"> YES</label>

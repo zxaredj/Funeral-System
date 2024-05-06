@@ -144,7 +144,7 @@ html {
     font-size: 19px;
 }
 
-.docu-name {
+.docu-name, .docu-name1 {
     margin: 10px 0px;
     font-size: 16px;
     font-weight: bold;
