@@ -425,10 +425,7 @@
                                             <td><?php echo $row['planFor']; ?></td>
                                             <td><?php echo $row['service']; ?></td>
                                             <td style="display: flex; justify-content: center; align-items: center;">
-                                                <button class="delete-btn" style="margin-right: 20px; width: 150px;"
-                                                    onclick="openBurialModal(<?php echo $row['id'];?>)"
-                                                    data-bs-toggle='modal' data-bs-target='#burial_modal'>FULL
-                                                    DETAILS</button>
+                                                <button class="delete-btn" style="margin-right: 20px; width: 150px;"><a href="../full-details-burial.php?view=<?php echo $row['id']; ?>">FULL DETAILS</a></button>
                                                 <button class="delete-btn" id="activate">ACTIVATE</button>
                                             </td>
                                         </tr>
