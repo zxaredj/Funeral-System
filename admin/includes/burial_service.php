@@ -72,6 +72,12 @@
                     <span>Dashboard</span></a>
             </li>
 
+            <!-- <li class="nav-item active">
+                   <a class="nav-link" href="employee.php">
+                       <i class="fa-solid fa-users"></i>
+                       <span>Employee</span></a>
+               </li> -->
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -81,6 +87,11 @@
             </div>
 
             <!-- HERE IS THE TABLE FROM DATABASE -->
+            <li class="nav-item active">
+                <a class="nav-link" href="employee.php">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Employee</span></a>
+            </li>
 
             <div class="row">
                 <div class="col">

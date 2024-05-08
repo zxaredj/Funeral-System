@@ -46,10 +46,10 @@
     }
 
     .content-containers {
-        width: 22%;
-        height: 200px;
+        width: 20%;
+        height: 180px;
         padding: 1rem;
-        border-radius: 15px;
+        border-radius: 20px;
         font-family: "Poppins", sans-serif;
         color: black;
         display: flex;
@@ -68,7 +68,6 @@
     .count {
         font-size: 35px;
         font-weight: 900;
-        margin: 0px;
     }
 
     label {
@@ -83,22 +82,18 @@
 
     .burial {
         background-color: #c9e4de;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
 
     .direct {
         background-color: #c6def1;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
 
     .memorial {
         background-color: #f2c6de;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
 
     .traditional {
         background-color: #faedcb;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
     </style>
 </head>
@@ -135,6 +130,12 @@
             <div class="sidebar-heading pb-3">
                 Interface
             </div>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="employee.php">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Employee</span></a>
+            </li>
 
             <!-- HERE IS THE TABLE FROM DATABASE -->
 
@@ -453,7 +454,7 @@
                 <div class="container-fluid">
                     <br>
                     <h1 class="table-title">Dashboard</h1>
-                    <!-- <label class="ml-5" for="cards">Services</label> -->
+                    <label class="ml-5" for="cards">Services</label>
                     <div class="card-container" id="cards">
                         <div class="burial content-containers">
                             <div class="categories"><a href="user_tables.php">Users</a></div>
@@ -482,7 +483,7 @@
                                 <?php 
                                 include 'config.php';
 
-                                $sql = "SELECT COUNT(*) AS count FROM inquiries";
+                                $sql = "SELECT COUNT(*) AS count FROM pickup";
                                 $result = $conn->query($sql);
 
                                 if ($result->num_rows > 0) {

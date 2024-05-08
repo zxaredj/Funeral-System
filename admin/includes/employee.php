@@ -27,6 +27,8 @@
        <link
            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
            rel="stylesheet">
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+           integrity="sha384-..." crossorigin="anonymous">
 
        <!-- Custom styles for this template -->
        <link href="../css/sb-admin-2.min.css" rel="stylesheet">
@@ -39,6 +41,10 @@
            display: flex;
            justify-content: space-between;
            margin: 1rem 2rem 1rem 2rem;
+       }
+
+       .btns {
+           color: black;
        }
        </style>
    </head>
@@ -68,6 +74,11 @@
                        <i class="fas fa-fw fa-tachometer-alt"></i>
                        <span>Dashboard</span></a>
                </li>
+               <!-- <li class="nav-item active">
+                   <a class="nav-link" href="employee.php">
+                       <i class="fa-solid fa-users"></i>
+                       <span>Employee</span></a>
+               </li> -->
 
                <!-- Divider -->
                <hr class="sidebar-divider">
@@ -78,10 +89,10 @@
                </div>
 
                <li class="nav-item active">
-                <a class="nav-link" href="employee.php">
-                    <i class="fa-solid fa-users"></i>
-                    <span>Employee</span></a>
-            </li>
+                    <a class="nav-link" href="employee.php">
+                        <i class="fa-solid fa-users"></i>
+                        <span>Employee</span></a>
+                </li>
 
                <!-- HERE IS THE TABLE FROM DATABASE -->
                <div class="row">
@@ -399,11 +410,11 @@
                    <div class="container-fluid">
                        <div class="header-container">
                            <div class="header-title">
-                               <h1 class="table-title">REGISTERED USERS</h1>
+                               <h1 class="table-title">EMPLOYEE LIST</h1>
                            </div>
                            <div class="header-button">
                                <button type="button" class="btn btn-primary" id="createNewUserModal">Create New
-                                   User</button>
+                               </button>
                            </div>
                        </div>
                        <!-- Page Heading -->
@@ -424,47 +435,31 @@
                                                <th>Username</th>
                                                <th>Name</th>
                                                <th>Email</th>
-                                               <th>Action</th>
+                                               <th>Occupation</th>
                                            </tr>
                                        </thead>
-                                       <!-- <tfoot>
-                                        <tr>
-                                            <th>Username</th>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Email</th>
-                                        </tr>
-                                    </tfoot> -->
-                                       <tbody>
-
-                                           <?php 
-                                    include('../../database/config.php');
-                                    $select = mysqli_query($connection, "SELECT * FROM `login`");
-                                    
-
-                                    if(mysqli_num_rows($select) > 0){
-                                    while($fetch = mysqli_fetch_assoc($select)){
-                                    ?>
-                                           <tr>
-                                               <td><?php echo $fetch['username'];?></td>
-                                               <td><?php echo $fetch['fname'] . " " . $fetch['lname']; ?></td>
-                                               <td><?php echo $fetch['email']; ?></td>
-                                               <td><button class="delete-btn"><a
-                                                           href="user_tables.php?remove=<?php echo $fetch['user_id']; ?>"
-                                                           onclick="return confirm('Are you sure you want to delete this?')">DELETE</a></button>
-                                               </td>
-
-                                           </tr>
+                                       <tbody id="employee-table">
                                            <?php
-                                    };
-                                };
-                                ?>
+                                                include 'config.php'; 
+                                                include 'fetch_employee_data.php'; 
+
+                                                // SQL query to fetch all data from the employees table
+                                                $sql = "SELECT * FROM employee";
+                                                $employees = fetchDataFromDatabase($sql);
+
+                                                if (count($employees) > 0) {
+                                                    foreach ($employees as $employee) {
+                                                        displayEmployeeTableRow($employee);
+                                                    }
+                                                } else {
+                                                    echo "<tr><td colspan='4'>0 results</td></tr>";
+                                                }
+                                            ?>
                                        </tbody>
                                    </table>
                                </div>
                            </div>
                        </div>
-
                    </div>
                    <!-- /.container-fluid -->
 
@@ -473,9 +468,6 @@
                    <!-- Footer -->
                    <footer class="sticky-footer bg-white">
                        <div class="container my-auto">
-                           <!-- <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
-                    </div> -->
                        </div>
                    </footer>
                    <!-- End of Footer -->
@@ -512,16 +504,46 @@
            </div>
 
            <script>
-           // Add event listener to the button
            document.getElementById("createNewUserModal").addEventListener("click", function() {
                // Redirect to create_employee.php
                window.location.href = "create_employee.php";
            });
            </script>
 
+
+           <!-- Modal for editing employee -->
+           <div class="modal fade" id="editModal" data-bs-backdrop="static" tabindex="-1"
+               aria-labelledby="examplaModalLabel" aria-hidden="true">
+               <div class="modal-dialog modal-xl">
+                   <div class="modal-content">
+                       <div class="modal-header">
+                           <h1 class="modal-title fs-5" id="staticBackdropLabel">MANPOWER REQUEST VIEW FORM</h1>
+                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                       </div>
+                       <form id="editForm">
+                       </form>
+                   </div>
+               </div>
+           </div>
+
+
+
+           <script>
+           $(document).ready(function() {
+               $("#employeeModal").click(function() {
+                   // Show the modal with the id "myModal"
+                   $("#editModal").modal("show");
+               });
+           });
+           </script>
+
            <!-- Bootstrap core JavaScript-->
            <script src="../vendor/jquery/jquery.min.js"></script>
            <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+           <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+               integrity="sha384-..." crossorigin="anonymous"></script>
 
            <!-- Core plugin JavaScript-->
            <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>

@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $occupation = $_POST["occupation"];
 
     // Prepare and bind the INSERT statement
-    $sql = "INSERT INTO login (fname, lname, username, password, email, occupation) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO employee (fname, lname, username, password, email, occupation) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssssss", $fname, $lname, $username, $password_hashed, $email, $occupation);
 
