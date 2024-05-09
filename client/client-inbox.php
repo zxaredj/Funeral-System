@@ -1,13 +1,4 @@
 
-<?php
-session_start();
-include '../database/config.php';
-
-$username = $_SESSION['username'];
-$query = "SELECT * FROM pickup WHERE username = '$username'";
-$result = mysqli_query($connection, $query);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,24 +17,15 @@ $result = mysqli_query($connection, $query);
             <div class="background-image">
                     <nav>
                         <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
-                        <h1><a href = '../section-about/About Us.php' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
+                        <h1><a href = '../section-about/About Us.html' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
                         <ul>
                             <li><a href="../section-home/index.php">HOME</a></li>
-                            <li><a href="../section-about/About Us.php">ABOUT</a></li>
-                            <li><a href="../section-services/Service Section.php">SERVICES</a></li>
+                            <li><a href="../section-about/About Us.html">ABOUT</a></li>
+                            <li><a href="../section-services/Service Section.html">SERVICES</a></li>
                             <li><a href="../section-form/pickup-form.php">FORM</a></li>
-                            <?php if(isset($_SESSION['username'])): ?>
-                            <li class="dropdown">
-                            <button class="dropbtn"><i class="fas fa-user"></i></button>
-                            <div class="dropdown-content" id="myDropdown">
-                                <a href="../client/client-inbox.php">Inbox</a>
-                                <a href="../client/client-settings.php">Settings</a>
-                            </div>
-                        </li>
-                        <li><a href="../logout.php">LOGOUT</a></li>
-                    <?php else: ?>
-                        <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
-                    <?php endif; ?>
+                            <!-- <li><a href="../section-planning/planning-form.php">PLANNING</a></li> -->
+                            <!-- <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li> -->
+                            <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -51,24 +33,65 @@ $result = mysqli_query($connection, $query);
             </main>
             <br><br><br><br>
 <br>
-    <h1 class="review-title">INBOX</h1>
-        <div class="box">
-            
-            <div class="inbox-section">
-            <!-- <h1 class="inbox-title">INBOX</h1> -->
-                <table class="table-section">
-                    <tbody>
-                        <?php while ($request = mysqli_fetch_assoc($result)): ?>
-                        <tr onclick="window.location.href = 'pickup-info.php?id=<?php echo $request['id']; ?>'">
-                            <td><strong><?php echo $request['type']; ?></strong></td>
-                            <td><p class="status"><?php echo $request['status']; ?></p></td>
-                            <td><?php echo $request['timestamp']; ?></td>
-                        </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
+        <h1 class="review-title">INBOX</h1>
+    <div class="box">
+        <div class="edit-credentials">
+            <h2 class="title">EDIT CREDENTIALS</h2><br>
+
+            <form id="profile-form" enctype="multipart/form-data">
+            <div class="inputs">
+                <p class="docu-name">New username</p>
+                <input type="text" id="newUsername" name="newUsername">
             </div>
+
+            <div class="inputs">
+                <p class="docu-name">New password</p>
+                <input type="password" id="newPassword" name="newPassword">
+            </div>
+
+            <button type="submit" class="submit-btn" name="submit-btn" >SAVE</button>
+            </form>
         </div>
-        <br><br><br><br>
+        <div class="inbox-section">
+        <h1 class="inbox-title">INBOX</h1>
+        <table class="table-section">
+            <tbody>
+                <tr>
+                    <td><strong>Pick-up request</strong></td>
+                    <td>12:00 pm</td>
+                    <td><p class="status">PENDING</p></td>
+                </tr>
+                <tr>
+                    <td><strong>Burial Service</strong></td>
+                    <td>8:00 pm</td>
+                    <td><p class="status">PENDING</p></td>
+                </tr>
+                <tr>
+                    <td><strong>Cremation Service</strong></td>
+                    <td>6:00 pm</td>
+                    <td><p class="status">PENDING</p></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- <script>
+        function toggleMessage(messageCard) {
+            messageCard.classList.toggle('expand');
+        }
+
+        document.getElementById("profile-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "dashboard.php", true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    alert(xhr.responseText);
+                }
+            };
+            xhr.send(formData);
+        });
+    </script> -->
 </body>
 </html>

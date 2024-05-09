@@ -50,11 +50,11 @@
     <section class="form-section">
         <div class="background-image">
             <nav>
-            <h1><a href = '../section-about/About Us.php' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
+            <h1><a href = '../section-about/About Us.html' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
                 <ul>
                     <li><a href="../section-home/index.php">HOME</a></li>
-                    <li><a href="../section-about/About Us.php">ABOUT</a></li>
-                    <li><a href="../section-services/Service Section.php">SERVICES</a></li>
+                    <li><a href="../section-about/About Us.html">ABOUT</a></li>
+                    <li><a href="../section-services/Service Section.html">SERVICES</a></li>
                     <li><a href="../section-form/pickup-form.php">FORM</a></li>
                     <!-- <li><a href="../section-planning/planning-form.php">PLANNING</a></li> -->
                     <!-- <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li> -->

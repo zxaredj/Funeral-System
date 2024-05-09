@@ -82,12 +82,6 @@
                 Interface
             </div>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="employee.php">
-                    <i class="fa-solid fa-users"></i>
-                    <span>Employee</span></a>
-            </li>
-
             <!-- HERE IS THE TABLE FROM DATABASE -->
 
             <div class="row">
