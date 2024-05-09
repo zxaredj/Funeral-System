@@ -3,7 +3,7 @@ session_start();
 $error_message = "";
 if (isset($_GET['error'])) {
     if ($_GET['error'] == "user_taken") {
-        $error_message = "Username or Email has been taken";
+        $error_message = "Username or number has been taken";
     }else if($_GET['error'] == "invalid_information"){
         $error_message = "Invalid Information";
     }
@@ -63,8 +63,8 @@ if (isset($_GET['error'])) {
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="email" style="color:white; font-family: 'Roboto', sans-serif; font-size: 16px;">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="perpetualfuneralservices@gmail.com" required>
+                    <label for="number" style="color:white; font-family: 'Roboto', sans-serif; font-size: 16px;">Number</label>
+                    <input type="number" class="form-control" id="number" name="number" placeholder="09xxxxxxxxx" required>
                 </div>
                 <div class="form-group">
                     <label for="username" style="color:white; font-family: 'Roboto', sans-serif; font-size: 16px;">Username</label>
