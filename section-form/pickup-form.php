@@ -1,16 +1,16 @@
 <?php
-// session_start();
+session_start();
 include '../database/config.php';
 
-// $login_required = false;
-
-// if (!isset($_SESSION['username'])) {
-//     // User is not logged in, set a flag to indicate login is required
-//     $login_required = true;
-// }
-
 if (isset($_POST['submit-btn'])) {
-
+    // User clicked the submit button, check if they are logged in
+    if (!isset($_SESSION['username'])) {
+        // User is not logged in, redirect to login page
+        header("Location: ../section-login-signup/login.php");
+        exit();
+    }
+    
+    $username = $_SESSION['username'];
     function handleFileUpload($file) {
         $img_name = $file['name'];
         $tmp_name = $file['tmp_name'];
@@ -40,7 +40,7 @@ if (isset($_POST['submit-btn'])) {
     $email = mysqli_real_escape_string($connection, $_POST["email"]);
     $relationship = mysqli_real_escape_string($connection, $_POST["relationship"]);
 
-    $query = "INSERT INTO pickup (death, releasepaper, deceasedFirstName, deceasedLastName, location, date, time, contactFirstName, contactLastName, number, email, relationship) VALUES ('$deathcert', '$releasepaper', '$deceasedfirstname', '$deceasedlastname', '$location', '$date', '$time', '$contactfirstname', '$contactlastname', '$number', '$email', '$relationship')";
+    $query = "INSERT INTO pickup (username, type, death, releasepaper, deceasedFirstName, deceasedLastName, location, date, time, contactFirstName, contactLastName, number, email, relationship, status) VALUES ('$username', 'Pick-up Request', '$deathcert', '$releasepaper', '$deceasedfirstname', '$deceasedlastname', '$location', '$date', '$time', '$contactfirstname', '$contactlastname', '$number', '$email', '$relationship', 'PENDING')";
 
 
     
@@ -71,15 +71,24 @@ if (isset($_POST['submit-btn'])) {
             <div class="background-image">
                     <nav>
                         <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
-                        <h1><a href = '../section-about/About Us.html' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
+                        <h1><a href = '../section-about/About Us.php' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
                         <ul>
                             <li><a href="../section-home/index.php">HOME</a></li>
-                            <li><a href="../section-about/About Us.html">ABOUT</a></li>
-                            <li><a href="../section-services/Service Section.html">SERVICES</a></li>
+                            <li><a href="../section-about/About Us.php">ABOUT</a></li>
+                            <li><a href="../section-services/Service Section.php">SERVICES</a></li>
                             <li><a href="../section-form/pickup-form.php">FORM</a></li>
-                            <!-- <li><a href="../section-planning/planning-form.php">PLANNING</a></li> -->
-                            <!-- <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li> -->
-                            <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
+                            <?php if(isset($_SESSION['username'])): ?>
+                            <li class="dropdown">
+                            <button class="dropbtn"><i class="fas fa-user"></i></button>
+                            <div class="dropdown-content" id="myDropdown">
+                                <a href="../client/client-inbox.php">Inbox</a>
+                                <a href="../client/client-settings.php">Settings</a>
+                            </div>
+                        </li>
+                        <li><a href="../logout.php">LOGOUT</a></li>
+                    <?php else: ?>
+                        <li><a href="../section-login-signup/signup.php">SIGN UP</a></li>
+                    <?php endif; ?>
                         </ul>
                     </nav>
                 </div>
@@ -97,7 +106,7 @@ if (isset($_POST['submit-btn'])) {
         <h2 class="docu-text">Please upload the following documents:</h2>
           <div class="inputs">
                 <p class="docu-name">Death Certificate</p>
-                <input type="file" id="death-cert" name="death-cert" required>
+                <input type="file" id="death-cert" name="death-cert" required accept="jpg/jpeg/png">
             </div>
 
             <div class="inputs">

@@ -22,10 +22,10 @@
                             <!-- <div class="pigeon-container">
                                 <img src="../pictures/package-pictures/pigeon.png" class="logo">
                             </div> -->
-                    <h1><a href = '../section-about/About Us.html' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
+                    <h1><a href = '../section-about/About Us.php' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
                     <ul>
                             <li><a href="#home">HOME</a></li>
-                            <li><a href="../section-about/About Us.html">ABOUT</a></li>
+                            <li><a href="../section-about/About Us.php">ABOUT</a></li>
                             <li><a href="#services">SERVICES</a></li>
                             <li><a href="../section-form/pickup-form.php">FORM</a></li>
                             <!-- <li><a href="../section-planning/planning-form.php">PLANNING</a></li> -->
@@ -53,7 +53,7 @@
                     <div class="service-item">
                         <img src="../pictures/homepage-pictures/service1.jpg" alt="Burial Services">
                         <p class="service-description">Burial and Cremation Services</p>
-                        <p class="learn-more"><a href="../section-services/Service Section.html" style="text-decoration: none; color: black">Learn More</a></p>
+                        <p class="learn-more"><a href="../section-services/Service Section.php" style="text-decoration: none; color: black">Learn More</a></p>
                     </div>
                     <!-- <div class="service-item">
                         <img src="../pictures/homepage-pictures/service2.jpg" alt="Cremation Services">

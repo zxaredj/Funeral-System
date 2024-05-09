@@ -17,11 +17,11 @@
             <div class="background-image">
                     <nav>
                         <!-- <img src="/front-end/pictures/pigeon.png" alt="Logo"> -->
-                        <h1><a href = '../section-about/About Us.html' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
+                        <h1><a href = '../section-about/About Us.php' class="name">PERPETUAL FUNERAL SERVICES</a></h1>
                         <ul>
                             <li><a href="../section-home/index.php">HOME</a></li>
-                            <li><a href="../section-about/About Us.html">ABOUT</a></li>
-                            <li><a href="../section-services/Service Section.html">SERVICES</a></li>
+                            <li><a href="../section-about/About Us.php">ABOUT</a></li>
+                            <li><a href="../section-services/Service Section.php">SERVICES</a></li>
                             <li><a href="../section-form/pickup-form.php">FORM</a></li>
                             <!-- <li><a href="../section-planning/planning-form.php">PLANNING</a></li> -->
                             <!-- <li><a href="../section-obituaries/obituaries.php">OBITUARY</a></li> -->
@@ -44,7 +44,7 @@
                 that most of our families prefer.We want you to be able to see, touch and feel the 
                 casket you select for your loved one.
             </p>
-            <button class="view-btn" onclick="window.location.href='Burial Services.html'">VIEW FULL DETAILS</button>
+            <button class="view-btn" onclick="window.location.href='Burial Services.php'">VIEW FULL DETAILS</button>
         </div>
         <div class="service-item2">
             <img src="../pictures/service-pictures/burial1.jpg" class="service-img" data-bs-toggle="modal" data-bs-target="#serviceImageModal" data-src="../pictures/service-pictures/burial1.jpg">
@@ -60,7 +60,7 @@
                 share memories and receive support, and our team can help you plan a fitting memorial service 
                 at our facility or in a place of your choosing.
             </p>
-            <button class="view-btn" onclick="window.location.href='Cremation Services.html'">VIEW FULL DETAILS</button>
+            <button class="view-btn" onclick="window.location.href='Cremation Services.php'">VIEW FULL DETAILS</button>
         </div>
             <div class="service-item2">
                 <img src="../pictures/service-pictures/service-pic5.jpg" class="service-img" data-bs-toggle="modal" data-bs-target="#serviceImageModal" data-src="../pictures/service-pictures/service-pic5.jpg">
