@@ -105,6 +105,12 @@
                 Interface
             </div>
 
+            <li class="nav-item active">
+                <a class="nav-link" href="employee.php">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Employee</span></a>
+            </li>
+
             <!-- HERE IS THE TABLE FROM DATABASE -->
 
             <div class="row">
@@ -423,6 +429,7 @@
                     <form id="requestForm" method="POST" enctype="multipart/form-data">
                         <div class="container-fluid">
                             <div class="col-sm">
+                                <h1 class="text-center text-white">Employee Registration</h1>
                                 <div class="w-100">
                                     <label for="firstname">First Name</label>
                                     <input type="text" class="form-control" name="firstname" id="firstname">
@@ -452,7 +459,10 @@
                                 </div>
                                 <div class="w-100">
                                     <label for="occupation">Occupation</label>
-                                    <input type="text" class="form-control" name="occupation" id="occupation">
+                                    <select class="form-control" name="occupation" id="occupation">
+                                        <option value="1">Please select occupation</option>
+                                        <option value="2">Staff</option>
+                                    </select>
                                 </div>
                                 <div class="mt-5">
                                     <button type="submit" class="btn btn-success">Submit</button>
